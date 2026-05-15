@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Non-Veg Menu - Royal Catering</title>
+    <link rel="shortcut icon" href="logoca.png">
+
+    <script src="https://kit.fontawesome.com/8657df6d39.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #ffe5d9, #fff1e6, #ffffff);
+        }
+
+        /* HEADER */
+        .header {
+            background-image: url("vegf.png");
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-title h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+
+        /* NAVIGATION */
+        .nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            transition: 0.5s;
+        }
+
+        .nav a:hover {
+            color: yellow;
+        }
+
+        .nav i {
+            margin-left: 15px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* DROPDOWN */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            display: block;
+            color: black !important;
+            padding: 12px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: pink;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* TITLE */
+        .title {
+            text-align: center;
+            margin-top: 40px;
+            color: darkred;
+            font-size: 45px;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                letter-spacing: 2px;
+                color: darkred;
+            }
+
+            to {
+                letter-spacing: 5px;
+                color: orange;
+                text-shadow: 0px 0px 10px gold;
+            }
+        }
+
+        /* FOOD ITEMS */
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 40px;
+        }
+
+        .card {
+            width: 250px;
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0px 0px 10px lightgray;
+            transition: 0.5s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 20px gray;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+        }
+
+        .card h2 {
+            text-align: center;
+            color: darkred;
+        }
+
+        .card p {
+            text-align: center;
+            padding: 10px;
+            color: gray;
+        }
+
+        /* EVENTS */
+        .event-title {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 45px;
+            color: brown;
+        }
+
+        .events {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 40px;
+        }
+
+        .event-box {
+            width: 320px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0px 0px 15px lightgray;
+            transition: 0.5s;
+            background-color: white;
+        }
+
+        .event-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .event-box img {
+            width: 100%;
+            height: 220px;
+        }
+
+        .event-box h2 {
+            text-align: center;
+            color: darkblue;
+        }
+
+        .event-box p {
+            text-align: center;
+            padding: 15px;
+            line-height: 28px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        .footer-menu {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer-menu a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            transition: 0.5s;
+        }
+
+        .footer-menu a:hover {
+            color: yellow;
+        }
+
+        .header {
+            background-image: url("vegf.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            color: white;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+        }
+
+        .footer i {
+            color: hotpink;
+            font-size: 28px;
+            margin: 10px;
+        }
+
+        .footer i:hover {
+            color: yellow;
+            transition: 0.5s;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+
+        <div class="logo-title">
+            <img src="logoca.png" style="width:200px;height:150px;">
+        </div>
+
+        <div class="nav">
+
+            <a href="home.html">Home</a>
+
+            <a href="about.html">About</a>
+
+            <div class="dropdown">
+
+                <a class="dropbtn">Menu</a>
+
+                <div class="dropdown-content">
+                    <a href="veg.html">Veg</a>
+                    <a href="nonveg.html">Non-Veg</a>
+                    <a href="dessert.html">Desserts</a>
+                </div>
+
+            </div>
+
+            <a href="contact.html">Contact</a>
+
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-whatsapp"></i>
+
+        </div>
+
+    </div>
+
+    <!-- TITLE -->
+    <h1 class="title">Our Non-Veg Special Menu</h1>
+
+    <!-- FOOD ITEMS -->
+    <div class="container">
+
+        <div class="card">
+            <img src="non.jpg">
+            <h2>Chicken Biryani</h2>
+            <p>Traditional spicy dum biryani.</p>
+        </div>
+
+        <div class="card">
+            <img src="no2.jpg">
+            <h2>Mutton Curry</h2>
+            <p>Rich and flavorful mutton gravy.</p>
+        </div>
+
+        <div class="card">
+            <img src="no3.jpg">
+            <h2>Fish Fry</h2>
+            <p>Crispy and spicy fried fish.</p>
+        </div>
+
+        <div class="card">
+            <img src="no4.jpg">
+            <h2>Chicken 65</h2>
+            <p>Popular spicy chicken starter.</p>
+        </div>
+
+        <div class="card">
+            <img src="no5.jpg">
+            <h2>Prawn Masala</h2>
+            <p>Delicious prawn cooked in masala.</p>
+        </div>
+
+        <div class="card">
+            <img src="no6.jpg">
+            <h2>Egg Fried Rice</h2>
+            <p>Chinese style egg fried rice.</p>
+        </div>
+
+        <div class="card">
+            <img src="no7.jpg">
+            <h2>Grill Chicken</h2>
+            <p>Juicy grilled chicken with spices.</p>
+        </div>
+
+        <div class="card">
+            <img src="no8.jpg">
+            <h2>Chicken Noodles</h2>
+            <p>Hot and spicy chicken noodles.</p>
+        </div>
+
+        <div class="card">
+            <img src="no9.jpg">
+            <h2>Crab Masala</h2>
+            <p>Fresh crab cooked with rich spices.</p>
+        </div>
+
+        <div class="card">
+            <img src="no10.jpg">
+            <h2>Non Veg Meals</h2>
+            <p>Traditional South Indian Non-Veg Meals.</p>
+        </div>
+
+    </div>
+
+    <!-- EVENTS -->
+    <h1 class="event-title">Special Non-Veg Events</h1>
+    <div class="events">
+
+        <div class="event-box">
+            <img src="bbq.jpg">
+            <h2>BBQ Night</h2>
+            <p>Live grill station with spicy BBQ chicken and kebabs.</p>
+        </div>
+
+        <div class="event-box">
+            <img src="sea.jpg">
+            <h2>Seafood Festival</h2>
+            <p>Fresh fish, prawns, crab, and seafood special buffet.</p>
+        </div>
+
+        <div class="event-box">
+            <img src="fam.jpg">
+            <h2>Family Get-Together</h2>
+            <p>Traditional family feast with delicious non-veg dishes.</p>
+        </div>
+
+        <div class="event-box">
+            <img src="out.jpg">
+            <h2>Outdoor Catering</h2>
+            <p>Garden parties and outdoor live cooking experience.</p>
+        </div>
+
+        <div class="event-box">
+            <img src="liv.jpg">
+            <h2>Live Grill Counter</h2>
+            <p>Hot grilled chicken, fish, and tandoori specialties.</p>
+        </div>
+
+        <div class="event-box">
+            <img src="ni.jpg">
+            <h2>Night Party Catering</h2>
+            <p>Special midnight buffet with starters and desserts.</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+
+        <h2>Royal Catering</h2>
+
+        <p>
+            Delicious Moments, Perfect Memories
+        </p>
+
+        <div class="footer-menu">
+
+            <p>
+                Phone: +91 8765221134 <br><br>
+                Email: royalcatering@gmail.com
+            </p>
+        </div>
+
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-whatsapp"></i>
+        <i class="fa-brands fa-youtube"></i>
+
+    </div>
+
+</body>
+
+</html>

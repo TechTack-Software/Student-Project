@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Royal Catering</title>
+    <link rel="shortcut icon" href="logoca.png">
+
+    <script src="https://kit.fontawesome.com/8657df6d39.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            margin: 0;
+
+            font-family: 'Poppins', sans-serif;
+
+
+            background: linear-gradient(to right, #ffe5ec, #e0f7fa, #fff8e1);
+        }
+
+        /* TOP HEADER */
+        .topbar {
+            width: 100%;
+            background: linear-gradient(to right, #ff1493, #ff6600, purple);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 12px;
+            box-sizing: border-box;
+            box-shadow: 0px 0px 15px gray;
+        }
+
+        #nav,
+        #nav1,
+        #nav2 {
+            background: none;
+        }
+
+        #nav {
+            display: flex;
+            align-items: center;
+        }
+
+        #nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.5s;
+        }
+
+        #nav a:hover {
+            color: yellow;
+            transform: scale(1.1);
+        }
+
+        #nav i,
+        #nav1 i {
+            color: white;
+            font-size: 22px;
+            margin-left: 10px;
+            transition: 0.5s;
+        }
+
+        #nav i:hover {
+            color: yellow;
+            transform: rotate(10deg);
+        }
+
+        #nav1 {
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        #nav2 label {
+            color: aliceblue;
+            font-size: 22px;
+            font-weight: bold;
+            position: relative;
+            animation: run 5s linear infinite;
+        }
+
+        @keyframes run {
+            from {
+                left: -10%;
+            }
+
+            to {
+                left: 10%;
+            }
+        }
+
+        /* DROPDOWN */
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 150px;
+            box-shadow: 0px 5px 10px gray;
+            border-radius: 10px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black !important;
+        }
+
+        .dropdown-content a:hover {
+            background-color: pink;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* MIDDLE SECTION */
+
+        .middle-section {
+            width: 100%;
+            background: linear-gradient(to right, #fff0f5, #fffacd);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .slogan {
+            font-size: 38px;
+            color: brown;
+            font-family: cursive;
+            font-weight: bold;
+            animation: glow 2s infinite alternate;
+        }
+
+        .badge {
+            text-align: center;
+        }
+
+        .badge h3 {
+            color: green;
+            font-size: 28px;
+            margin-top: 10px;
+        }
+
+        @keyframes glow {
+            from {
+                color: brown;
+                letter-spacing: 1px;
+            }
+
+            to {
+                color: deeppink;
+                letter-spacing: 4px;
+                text-shadow: 0px 0px 15px gold;
+            }
+        }
+
+        .logo img,
+        .badge img {
+            transition: 0.5s;
+            font-size: 30px;
+        }
+
+        .logo img:hover,
+        .badge img:hover {
+            transform: scale(1.1);
+        }
+
+        /* BANNER */
+
+        .banner img {
+            width: 100%;
+            height: 650px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+
+        /* SECOND IMAGE */
+
+        center img {
+            box-shadow: 0px 0px 20px gray;
+            transition: 0.5s;
+        }
+
+        center img:hover {
+            transform: scale(1.02);
+        }
+
+        /* ABOUT SECTION */
+
+        #img {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            padding: 50px;
+            background: linear-gradient(to right, #fff5ee, #ffe4e1);
+            margin-top: 40px;
+        }
+
+        #img img {
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px gray;
+            transition: 0.5s;
+        }
+
+        #img img:hover {
+            transform: scale(1.05);
+        }
+
+        #look {
+            background-color: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 15px lightgray;
+        }
+
+        #look h1 {
+            text-align: center;
+            font-size: 45px;
+            color: purple;
+            animation: zoom 2s infinite alternate;
+        }
+
+        #look p {
+            font-size: 20px;
+            color: brown;
+            line-height: 35px;
+            text-align: justify;
+        }
+
+        /* TITLE */
+
+        .title {
+            text-align: center;
+            font-size: 45px;
+            color: darkred;
+            animation: zoom 2s infinite alternate;
+        }
+
+        @keyframes zoom {
+            from {
+                transform: scale(1);
+                letter-spacing: 2px;
+            }
+
+            to {
+                transform: scale(1.1);
+                letter-spacing: 5px;
+                color: orange;
+            }
+        }
+
+        /* HIGHLIGHTS */
+
+        .main {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 60px;
+            text-align: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .box {
+            width: 180px;
+            transition: 0.5s;
+            padding: 20px;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0px 0px 15px lightgray;
+        }
+
+        .box:hover {
+            transform: translateY(-15px);
+            box-shadow: 0px 0px 20px gray;
+            background: linear-gradient(to bottom, pink, #fffacd);
+        }
+
+        .box h2 {
+            margin-top: 20px;
+            line-height: 40px;
+        }
+
+        /* FOOTER */
+
+        .footer {
+            width: 100%;
+            background: linear-gradient(to right, black, purple, deeppink);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer h2 {
+            font-size: 38px;
+            letter-spacing: 2px;
+        }
+
+        .footer p {
+            font-size: 20px;
+            line-height: 35px;
+        }
+
+        .footer i {
+            margin: 10px;
+            font-size: 30px;
+            color: yellow;
+            transition: 0.5s;
+        }
+
+        .footer i:hover {
+            color: white;
+            transform: scale(1.2);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+
+    <div class="topbar">
+
+        <div id="nav1">
+
+            <i class="fa-solid fa-phone"></i>
+            (+91)8765221134
+
+            <i class="fa-regular fa-envelope"></i>
+
+        </div>
+
+        <div id="nav2">
+
+            <label>
+                royalcatering@gmail.com
+            </label>
+
+        </div>
+
+        <div id="nav">
+
+            <a href="home.html">Home</a>
+
+            <a href="about.html">About</a>
+
+            <div class="dropdown">
+
+                <a class="dropbtn">Menu</a>
+
+                <div class="dropdown-content">
+
+                    <a href="veg.html">Veg</a>
+
+                    <a href="nonveg.html">Non-Veg</a>
+
+                    <a href="dessert.html">Desserts</a>
+
+                </div>
+
+            </div>
+
+            <a href="contact.php">Contact</a>
+
+            <i class="fa-brands fa-instagram"></i>
+
+            <i class="fa-brands fa-facebook"></i>
+
+            <i class="fa-brands fa-whatsapp"></i>
+
+        </div>
+
+    </div>
+
+    <!-- MIDDLE SECTION -->
+
+    <div class="middle-section">
+
+        <div class="logo">
+
+            <img src="logoca.png" width="250px">
+
+        </div>
+
+        <div class="slogan">
+
+            Delicious Moments, Perfect Memories
+
+        </div>
+
+        <div class="badge">
+
+            <img src="bad.png" width="140px">
+
+            <h3>100% Hygienic</h3>
+
+        </div>
+
+    </div>
+
+    <!-- BANNER -->
+
+    <div class="banner">
+
+        <img src="cap.png">
+
+    </div>
+
+    <!-- SECOND IMAGE -->
+
+    <center>
+
+        <img src="scc.jpeg" style="width:1100px; height:400px; margin-top:40px; border-radius:20px;">
+
+    </center>
+
+    <!-- ABOUT -->
+
+    <div id="img">
+
+        <img src="tex.jpeg" style="width:400px; height:400px;">
+
+        <div id="look">
+
+            <h1>Royal Catering</h1>
+
+            <p>
+
+                Royal Catering provides tasty and hygienic food for weddings,
+                birthday parties, receptions and many special occasions.
+                We focus on quality food and customer satisfaction.
+
+                Since our inception, Royal Catering has been dedicated to
+                providing delicious, hygienic and high-quality food for all types of occasions.
+
+                We specialize in vegetarian catering and ensure the perfect blend
+                of taste, quality and service.
+
+                Customer satisfaction is our top priority.
+
+                We cater to weddings, receptions, birthdays, engagements,
+                corporate events and many more.
+
+                Our experienced team takes care of every detail to make your
+                event memorable and stress-free.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- HIGHLIGHTS -->
+
+    <h1 class="title">Our Highlights</h1>
+
+    <div class="main">
+
+        <div class="box">
+
+            <i class="fa-solid fa-leaf fa-beat" style="color: rgb(29, 193, 35);font-size: 90px;"></i>
+
+            <h2>Banana Leaf</h2>
+
+        </div>
+
+        <div class="box">
+
+            <i class="fa-solid fa-burger fa-beat-fade" style="color: rgb(92, 111, 94);font-size: 90px;"></i>
+
+            <h2>Unlimited Buffet</h2>
+
+        </div>
+
+        <div class="box">
+
+            <i class="fa-solid fa-ice-cream fa-bounce" style="color: rgb(195, 31, 190);font-size: 90px;"></i>
+
+            <h2>Ice Creams</h2>
+
+        </div>
+
+        <div class="box">
+
+            <i class="fa-solid fa-apple-whole fa-flip" style="color: rgb(249, 33, 14);font-size: 90px;"></i>
+
+            <h2>Fruits & Salads</h2>
+
+        </div>
+
+        <div class="box">
+
+            <i class="fa-solid fa-cake-candles fa-spin-pulse" style="color: rgb(183, 18, 232); font-size: 90px;"></i>
+
+            <h2>Live Bakery</h2>
+
+        </div>
+
+        <div class="box">
+
+            <i class="fa-solid fa-utensils fa-spin" style="color: rgb(32, 33, 35);font-size: 90px;"></i>
+
+            <h2>Italian Counter</h2>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        <h2>Royal Catering</h2>
+        <p>Delicious Moments, Perfect Memories</p>
+
+        <p>
+
+            Phone: +91 8765221134
+
+            <br><br>
+
+            Email: royalcatering@gmail.com
+
+        </p>
+
+        <i class="fa-brands fa-instagram"></i>
+
+        <i class="fa-brands fa-facebook"></i>
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+        <i class="fa-brands fa-youtube"></i>
+
+    </div>
+
+</body>
+
+</html>

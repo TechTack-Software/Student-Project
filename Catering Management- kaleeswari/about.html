@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>About Us - Royal Catering</title>
+    <link rel="shortcut icon" href="logoca.png">
+
+    <script src="https://kit.fontawesome.com/8657df6d39.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #fff0f5, #fffacd);
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            background: linear-gradient(to right, deeppink, orange, purple);
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 0px 15px gray;
+        }
+
+        .logo {
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            margin: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            transition: 0.5s;
+        }
+
+        .navbar a:hover {
+            color: yellow;
+            transform: scale(1.1);
+        }
+
+        /* DROPDOWN */
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 150px;
+            box-shadow: 0px 5px 10px gray;
+            border-radius: 10px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .dropdown-content a:hover {
+            background-color: pink;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* BANNER */
+
+        .banner {
+            background-image: url('banner.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .banner::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .banner div {
+            position: relative;
+            z-index: 1;
+        }
+
+        .banner h1 {
+            font-size: 80px;
+            margin: 0;
+            animation: glow 2s infinite alternate;
+        }
+
+        .banner p {
+            font-size: 30px;
+        }
+
+        @keyframes glow {
+            from {
+                letter-spacing: 2px;
+                color: white;
+            }
+
+            to {
+                letter-spacing: 6px;
+                color: yellow;
+                text-shadow: 0px 0px 20px gold;
+            }
+        }
+
+        /* ABOUT */
+
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            padding: 60px;
+            background: linear-gradient(to right, #fff5ee, #ffe4e1);
+        }
+
+        .about img {
+            width: 500px;
+            height: 350px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px gray;
+            transition: 0.5s;
+        }
+
+        .about img:hover {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            background-color: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 15px lightgray;
+        }
+
+        .about-text h2 {
+            text-align: center;
+            font-size: 40px;
+            color: deeppink;
+            position: relative;
+            animation: run 5s linear infinite;
+        }
+
+        .about-text p {
+            font-size: 22px;
+            line-height: 40px;
+            color: #444;
+        }
+
+        @keyframes run {
+            from {
+                left: -10%;
+            }
+
+            to {
+                left: 10%;
+            }
+        }
+
+        /* HIGHLIGHTS */
+
+        .title {
+            text-align: center;
+            font-size: 50px;
+            margin-top: 50px;
+            color: purple;
+            animation: zoom 2s infinite alternate;
+        }
+
+        @keyframes zoom {
+            from {
+                transform: scale(1);
+                letter-spacing: 2px;
+            }
+
+            to {
+                transform: scale(1.08);
+                letter-spacing: 5px;
+                color: orange;
+            }
+        }
+
+        .highlights {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px;
+            text-align: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .box {
+            width: 180px;
+            background-color: black;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 15px lightgray;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: 0.5s;
+        }
+
+        .box:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0px 0px 20px gray;
+        }
+
+        .box i {
+            font-size: 70px;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        .box h3 {
+            font-size: 25px;
+            color: white;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px gray;
+        }
+
+        /* EVENT FOOD */
+
+        .event-food {
+            padding: 50px;
+            background: linear-gradient(to right, #fff0f5, #fffacd);
+            text-align: center;
+        }
+
+        .event-food-images {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .event-food-images img {
+            width: 350px;
+            height: 250px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 15px gray;
+            transition: 0.5s;
+        }
+
+        .event-food-images img:hover {
+            transform: scale(1.05);
+        }
+
+        /* TEAM */
+
+        .team {
+            padding: 50px;
+            text-align: center;
+            background: linear-gradient(to right, #fff5ee, #ffe4e1);
+        }
+
+        .team-members {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .member {
+            background-color: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 15px lightgray;
+            transition: 0.5s;
+        }
+
+        .member:hover {
+            transform: translateY(-10px);
+        }
+
+        .member img {
+            width: 220px;
+            height: 220px;
+            border-radius: 15px;
+        }
+
+        .member h3 {
+            color: deeppink;
+            font-size: 24px;
+        }
+
+        /* FOOTER */
+
+        .footer {
+            background: linear-gradient(to right, black, purple, deeppink);
+            color: white;
+            text-align: center;
+            padding: 35px;
+            margin-top: 50px;
+        }
+
+        .footer h2 {
+            font-size: 38px;
+            letter-spacing: 3px;
+        }
+
+        .footer p {
+            font-size: 20px;
+            line-height: 35px;
+        }
+
+        .footer i {
+            color: yellow;
+            font-size: 28px;
+            margin: 10px;
+            transition: 0.5s;
+        }
+
+        .footer i:hover {
+            color: white;
+            transform: scale(1.2) rotate(10deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+
+        <div class="logo">
+            <img src="logoca.png" style="width:200px;height:150px;">
+        </div>
+
+        <div>
+
+            <a href="home.html">Home</a>
+
+            <a href="about.html">About Us</a>
+
+            <div class="dropdown">
+
+                <a class="dropbtn">Menu</a>
+
+                <div class="dropdown-content">
+
+                    <a href="veg.html">Veg</a>
+
+                    <a href="nonveg.html">Non-Veg</a>
+
+                    <a href="dessert.html">Desserts</a>
+
+                </div>
+
+            </div>
+
+            <a href="contact.php">Contact</a>
+            <i class="fa-brands fa-instagram"></i>
+
+            <i class="fa-brands fa-facebook"></i>
+
+            <i class="fa-brands fa-whatsapp"></i>
+
+
+
+        </div>
+
+    </div>
+
+    <!-- BANNER -->
+
+    <div class="banner">
+
+        <div>
+
+            <h1>About Us</h1>
+
+            <p>Serving Happiness Through Delicious Food</p>
+
+        </div>
+
+    </div>
+
+    <!-- ABOUT SECTION -->
+
+    <div class="about">
+
+        <img src="about1.jpg">
+
+        <div class="about-text">
+
+            <h2>Our Passion For Quality Food</h2>
+
+            <p>
+
+                Royal Catering has been dedicated to providing delicious,
+                hygienic and high-quality food for weddings, receptions,
+                birthdays and corporate events.
+
+                We focus on customer satisfaction, traditional taste
+                and professional service.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- HIGHLIGHTS -->
+
+    <h1 class="title">Why Choose Us</h1>
+
+    <div class="highlights">
+
+        <div class="box" style="background-image: url('food1.jpg');">
+
+            <i class="fa-solid fa-utensils" style="color:red"></i>
+
+            <h3>Quality Food</h3>
+
+        </div>
+
+        <div class="box" style="background-image: url('kitchen.jpg');">
+
+            <i class="fa-solid fa-leaf" style="color:lime"></i>
+
+            <h3>Hygienic Cooking</h3>
+
+        </div>
+
+        <div class="box" style="background-image: url('team.jpg');">
+
+            <i class="fa-solid fa-users" style="color:yellow"></i>
+
+            <h3>Expert Team</h3>
+
+        </div>
+
+        <div class="box" style="background-image: url('satis.png');">
+
+            <i class="fa-solid fa-heart" style="color:pink"></i>
+
+            <h3>Customer Satisfaction</h3>
+
+        </div>
+
+    </div>
+
+    <!-- EVENT FOOD -->
+
+    <div class="event-food">
+
+        <h1 class="title">Our Event Foods</h1>
+
+        <div class="event-food-images">
+
+            <img src="food2.jpg">
+
+            <img src="event2.jpeg">
+
+            <img src="food3.jpeg">
+
+        </div>
+
+    </div>
+
+    <!-- TEAM -->
+
+    <div class="team">
+
+        <h1 class="title">Our Expert Team</h1>
+
+        <div class="team-members">
+
+            <div class="member">
+
+                <img src="ch.jpg">
+
+                <h3>Chef Rajkumar</h3>
+
+            </div>
+
+            <div class="member">
+
+                <img src="chef2.jpeg">
+
+                <h3>Chef Karthik</h3>
+
+            </div>
+
+            <div class="member">
+
+                <img src="chef3.jpg">
+
+                <h3>Chef Priya</h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        <h2>Royal Catering</h2>
+        <p>Delicious Moments, Perfect Memories</p>
+
+        <p>
+
+            Phone: +91 8765221134
+
+            <br><br>
+
+            Email: royalcatering@gmail.com
+
+        </p>
+
+        <i class="fa-brands fa-instagram"></i>
+
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-youtube"></i>
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+    </div>
+
+</body>
+
+</html>

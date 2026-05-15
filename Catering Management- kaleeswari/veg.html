@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Veg Menu - Royal Catering</title>
+    <link rel="shortcut icon" href="logoca.png">
+
+    <script src="https://kit.fontawesome.com/8657df6d39.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, pink, skyblue, white);
+        }
+
+        /* HEADER */
+        .header {
+            background-color: #ff1493;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-title h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+
+        /* NAVIGATION */
+        .nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            transition: 0.5s;
+        }
+
+        .nav a:hover {
+            color: yellow;
+        }
+
+        .nav i {
+            margin-left: 15px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* DROPDOWN */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 150px;
+            box-shadow: 0px 5px 10px gray;
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .dropdown-content a:hover {
+            background-color: pink;
+        }
+
+        /* SHOW DROPDOWN */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* TITLE */
+        .title {
+            text-align: center;
+            margin-top: 40px;
+            color: darkgreen;
+            font-size: 45px;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                letter-spacing: 2px;
+                color: green;
+            }
+
+            to {
+                letter-spacing: 5px;
+                color: orange;
+                text-shadow: 0px 0px 10px gold;
+            }
+        }
+
+        /* FOOD ITEMS */
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 40px;
+        }
+
+        .card {
+            width: 250px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0px 0px 10px lightgray;
+            transition: 0.5s;
+            background: pink;
+
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 20px gray;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+        }
+
+        .card h2 {
+            text-align: center;
+            color: darkred;
+        }
+
+        .card p {
+            text-align: center;
+            padding: 10px;
+            color: gray;
+        }
+
+        /* EVENTS */
+        .event-title {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 45px;
+            color: purple;
+        }
+
+        .events {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 40px;
+        }
+
+        .event-box {
+            width: 320px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0px 0px 15px lightgray;
+            transition: 0.5s;
+            background: pink;
+        }
+
+        .event-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .event-box img {
+            width: 100%;
+            height: 220px;
+        }
+
+        .event-box h2 {
+            text-align: center;
+            color: darkblue;
+
+        }
+
+        .event-box p {
+            text-align: center;
+            padding: 15px;
+            line-height: 28px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        .footer-menu {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer-menu a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            transition: 0.5s;
+        }
+
+        .footer-menu a:hover {
+            color: yellow;
+        }
+
+        .header {
+            background-image: url("vegf.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            color: white;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+        }
+
+
+        .footer i {
+            color: hotpink;
+            font-size: 28px;
+            margin: 10px;
+        }
+
+        .footer i:hover {
+            color: yellow;
+            transition: 0.5s;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+
+        <div class="logo-title">
+            <img src="logoca.png" style="width:200px;height:150px;">
+        </div>
+
+        <div class="nav">
+
+            <a href="home.html">Home</a>
+
+            <a href="about.html">About</a>
+
+            <div class="dropdown">
+
+                <a class="dropbtn">Menu</a>
+
+                <div class="dropdown-content">
+                    <a href="veg.html">Veg</a>
+                    <a href="nonveg.html">Non-Veg</a>
+                    <a href="dessert.html">Desserts</a>
+                </div>
+
+            </div>
+
+            <a href="contact.php">Contact</a>
+
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-whatsapp"></i>
+
+        </div>
+
+    </div>
+
+    <!-- TITLE -->
+    <h1 class="title">Our Veg Special Menu</h1>
+
+    <!-- FOOD ITEMS -->
+    <div class="container">
+
+        <div class="card">
+            <img src="ve1.jpg">
+            <h2>Paneer Butter Masala</h2>
+            <p>Rich and creamy paneer curry.</p>
+        </div>
+
+        <div class="card">
+            <img src="ve2.jpg">
+            <h2>Veg Biryani</h2>
+            <p>Delicious biryani with vegetables.</p>
+        </div>
+
+        <div class="card">
+            <img src="ve3.jpg">
+            <h2>Masala Dosa</h2>
+            <p>Crispy dosa with potato masala.</p>
+        </div>
+
+        <div class="card">
+            <img src="ve4.jpg">
+            <h2>Chole Bhature</h2>
+            <p>Punjabi special spicy chole.</p>
+        </div>
+
+        <div class="card">
+            <img src="ve5.jpg">
+            <h2>Gobi Manchurian</h2>
+            <p>Crispy cauliflower starter.</p>
+        </div>
+
+        <div class="card">
+            <img src="ve6.jpg">
+            <h2>Veg Fried Rice</h2>
+            <p>Chinese style fried rice.</p>
+        </div>
+
+        <div class="card">
+            <img src="ve7.jpg">
+            <h2>Palak Paneer</h2>
+            <p>Healthy spinach paneer gravy.</p>
+        </div>
+
+        <div class="card">
+            <img src="ve8.jpg">
+            <h2>Poori Masala</h2>
+            <p>Soft poori with potato curry.</p>
+        </div>
+
+        <div class="card">
+            <img src="ve9.jpg">
+            <h2>Veg Noodles</h2>
+            <p>Spicy vegetable noodles.</p>
+        </div>
+
+        <div class="card">
+            <img src="ve10.jpeg">
+
+            <h2>Veg Meals</h2>
+
+            <p>
+                Traditional South Indian Banana Leaf Meals
+            </p>
+        </div>
+    </div>
+
+    <!-- EVENTS -->
+    <h1 class="event-title">Special Veg Events</h1>
+
+    <div class="events">
+
+        <div class="event-box">
+            <img src="wed.jpg">
+            <h2>Wedding Catering</h2>
+            <p>Traditional vegetarian wedding feast.</p>
+        </div>
+
+        <div class="event-box">
+            <img src="photo.jpg">
+            <h2>Birthday Parties</h2>
+            <p>Special snacks and sweets for birthdays.</p>
+        </div>
+
+        <div class="event-box">
+            <img src="rece.jpg">
+            <h2>Reception Events</h2>
+            <p>Premium buffet with live counters.</p>
+        </div>
+
+        <div class="event-box">
+            <img src="cor.jpg">
+            <h2>Corporate Events</h2>
+            <p>Healthy and hygienic office catering.</p>
+        </div>
+
+        <div class="event-box">
+            <img src="enga.jpg">
+            <h2>Engagement Functions</h2>
+            <p>Traditional South Indian veg menu.</p>
+        </div>
+
+        <div class="event-box">
+            <img src="fes.jpg">
+            <h2>Festival Catering</h2>
+            <p>Authentic festive vegetarian meals.</p>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+
+        <h2>Royal Catering</h2>
+
+        <p>
+            Delicious Moments, Perfect Memories
+        </p>
+
+        <div class="footer-menu">
+
+            <p>
+                Phone: +91 8765221134 <br><br>
+                Email: royalcatering@gmail.com
+            </p>
+        </div>
+
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-whatsapp"></i>
+        <i class="fa-brands fa-youtube"></i>
+
+    </div>
+
+</body>
+
+</html>
