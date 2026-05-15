@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Explore India</title>
+    <link rel="icon" href="web logo3.png" sizes="512x512">
+    <script src="https://kit.fontawesome.com/f7083d9249.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins', sans-serif;
+        }
+
+        body{
+            background:#f5f7fa;
+            overflow-x:hidden;
+            scroll-behavior:smooth;
+        }
+
+        .logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-left:0;
+}
+
+.logo img{
+    width:50px;
+    height:50px;
+    object-fit:contain;
+    border-radius:8px;
+}
+
+.logo h1{
+    color:white;
+    font-size:28px;
+    letter-spacing:2px;
+    text-shadow:2px 2px 8px black;
+    font-family:'Poppins', sans-serif;
+}
+
+header{
+    width:100%;
+    height:70px;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    background:rgba(0,0,0,0.15);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+nav{
+    width:100%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 15px;
+}
+
+nav h1{
+    color:white;
+    font-size:28px;
+    letter-spacing:2px;
+    text-shadow:2px 2px 8px black;
+    font-family:'Poppins', sans-serif;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    align-items:center;
+}
+
+nav ul li{
+    margin-left:28px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:500;
+    transition:0.4s;
+    position:relative;
+    font-family:'Poppins', sans-serif;
+}
+
+        nav ul li a::after{
+    content:'';
+    width:0;
+    height:2px;
+    background:#ffd166;
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    transition:0.5s;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+nav ul li a:hover{
+    color:#ffd166;
+}
+
+        .dropdown{
+    position:relative;
+    
+}
+
+.dropdown-content{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    margin-top:10px;
+    background:white;
+    min-width:220px;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+    z-index:999;
+}
+
+.dropdown:hover .dropdown-content{
+    display:block;
+}
+.dropdown::after{
+    content:'';
+    position:absolute;
+    left:0;
+    top:100%;
+    width:100%;
+    height:10px;
+}
+.dropdown-content a{
+
+    display:block;
+
+    padding:14px 18px;
+
+    color:#0b1f3a;
+
+    text-decoration:none;
+
+    transition:0.4s;
+}
+
+.dropdown-content a:hover{
+
+    background:#00b4d8;
+
+    color:white;
+}
+
+
+        .home{
+            width:100%;
+            height:100vh;
+            background-image:
+                linear-gradient(rgba(0,0,0,0.30), rgba(0,0,0,0.30)),
+                url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944');      
+            background-size:cover;
+            background-position:center;
+            position:relative;
+            animation:bgzoom 15s infinite alternate;
+            margin-top:70px;
+        }
+
+        .overlay{
+            width:100%;
+            height:100vh;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            color:white;
+            padding:20px;
+            padding-top:40px;
+        }
+
+        .overlay h3{
+            font-size:30px;
+            color:#ffd166;
+            letter-spacing:5px;
+            margin-bottom:20px;
+            text-shadow:2px 2px 10px black;
+            animation:slideTop 1.5s;
+        }
+
+        .overlay h1{
+            font-size:83px;
+            margin-bottom:25px;
+            font-weight:700;
+            color:white;
+           text-shadow:
+                0 0 10px rgba(255,255,255,0.4),
+                0 0 20px rgba(0,0,0,0.7);
+            animation:zoomIn 2s;
+            font-family:'Georgia', serif;
+        }
+
+        .overlay p{
+            width:65%;
+            font-size:23px;
+            line-height:40px;
+            margin-bottom:40px;
+            color:#f1f1f1;
+            animation:slideBottom 1.5s;
+        }
+
+        .overlay button{
+            padding:16px 42px;
+            border:none;
+            background:linear-gradient(to right,#ff9f1c,#ffb703);
+            color:white;
+            font-size:18px;
+            border-radius:50px;
+            cursor:pointer;
+            transition:0.5s;
+            font-weight:bold;
+            box-shadow:0 5px 20px rgba(0,0,0,0.4);
+        }
+
+        .overlay button:hover{
+            transform:translateY(-5px);
+            background:linear-gradient(to right,#00b4d8,#0077b6);
+            box-shadow:0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .destinations{
+            width:85%;
+            margin:100px auto;
+            
+        }
+
+        .destinations h1{
+            text-align:center;
+            font-size:55px;
+            margin-bottom:60px;
+            color:#420a47;
+            margin-top:0;
+    padding-top:0;
+        }
+
+        .container{
+            display:flex;
+            justify-content:center;
+            gap:35px;
+            flex-wrap:wrap;
+        }
+
+        .card{
+    width:320px;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+    transition:0.4s;
+    border:2px solid transparent;
+}
+
+.card:hover{
+    transform:translateY(-12px) scale(1.02);
+    border:2px solid #00b4d8;
+    box-shadow:0 12px 30px rgba(0,180,216,0.25);
+}
+
+.card img{
+            width:100%;
+            height:230px;
+            object-fit:cover;
+            display:block;
+            transition:0.5s;
+        }
+
+        .card:hover img{
+            transform:scale(1.1);
+        }
+
+        .content{
+
+            padding:25px;
+
+        }
+
+        .content h3{
+            margin-bottom:15px;
+            color:#0b1f3a;
+            font-size:28px;
+        }
+
+        .content p{
+            color:gray;
+            line-height:28px;
+            margin-bottom:20px;
+        }
+
+        .content button{
+            padding:12px 25px;
+            border:none;
+            background:#00b4d8;
+            color:white;
+            border-radius:30px;
+            cursor:pointer;
+            transition:0.5s;
+        }
+
+        .content button:hover{
+            background:#ff9f1c;
+        }
+
+
+
+.dropdown{
+
+    position:relative;
+}
+
+
+
+.dropdown-content{
+
+    position:absolute;
+
+    top:35px;
+
+    left:0;
+
+    background:white;
+
+    min-width:180px;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    display:none;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+
+
+.dropdown-content a{
+
+    display:block;
+
+    padding:14px 18px;
+
+    color:#0b1f3a;
+
+    text-decoration:none;
+
+    transition:0.4s;
+
+    font-size:15px;
+}
+
+
+
+.dropdown-content a:hover{
+
+    background:#00b4d8;
+
+    color:white;
+}
+
+
+
+/* SHOW DROPDOWN */
+
+.dropdown:hover .dropdown-content{
+
+    display:block;
+}
+
+        .contact{
+
+            width:100%;
+
+            padding:100px 10%;
+
+            background:
+    linear-gradient(
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.55)),
+    url('https://images.unsplash.com/photo-1593693397690-362cb9666fc2?w=1600');
+
+    background-size:cover;
+
+    background-position:center;
+    
+            color:white;
+
+            text-align:center;
+        }
+
+        .contact h2{
+
+            font-size:50px;
+
+            margin-bottom:50px;
+        }
+
+        form{
+
+            width:60%;
+
+            margin:auto;
+        }
+
+
+
+        form input,
+        form textarea{
+
+            width:100%;
+
+            padding:18px;
+
+            margin-bottom:20px;
+
+            border:none;
+
+            border-radius:10px;
+
+            font-size:16px;
+
+            background:rgba(255,255,255,0.9);
+
+    backdrop-filter:blur(5px);
+
+    outline:none;
+        }
+
+
+
+        form textarea{
+
+            height:150px;
+
+            resize:none;
+        }
+
+
+
+       form button{
+
+    padding:15px 42px;
+
+    border:none;
+
+    background:linear-gradient(to right,#fcbf49,#f77f00);
+
+    color:white;
+
+    font-size:18px;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    transition:0.5s;
+
+    font-weight:bold;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+
+
+form button:hover{
+
+    transform:translateY(-5px);
+
+    background:linear-gradient(to right,#2a9d8f,#40916c);
+}
+
+
+
+        .contact-info{
+
+            margin-top:50px;
+
+            line-height:40px;
+
+            font-size:20px;
+        }
+
+footer{
+
+    background:linear-gradient(to right,#1b4332,#0e492e,#075733);
+
+    color:white;
+
+    text-align:center;
+
+    padding:20px;
+
+    font-size:17px;
+
+    letter-spacing:1px;
+
+    box-shadow:0 -5px 20px rgba(0,0,0,0.3);
+}
+
+        @keyframes slideTop{
+
+            from{
+                transform:translateY(-60px);
+                opacity:0;
+            }
+
+            to{
+                transform:translateY(0);
+                opacity:1;
+            }
+        }
+
+
+        @keyframes slideBottom{
+
+            from{
+                transform:translateY(60px);
+                opacity:0;
+            }
+
+            to{
+                transform:translateY(0);
+                opacity:1;
+            }
+        }
+
+
+        @keyframes zoomIn{
+
+            from{
+                transform:scale(0.5);
+                opacity:0;
+            }
+
+            to{
+                transform:scale(1);
+                opacity:1;
+            }
+        }
+
+
+        @keyframes bgzoom{
+
+            from{
+                background-size:100%;
+            }
+
+            to{
+                background-size:110%;
+            }
+        }
+
+       *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+.welcome-section{
+    width:100%;
+    padding:100px 100px 0;
+    background:#f5f5f5;
+}
+
+.welcome-content{
+    max-width:1000px;
+}
+
+.welcome-content h1{
+    font-size:70px;
+    color:darkgreen;
+    margin-bottom:30px;
+
+    border-left:6px solid orange;
+    padding-left:20px;
+
+    line-height:1.2;
+}
+
+.welcome-content p{
+    font-size:22px;
+    line-height:2;
+    color:#222;
+
+    margin-bottom:20px;
+
+    text-align:justify;
+}
+
+.last-text{
+    color:#f4b860;
+    font-weight:600;
+    font-size:24px;
+
+    margin-bottom:0;
+}
+
+.btn{
+    display:inline-block;
+    background:linear-gradient(45deg,#ff9800,#ff5722);
+    color:white;
+    padding:14px 30px;
+    text-decoration:none;
+    border-radius:30px;
+    font-size:18px;
+    font-weight:bold;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+    </style>
+</head>
+<body>
+
+    <header>
+
+        <nav>
+           
+          <div class="logo">
+    <img src="web logo3.png" alt="Explore India Logo">
+    <h1>Explore India</h1>
+</div>
+           <ul>
+
+    <li><a href="index.html">Home</a></li>
+
+    <li><a href="about.html">About Us</a></li>
+
+    <li class="dropdown">
+
+        <a href="#">Destinations</a>
+
+        <div class="dropdown-content">
+
+            <a href="kerala.html">Kerala</a>
+
+            <a href="kashmir.html">Kashmir</a>
+
+            <a href="goa.html">Goa</a>
+
+            <a href="agra.html">Agra</a>
+
+            <a href="jaipur.html">Jaipur</a>
+
+            <a href="ooty.html">Ooty</a>
+
+            <a href="manali.html">Manali</a>
+
+            <a href="ladakh.html">Ladakh</a>
+
+            <a href="kodaikanal.html">Kodaikanal</a>
+
+            <a href="valparai.html">Valparai</a>
+
+        </div>
+
+    </li>
+
+    <li><a href="packages.html">Packages</a></li>
+
+    <li><a href="contact.php">Contact</a></li>
+
+</ul>
+        </nav>
+
+    </header>
+
+    <section class="home">
+
+        <div class="overlay">
+
+            <h3>DISCOVER INDIA</h3>
+
+            <h1>INCREDIBLE INDIA</h1>
+
+            <p>Experience the rich culture, historical monuments,
+beautiful beaches, mountains and unforgettable adventures
+across India's most famous tourist destinations.
+
+            </p>
+
+            <a href="#destinations">
+                    <button>Explore More</button>
+                        </a>
+        </div>
+
+    </section>
+
+<section class="welcome-section">
+
+    <div class="welcome-content">
+
+        <h1>Welcome to Explore India</h1>
+
+        <p>
+            Explore India is built with a passion to provide travelers
+            an unforgettable tourism experience across the diverse and
+            beautiful destinations of India. From majestic mountains and
+            historical monuments to peaceful beaches and cultural cities,
+            we help tourists discover the true beauty of India.
+        </p>
+
+        <p>
+            Whether you are planning a family vacation, honeymoon trip,
+            college excursion, adventure tour, or corporate outing,
+            Explore India offers the perfect travel solutions including
+            tour packages, hotel bookings, transportation, and guided trips.
+        </p>
+
+        <p class="last-text">
+            Discover what makes Explore India unique and start your
+            dream journey with comfort, safety, and unforgettable memories.
+        </p>
+
+    </div>
+
+</section>
+
+    <section class="destinations" id="destinations">
+
+        <h1>Popular Destinations</h1>
+
+
+        <div class="container">
+
+            <div class="card">
+
+                <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da">
+
+                <div class="content">
+
+                    <h3>Agra</h3>
+
+                    <p>
+
+                        Visit the famous Taj Mahal
+                        and explore India's heritage.
+
+                    </p>
+                     <a href="agra.html">
+                    <button>Explore</button>
+                        </a>
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944">
+
+                <div class="content">
+
+                    <h3>Kerala</h3>
+
+                    <p>
+
+                        Enjoy greenery, backwaters
+                        and peaceful nature views.
+
+                    </p>
+
+                    <a href="kerala.html">
+                    <button>Explore</button>
+                        </a>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+
+                <div class="content">
+
+                    <h3>Kashmir</h3>
+
+                    <p>
+
+                        Explore mountains, valleys
+                        and snow-covered landscapes.
+
+                    </p>
+
+                    <a href="kashmir.html">
+                    <button>Explore</button>
+                        </a>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963">
+
+                <div class="content">
+
+                    <h3>Goa</h3>
+
+                    <p>
+
+                        Relax at beautiful beaches
+                        and enjoy nightlife experiences.
+
+                    </p>
+
+                    <a href="goa.html">
+                    <button>Explore</button>
+                        </a>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <img src="https://images.unsplash.com/photo-1506461883276-594a12b11cf3">
+                <div class="content">
+
+                    <h3>Ooty</h3>
+
+                    <p>
+
+                        Enjoy cool climate,
+                        hills and tea plantations.
+
+                    </p>
+
+                    <a href="ooty.html">
+                    <button>Explore</button>
+                        </a>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245">
+
+                <div class="content">
+
+                    <h3>Jaipur</h3>
+
+                    <p>
+
+                        Discover royal palaces,
+                        forts and Rajasthan culture.
+
+                    </p>
+
+                    <a href="jaipur.html">
+                    <button>Explore</button>
+                        </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="contact">
+
+        <h2>Contact Us</h2>
+
+        <form>
+
+            <input type="text" placeholder="Enter Your Name">
+
+            <input type="email" placeholder="Enter Your Email">
+
+            <textarea placeholder="Enter Your Message"></textarea>
+
+           <a href="contact.php" class="btn">Open Booking Form</a>
+
+        </form>
+
+        <div class="contact-info">
+
+            <p>Email : exploreindia@gmail.com</p>
+
+            <p>Phone : +91 9363741751</p>
+
+            <p>Location : Chennai, Tamil Nadu</p>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        <p>@ 2026 Explore India Tourism Website</p>
+
+    </footer>
+
+</body>
+
+</html>

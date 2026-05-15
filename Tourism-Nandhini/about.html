@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Us - Explore India</title>
+    <script src="https://kit.fontawesome.com/f7083d9249.js" crossorigin="anonymous"></script>
+<link rel="icon" href="web logo3.png" sizes="512x512">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins', sans-serif;
+        }
+
+
+
+        body{
+            background:#f5f7fa;
+            overflow-x:hidden;
+        }
+ .logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-left:0;
+}
+
+.logo img{
+    width:50px;
+    height:50px;
+    object-fit:contain;
+    border-radius:8px;
+}
+
+.logo h1{
+    color:white;
+    font-size:28px;
+    letter-spacing:2px;
+    text-shadow:2px 2px 8px black;
+    font-family:'Poppins', sans-serif;
+}
+
+header{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    background:rgba(0,0,0,0.15);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+nav{
+    width:100%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 15px;
+}
+
+nav h1{
+    color:white;
+    font-size:28px;
+    letter-spacing:2px;
+    text-shadow:2px 2px 8px black;
+    font-family:'Poppins', sans-serif;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    align-items:center;
+}
+
+nav ul li{
+    margin-left:28px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:500;
+    transition:0.4s;
+    position:relative;
+    font-family:'Poppins', sans-serif;
+}
+
+        nav ul li a::after{
+    content:'';
+    width:0;
+    height:2px;
+    background:#ffd166;
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    transition:0.5s;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+nav ul li a:hover{
+    color:#ffd166;
+}
+.dropdown{
+    position:relative;
+    
+}
+
+.dropdown-content{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    margin-top:10px;
+    background:white;
+    min-width:220px;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+    z-index:999;
+}
+
+.dropdown:hover .dropdown-content{
+    display:block;
+}
+.dropdown::after{
+    content:'';
+    position:absolute;
+    left:0;
+    top:100%;
+    width:100%;
+    height:10px;
+}
+
+.dropdown-content a{
+
+    display:block;
+
+    padding:14px 18px;
+
+    color:#0b1f3a;
+
+    text-decoration:none;
+
+    transition:0.4s;
+}
+
+.dropdown-content a:hover{
+
+    background:#00b4d8;
+
+    color:white;
+}
+
+
+
+
+        /* ================= ABOUT HERO ================= */
+
+
+        .about-home{
+
+            width:100%;
+
+            height:70vh;
+
+            background-image:
+            linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+            url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+
+            background-size:cover;
+
+            background-position:center;
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+            text-align:center;
+
+            color:white;
+        }
+
+
+
+        .about-home h1{
+
+            font-size:75px;
+
+            letter-spacing:3px;
+
+            text-shadow:3px 3px 15px black;
+
+            animation:zoomIn 2s;
+
+            font-family:'Georgia', serif;
+        }
+
+
+
+
+        /* ================= ABOUT CONTENT ================= */
+
+
+        .about{
+    width:100%;
+    padding:80px 10%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:50px;
+    background:#f5f5f5;
+    flex-wrap:wrap;
+}
+
+.about-image{
+    flex:1;
+    min-width:300px;
+}
+
+.about-image img{
+    width:100%;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+.about-content{
+    flex:1;
+    min-width:300px;
+}
+
+.about-content h2{
+    font-size:40px;
+    color:#222;
+    margin-bottom:20px;
+}
+
+.about-content p{
+    font-size:17px;
+    color:#555;
+    line-height:1.8;
+    margin-bottom:18px;
+    text-align:justify;
+}
+        /* ================= FEATURES ================= */
+
+
+        .features{
+
+            width:100%;
+
+            padding:60px 8%;
+
+            background:#ffffff;
+        }
+
+        .features h2{
+
+            text-align:center;
+
+            font-size:50px;
+
+            color:#270a91;
+
+            margin-bottom:70px;
+        }
+
+
+
+        .feature-container{
+
+            display:flex;
+
+            justify-content:center;
+
+            gap:35px;
+
+            flex-wrap:wrap;
+        }
+
+       .feature-box{
+    width:320px;
+    padding:40px 30px;
+    border-radius:25px;
+    text-align:center;
+    transition:0.4s;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    border:2px solid transparent;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    position:relative;
+    overflow:hidden;
+}
+
+/* TOP LINE */
+
+.feature-box::before{
+
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:6px;
+    background:linear-gradient(to right,#4d068f,#f58607);
+}
+
+/* BOTTOM LINE */
+
+.feature-box::after{
+
+    content:'';
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:6px;
+    background:linear-gradient(to right,#4d068f,#f58607);
+}
+
+
+.feature-box:hover{
+    transform:translateY(-12px) scale(1.02);
+    border:2px solid #087d94;
+    box-shadow:0 12px 30px rgba(0,180,216,0.25);
+}
+
+
+        .feature-box h3{
+
+            font-size:28px;
+
+            color:#0b1f3a;
+
+            margin-bottom:20px;
+        }
+
+
+
+        .feature-box p{
+
+            color:#666;
+
+            line-height:30px;
+        }
+
+        .feature-box span{
+
+             font-size:55px;
+
+            display:block;
+
+            margin-bottom:20px;
+        }
+
+
+    
+/* ================= MISSION ================= */
+
+.mission{
+
+    width:85%;
+    margin:60px auto;
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.mission-box{
+
+    flex:1;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+.mission-box h2{
+
+    color:#0b1f3a;
+    margin-bottom:20px;
+}
+
+.mission-box p{
+
+    line-height:30px;
+    color:#555;
+}
+
+
+
+/* ================= STATS ================= */
+
+.stats{
+
+    width:100%;
+    padding:60px 10%;
+    background:linear-gradient(to right,#5e0364,#520580);
+border-top:3px solid #ffb703;
+border-bottom:3px solid #ffb703;
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    text-align:center;
+    color:white;
+}
+
+.stat-box{
+
+    margin:20px;
+}
+
+.stat-box h1{
+
+    font-size:55px;
+}
+
+.stat-box p{
+
+    font-size:20px;
+}
+
+
+/* ================= MISSION & VISION ================= */
+
+.mission{
+
+    width:85%;
+    margin:100px auto;
+    display:flex;
+    gap:35px;
+    flex-wrap:wrap;
+}
+
+.mission-box{
+
+    flex:1;
+    padding:45px;
+    border-radius:25px;
+    color:white;
+    position:relative;
+    overflow:hidden;
+    transition:0.5s;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+
+
+/* Mission Card */
+
+.mission-box:first-child{
+
+    background:linear-gradient(135deg,#0077b6,#00b4d8);
+}
+
+
+
+/* Vision Card */
+
+.mission-box:last-child{
+
+    background:linear-gradient(135deg,#ff9f1c,#ffb703);
+}
+
+
+
+.mission-box::before{
+
+    content:'';
+    position:absolute;
+    width:180px;
+    height:180px;
+    background:rgba(255,255,255,0.15);
+    border-radius:50%;
+    top:-50px;
+    right:-50px;
+}
+
+
+
+.mission-box:hover{
+
+    transform:translateY(-12px) scale(1.02);
+    box-shadow:0 15px 40px rgba(0,0,0,0.3);
+}
+
+
+
+.mission-box h2{
+
+    font-size:38px;
+    margin-bottom:25px;
+    position:relative;
+    z-index:1;
+}
+
+
+
+.mission-box p{
+
+    font-size:17px;
+    line-height:33px;
+    position:relative;
+    z-index:1;
+}
+
+
+
+/* ================= REVIEWS SECTION ================= */
+
+.reviews{
+
+    padding:60px 8%;
+    background:linear-gradient(to right,#f8fbff,#eef7ff);
+    text-align:center;
+}
+
+
+
+.reviews h2{
+
+    font-size:55px;
+    color:#0b1f3a;
+    margin-bottom:70px;
+    position:relative;
+}
+
+.review-container{
+
+    display:flex;
+    justify-content:center;
+    gap:35px;
+    flex-wrap:wrap;
+}
+
+
+
+.review-box{
+
+    width:330px;
+    padding:40px 30px;
+    border-radius:25px;
+    background:white;
+    position:relative;
+    overflow:hidden;
+    transition:0.5s;
+    box-shadow:0 10px 25px rgba(0,0,0,0.12);
+    border:2px solid transparent;
+}
+
+
+
+/* Top Highlight Line */
+
+.review-box::before{
+
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:6px;
+    background:linear-gradient(to right,#00b4d8,#ffb703);
+}
+
+
+
+.review-box:hover{
+
+    transform:translateY(-12px);
+    border-color:#00b4d8;
+    box-shadow:0 15px 35px rgba(0,180,216,0.25);
+}
+
+
+
+/* Quote Icon */
+
+.review-box span{
+
+    font-size:55px;
+    color:#ffb703;
+    display:block;
+    margin-bottom:20px;
+}
+
+
+
+.review-box p{
+
+    font-size:17px;
+    line-height:32px;
+    color:#555;
+    margin-bottom:25px;
+}
+
+
+
+.review-box h4{
+
+    color:#0b1f3a;
+    font-size:20px;
+}
+
+
+/* ================= GALLERY ================= */
+
+.gallery{
+
+    width:92%;
+    margin:60px auto;
+    text-align:center;
+}
+
+.gallery h2{
+
+    font-size:55px;
+    color:#0b1f3a;
+    margin-bottom:50px;
+}
+
+
+
+/* Horizontal Scroll Gallery */
+
+.gallery-container{
+
+    display:flex;
+    gap:25px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding:15px;
+    scrollbar-width:none;
+}
+
+
+
+/* Hide Scrollbar */
+
+.gallery-container::-webkit-scrollbar{
+
+    display:none;
+}
+
+
+
+.gallery-container img{
+
+    min-width:350px;
+    height:260px;
+    object-fit:cover;
+    border-radius:25px;
+    scroll-snap-align:center;
+    transition:0.5s;
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+}
+
+
+
+/* Hover Effect */
+
+.gallery-container img:hover{
+
+    transform:scale(1.05);
+}
+
+
+
+/* ================= CTA ================= */
+
+.cta{
+
+    width:100%;
+    padding:70px 20px;
+    text-align:center;
+    background:
+    linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+    url('https://images.unsplash.com/photo-1501785888041-af3ef285b470');
+
+    background-size:cover;
+    background-position:center;
+    color:white;
+}
+
+.cta h1{
+
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+.cta p{
+
+    font-size:20px;
+    margin-bottom:30px;
+}
+
+.cta button{
+
+    padding:15px 40px;
+    border:none;
+    border-radius:40px;
+    background:#ffb703;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.5s;
+}
+
+.cta button:hover{
+
+    background:#00b4d8;
+    transform:translateY(-5px);
+}
+        /* ================= FOOTER ================= */
+
+
+        footer{
+
+            background:linear-gradient(to right,#1b4332,#0e492e,#075733);
+
+            color:white;
+
+            text-align:center;
+
+            padding:20px;
+
+            font-size:17px;
+
+            letter-spacing:1px;
+        }
+
+
+
+
+        /* ================= ANIMATION ================= */
+
+
+        @keyframes zoomIn{
+
+            from{
+                transform:scale(0.5);
+                opacity:0;
+            }
+
+            to{
+                transform:scale(1);
+                opacity:1;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+
+    <!-- ================= NAVBAR ================= -->
+
+
+    <header>
+
+        <nav>
+
+            <div class="logo">
+    <img src="web logo3.png" alt="Explore India Logo">
+    <h1>Explore India</h1>
+</div>
+
+<ul>
+
+    <li><a href="index.html">Home</a></li>
+
+    <li><a href="about.html">About Us</a></li>
+
+    <li class="dropdown">
+
+        <a href="#">Destinations</a>
+
+        <div class="dropdown-content">
+
+            <a href="kerala.html">Kerala</a>
+
+            <a href="kashmir.html">Kashmir</a>
+
+            <a href="goa.html">Goa</a>
+
+            <a href="agra.html">Agra</a>
+
+            <a href="jaipur.html">Jaipur</a>
+
+            <a href="ooty.html">Ooty</a>
+
+            <a href="manali.html">Manali</a>
+
+            <a href="ladakh.html">Ladakh</a>
+
+            <a href="kodaikanal.html">Kodaikanal</a>
+
+            <a href="valparai.html">Valparai</a>
+        </div>
+
+    </li>
+
+    <li><a href="packages.html">Packages</a></li>
+
+    <li><a href="contact.php">Contact</a></li>
+
+</ul>
+
+        </nav>
+
+    </header>
+
+
+
+    <section class="about-home">
+
+        <h1>About Explore India</h1>
+
+    </section>
+
+    <section class="about">
+
+    <div class="about-image">
+
+        <img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86">
+
+    </div>
+
+    <div class="about-content">
+
+        <h2>Discover The Beauty Of India</h2>
+
+        <p>
+
+            Explore India is a tourism website created to help travelers
+            discover the beauty, culture and traditions of India.
+            From historical monuments to beautiful beaches and mountains,
+            we guide tourists towards unforgettable travel experiences.
+
+        </p>
+
+        <p>
+
+            Our mission is to promote Indian tourism and showcase
+            famous destinations like Kerala, Kashmir, Goa, Jaipur,
+            Agra and many more wonderful places across the country.
+
+        </p>
+
+        <p>
+
+            We provide travel guidance, destination details, tour packages
+            and exciting travel experiences for tourists across India.
+            Our website helps visitors explore beaches, hill stations,
+            historical monuments and cultural destinations easily.
+
+        </p>
+
+        <p>
+
+            Whether you love adventure trips, peaceful nature or heritage
+            tourism, Explore India helps you plan unforgettable journeys
+            with comfort, safety and memorable experiences.
+
+        </p>
+
+    </div>
+
+</section>
+
+    <section class="features">
+
+        <h2>Why Choose Us</h2>
+
+
+        <div class="feature-container">
+
+
+
+            <div class="feature-box">
+
+                <span><i class="fa-solid fa-tree fa-beat" style="color: rgb(6, 168, 33);"></i></span>
+
+                 <h3>Best Destinations</h3>
+
+                <p>
+
+                      Discover India's most beautiful tourist destinations
+                      with amazing travel experiences.
+
+                 </p>
+
+        </div>
+
+            <div class="feature-box">
+
+                <span><i class="fa-solid fa-plane-departure fa-beat" style="color: rgb(43, 95, 185);"></i></span>
+
+                    <h3>Affordable Packages</h3>
+
+                 <p>
+
+                     Enjoy budget-friendly tourism packages
+                     suitable for every traveler.
+
+                </p>
+
+        </div>
+
+            <div class="feature-box">
+
+                <span><i class="fa-regular fa-alarm-clock fa-beat" style="color: rgb(4, 75, 131);"></i></span>
+
+             <h3>Trusted Guide</h3>
+
+             <p>
+
+                  We provide reliable travel guidance
+                   for safe and memorable journeys.
+
+             </p>
+
+        </div>
+
+        </div>
+
+    </section>
+
+
+<section class="mission">
+
+    <div class="mission-box">
+
+        <h2>Our Mission</h2>
+
+        <p>
+            Our mission is to inspire people to explore the incredible beauty
+            of India while making travel easy, affordable and memorable for everyone.
+        </p>
+
+    </div>
+
+    <div class="mission-box">
+
+        <h2>Our Vision</h2>
+
+        <p>
+            We aim to become one of India's most trusted tourism platforms
+            by connecting travelers with unforgettable destinations and experiences.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="stats">
+
+    <div class="stat-box">
+        <h1>50+</h1>
+        <p>Destinations</p>
+    </div>
+
+    <div class="stat-box">
+        <h1>10K+</h1>
+        <p>Happy Travelers</p>
+    </div>
+
+    <div class="stat-box">
+        <h1>100+</h1>
+        <p>Tour Packages</p>
+    </div>
+
+    <div class="stat-box">
+        <h1>24/7</h1>
+        <p>Support</p>
+    </div>
+
+</section>
+
+
+<section class="reviews">
+
+    <h2>What Travelers Say</h2>
+
+    <div class="review-container">
+
+        <div class="review-box">
+
+    <span><b>"</b></span>
+
+    <p>
+        Amazing experience! The website helped us plan our Kerala trip perfectly.
+    </p>
+
+    <h4>- Sneha</h4>
+
+</div>
+        <div class="review-box">
+
+            <span><b>"</b></span>
+
+            <p>
+                "Affordable packages and beautiful destinations. Loved the Goa tour!"
+            </p>
+
+            <h4>- Karthik</h4>
+
+        </div>
+
+        <div class="review-box">
+
+            <span><b>"</b></span>
+
+            <p>
+                “Very professional guidance and smooth booking experience.”
+            </p>
+
+            <h4>- Meena</h4>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="gallery">
+
+    <h2>Travel Gallery</h2>
+
+        <div class="gallery-container">
+
+            <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963">
+
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+
+            <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1">
+
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb">
+
+            <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff">
+
+            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e">
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="cta">
+
+    <h1>Start Your Journey With Us</h1>
+
+    <p>Discover India's beauty with unforgettable travel experiences.</p>
+
+    <a href="packages.html">
+        <button>View Packages</button>
+    </a>
+
+</section>
+
+    <footer>
+
+        <p>@ 2026 Explore India Tourism Website</p>
+
+    </footer>
+
+</body>
+
+</html>

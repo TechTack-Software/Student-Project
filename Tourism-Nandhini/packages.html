@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Packages - Explore India</title>
+<link rel="icon" href="web logo3.png" sizes="512x512">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+            background:#f5f7fa;
+            overflow-x:hidden;
+            scroll-behavior:smooth;
+
+        }
+
+          .logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-left:0;
+}
+
+.logo img{
+    width:50px;
+    height:50px;
+    object-fit:contain;
+    border-radius:8px;
+}
+
+.logo h1{
+    color:white;
+    font-size:28px;
+    letter-spacing:2px;
+    text-shadow:2px 2px 8px black;
+    font-family:'Poppins', sans-serif;
+}
+
+header{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    background:rgba(0,0,0,0.15);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+nav{
+    width:100%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 15px;
+}
+
+nav h1{
+    color:white;
+    font-size:28px;
+    letter-spacing:2px;
+    text-shadow:2px 2px 8px black;
+    font-family:'Poppins', sans-serif;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    align-items:center;
+}
+
+nav ul li{
+    margin-left:28px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:500;
+    transition:0.4s;
+    position:relative;
+    font-family:'Poppins', sans-serif;
+}
+
+        nav ul li a::after{
+    content:'';
+    width:0;
+    height:2px;
+    background:#ffd166;
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    transition:0.5s;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+nav ul li a:hover{
+    color:#ffd166;
+}
+
+
+      .dropdown{
+    position:relative;
+    
+}
+
+.dropdown-content{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    margin-top:10px;
+    background:white;
+    min-width:220px;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+    z-index:999;
+}
+
+.dropdown:hover .dropdown-content{
+    display:block;
+}
+.dropdown::after{
+    content:'';
+    position:absolute;
+    left:0;
+    top:100%;
+    width:100%;
+    height:10px;
+}
+
+.dropdown-content a{
+
+    display:block;
+
+    padding:14px 18px;
+
+    color:#0b1f3a;
+
+    text-decoration:none;
+
+    transition:0.4s;
+}
+
+.dropdown-content a:hover{
+
+    background:#00b4d8;
+
+    color:white;
+}
+
+
+/* HERO */
+.hero{
+  width:100%;
+  height:55vh;
+  background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+  url("https://images.unsplash.com/photo-1501785888041-af3ef285b470");
+  background-size:cover;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size:50px;
+  font-weight: bold;
+  margin-top:70px;
+}
+
+.hero h2{
+  font-size:75px;
+  font-weight:800;
+  letter-spacing:6px;
+  text-transform:uppercase;
+  
+
+  text-shadow:0 5px 20px rgba(0,0,0,0.5);
+  animation:fadeZoom 2s ease;
+}
+
+/* HERO ANIMATION */
+@keyframes fadeZoom{
+  0%{
+    opacity:0;
+    transform:scale(0.7) translateY(40px);
+  }
+
+  100%{
+    opacity:1;
+    transform:scale(1) translateY(0);
+  }
+}
+
+/* HIDE RADIO */
+input{
+  display:none;
+}
+
+/* TAB CONTAINER */
+.tabs{
+  width:320px;
+  margin:40px auto;
+  position:relative;
+  display:flex;
+  background:#e0e0e0;
+  border-radius:40px;
+  overflow:hidden;
+}
+
+/* TAB LABELS */
+.tabs label{
+  flex:1;
+  text-align:center;
+  padding:12px;
+  cursor:pointer;
+  z-index:2;
+  font-weight:600;
+  color:#333;
+}
+
+/* SLIDING HIGHLIGHT */
+.slider{
+  position:absolute;
+  width:50%;
+  height:100%;
+  background:linear-gradient(to right,#00b4d8,#0077b6);
+  border-radius:40px;
+  top:0;
+  left:0;
+  transition:0.4s ease;
+  z-index:1;
+}
+
+/* MOVE SLIDER */
+#all:checked ~ .tabs .slider{
+  left:0;
+}
+
+#tn:checked ~ .tabs .slider{
+  left:50%;
+}
+
+/* SECTION */
+.section{
+  width:85%;
+  margin:auto;
+  animation:fadeSection 1.5s ease;
+}
+
+@keyframes fadeSection{
+  from{
+    opacity:0;
+  }
+
+  to{
+    opacity:1;
+  }
+}
+/* CARD */
+.card{
+  display:flex;
+  background:white;
+  margin-bottom:30px;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  transition:0.5s;
+  animation:slideUp 1s ease;
+}
+
+.card:hover{
+    transform:translateY(-12px) scale(1.02);
+    border:2px solid #00b4d8;
+    box-shadow:0 12px 35px rgba(0,180,216,0.35);
+}
+
+.card img{
+  width:300px;
+  height:200px;
+  object-fit:cover;
+   transition:0.6s;
+}
+
+.card:hover img{
+  transform:scale(1.08);
+}
+
+@keyframes slideUp{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.content{
+  padding:22px;
+  flex:1;
+}
+
+.content h3{
+  font-size:28px;
+  color:#0b1f3a;
+  margin-bottom:10px;
+}
+
+.content p{
+  color:#555;
+  font-size:17px;
+  margin-bottom:12px;
+}
+
+.price{
+  color:#00b4d8;
+  font-size:24px;
+  font-weight:700;
+}
+
+
+.tamilnadu,
+.india{
+  display:flex;
+}
+
+#tn:checked ~ .section .india{
+  display:none;
+}
+
+#all:checked ~ .section .tamilnadu,
+#all:checked ~ .section .india{
+  display:flex;
+}
+
+button{
+  margin-top:15px;
+  padding:12px 28px;
+  border:none;
+  background:linear-gradient(to right,#ff9f1c,#ffb703);
+  color:white;
+  border-radius:30px;
+  cursor:pointer;
+  font-weight:bold;
+  font-size:15px;
+  transition:0.5s;
+  position:relative;
+  overflow:hidden;
+}
+
+button:hover{
+  background:linear-gradient(to right,#00b4d8,#0077b6);
+  transform:scale(1.05);
+  box-shadow:0 8px 20px rgba(0,180,216,0.4);
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  background:#0b1f3a;
+  color:white;
+  margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+  <header>
+
+        <nav>
+
+            <div class="logo">
+    <img src="web logo3.png" alt="Explore India Logo">
+    <h1>Explore India</h1>
+</div>
+           <ul>
+
+    <li><a href="index.html">Home</a></li>
+
+    <li><a href="about.html">About Us</a></li>
+
+    <li class="dropdown">
+
+        <a href="#">Destinations</a>
+
+        <div class="dropdown-content">
+
+            <a href="kerala.html">Kerala</a>
+
+            <a href="kashmir.html">Kashmir</a>
+
+            <a href="goa.html">Goa</a>
+
+            <a href="agra.html">Agra</a>
+
+            <a href="jaipur.html">Jaipur</a>
+
+            <a href="ooty.html">Ooty</a>
+
+            <a href="manali.html">Manali</a>
+
+            <a href="ladakh.html">Ladakh</a>
+
+            <a href="kodaikanal.html">Kodaikanal</a>
+
+            <a href="valparai.html">Valparai</a>
+        </div>
+
+    </li>
+
+    <li><a href="packages.html">Packages</a></li>
+
+    <li><a href="contact.php">Contact</a></li>
+
+</ul>
+        </nav>
+
+    </header>
+
+<div class="hero">
+<h2>TOUR PACKAGES</h2>
+</div>
+
+<!-- RADIO BUTTONS -->
+<input type="radio" name="filter" id="all" checked>
+<input type="radio" name="filter" id="tn">
+
+<!-- TAB UI -->
+<div class="tabs">
+  <div class="slider"></div>
+
+  <label for="all">All India</label>
+  <label for="tn">Tamil Nadu</label>
+</div>
+
+<!-- PACKAGES -->
+<div class="section">
+
+<!-- TN -->
+<div class="card tamilnadu">
+  <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220">
+  <div class="content">
+    <h3>Ooty Hill Station</h3>
+    <p>4 Days / 3 Nights</p>
+    <div class="price">Rs. 9,999</div>
+    <a href="contact.php">
+  <button>Book Now</button>
+</a>
+  </div>
+</div>
+
+<div class="card tamilnadu">
+  <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944">
+  <div class="content">
+    <h3>Kodaikanal Tour</h3>
+    <p>3 Days / 2 Nights</p>
+    <div class="price">Rs. 7,999</div>
+    <a href="contact.php">
+  <button>Book Now</button>
+</a>
+  </div>
+</div>
+
+<!-- INDIA -->
+<div class="card india">
+  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+  <div class="content">
+    <h3>Goa Beach Holiday</h3>
+    <p>4 Days / 3 Nights</p>
+    <div class="price">Rs. 11,999</div>
+    <a href="contact.php">
+  <button>Book Now</button>
+</a>
+  </div>
+</div>
+
+<div class="card india">
+  <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739">
+  <div class="content">
+    <h3>Ladakh Adventure Trip</h3>
+    <p>7 Days / 6 Nights</p>
+    <div class="price">Rs. 29,999</div>
+    <a href="contact.php">
+  <button>Book Now</button>
+</a>
+  </div>
+</div>
+
+<div class="card india">
+  <img src="https://images.unsplash.com/photo-1603262110263-fb0112e7cc33">
+  <div class="content">
+    <h3>Jaipur Trip</h3>
+    <p>7 Days / 6 Nights</p>
+    <div class="price">Rs. 44,999</div>
+    <a href="contact.php">
+  <button>Book Now</button>
+</a>
+  </div>
+</div>
+
+<div class="card tamilnadu">
+  <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9">
+  <div class="content">
+    <h3>Valparai Trip</h3>
+    <p>5 Days / 4 Nights</p>
+    <div class="price">Rs. 19,999</div>
+    <a href="contact.php">
+  <button>Book Now</button>
+</a>
+  </div>
+</div>
+
+</div>
+
+<footer>
+@ 2026 Explore India
+</footer>
+
+</body>
+</html>

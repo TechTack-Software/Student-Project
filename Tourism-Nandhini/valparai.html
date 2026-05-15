@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Valparai Destination - Explore India</title>
+<link rel="icon" href="web logo3.png" sizes="512x512">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins', sans-serif;
+        }
+
+        body{
+            background:#f5f7fa;
+            overflow-x:hidden;
+            scroll-behavior:smooth;
+        }
+
+ .logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-left:0;
+}
+
+.logo img{
+    width:50px;
+    height:50px;
+    object-fit:contain;
+    border-radius:8px;
+}
+
+.logo h1{
+    color:white;
+    font-size:28px;
+    letter-spacing:2px;
+    text-shadow:2px 2px 8px black;
+    font-family:'Poppins', sans-serif;
+}
+
+header{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    background:rgba(0,0,0,0.15);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+nav{
+    width:100%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 15px;
+}
+
+nav h1{
+    color:white;
+    font-size:28px;
+    letter-spacing:2px;
+    text-shadow:2px 2px 8px black;
+    font-family:'Poppins', sans-serif;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    align-items:center;
+}
+
+nav ul li{
+    margin-left:28px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:500;
+    transition:0.4s;
+    position:relative;
+    font-family:'Poppins', sans-serif;
+}
+
+        nav ul li a::after{
+    content:'';
+    width:0;
+    height:2px;
+    background:#00d4ff;
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    transition:0.5s;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+nav ul li a:hover{
+    color:#00d4ff;
+}
+
+        /* ================= DROPDOWN ================= */
+
+        .dropdown{
+    position:relative;
+    
+}
+
+.dropdown-content{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    margin-top:10px;
+    background:white;
+    min-width:220px;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+    z-index:999;
+}
+
+.dropdown:hover .dropdown-content{
+    display:block;
+}
+.dropdown::after{
+    content:'';
+    position:absolute;
+    left:0;
+    top:100%;
+    width:100%;
+    height:10px;
+}
+
+.dropdown-content a{
+
+    display:block;
+
+    padding:14px 18px;
+
+    color:#0b1f3a;
+
+    text-decoration:none;
+
+    transition:0.4s;
+}
+
+.dropdown-content a:hover{
+
+    background:#00b4d8;
+
+    color:white;
+}
+
+        /* ================= HERO SECTION ================= */
+
+        .hero{
+
+            width:100%;
+
+            height:100vh;
+
+            background-image:
+            linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+            url("https://images.openai.com/static-rsc-4/YaSnHFf36wzrOrzjNqxPZAGQf7aKq3C_BkiP33GPyNabOvhNJwL7TFwwkquICQ5STLIGJjNSpb7562rPEoeDmg2SN0QBZ-bvJ1Q8QQETL4Nb5G-x-az0E9JfEgOcOl8mwe70GB_P2H4t3_CQAw7WzskVpoRCFpi3IZtVTCuLkZYO6ZuxlEXmzXDwknwl559b?purpose=fullsize");
+
+            background-size:cover;
+
+            background-position:center;
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+            text-align:center;
+
+            color:white;
+        }
+
+        .hero-content{
+
+            width:70%;
+
+            animation:fadeIn 2s;
+        }
+
+        .hero-content h3{
+
+            font-size:28px;
+
+            letter-spacing:5px;
+
+            color:#00d4ff;
+
+            margin-bottom:20px;
+        }
+
+        .hero-content h1{
+
+            font-size:90px;
+
+            margin-bottom:25px;
+
+            text-shadow:3px 3px 15px black;
+        }
+
+        .hero-content p{
+
+            font-size:22px;
+
+            line-height:38px;
+
+            margin-bottom:35px;
+        }
+
+        .hero-content button{
+
+            padding:16px 40px;
+
+            border:none;
+
+            border-radius:50px;
+
+            background:#0096c7;
+
+            color:white;
+
+            font-size:18px;
+
+            cursor:pointer;
+
+            transition:0.5s;
+        }
+
+        .hero-content button:hover{
+
+            background:#00b4d8;
+
+            transform:translateY(-5px);
+        }
+
+
+
+
+        /* ================= ABOUT SECTION ================= */
+
+        .about{
+
+            width:85%;
+
+            margin:100px auto;
+
+            display:flex;
+
+            justify-content:space-between;
+
+            align-items:center;
+
+            gap:50px;
+
+            flex-wrap:wrap;
+        }
+
+        .about-image{
+
+            flex:1;
+        }
+
+        .about-image img{
+
+            width:100%;
+
+            border-radius:20px;
+
+            box-shadow:0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .about-content{
+
+            flex:1;
+        }
+
+        .about-content h2{
+
+            font-size:50px;
+
+            color:#023047;
+
+            margin-bottom:25px;
+        }
+
+        .about-content p{
+
+            font-size:19px;
+
+            line-height:35px;
+
+            color:#555;
+        }
+
+
+
+
+        /* ================= PLACES SECTION ================= */
+
+        .places{
+
+            width:85%;
+
+            margin:100px auto;
+        }
+
+        .places h2{
+
+            text-align:center;
+
+            font-size:50px;
+
+            color:#023047;
+
+            margin-bottom:60px;
+        }
+
+        .container{
+
+            display:flex;
+
+            justify-content:center;
+
+            gap:35px;
+
+            flex-wrap:wrap;
+        }
+
+        .card{
+
+            width:320px;
+
+            background:white;
+
+            border-radius:20px;
+
+            overflow:hidden;
+
+            box-shadow:0 5px 20px rgba(0,0,0,0.2);
+
+            transition:0.5s;
+        }
+
+        .card:hover{
+
+            transform:translateY(-10px);
+        }
+
+        .card img{
+
+            width:100%;
+
+            height:230px;
+
+            object-fit:cover;
+
+            transition:0.5s;
+        }
+
+        .card:hover img{
+
+            transform:scale(1.1);
+        }
+
+        .content{
+
+            padding:25px;
+        }
+
+        .content h3{
+
+            font-size:28px;
+
+            color:#023047;
+
+            margin-bottom:15px;
+        }
+
+        .content p{
+
+            color:gray;
+
+            line-height:28px;
+
+            margin-bottom:20px;
+        }
+
+        .content button{
+
+            padding:12px 28px;
+
+            border:none;
+
+            background:#0096c7;
+
+            color:white;
+
+            border-radius:30px;
+
+            cursor:pointer;
+
+            transition:0.5s;
+        }
+
+        .content button:hover{
+
+            background:#00b4d8;
+        }
+
+
+
+
+        /* ================= CONTACT SECTION ================= */
+
+        .contact{
+
+            width:100%;
+
+            padding:80px 10%;
+
+            background:
+            linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+            url("https://images.unsplash.com/photo-1502082553048-f009c37129b9");
+
+            background-size:cover;
+
+            background-position:center;
+
+            text-align:center;
+
+            color:white;
+        }
+
+        .contact h2{
+
+            font-size:50px;
+
+            margin-bottom:40px;
+        }
+
+        .contact p{
+
+            font-size:22px;
+
+            line-height:40px;
+        }
+
+
+
+
+        /* ================= FOOTER ================= */
+
+        footer{
+
+            background:#023047;
+
+            color:white;
+
+            text-align:center;
+
+            padding:20px;
+
+            font-size:17px;
+        }
+
+
+
+
+        /* ================= ANIMATION ================= */
+
+        @keyframes fadeIn{
+
+            from{
+                opacity:0;
+                transform:translateY(50px);
+            }
+
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header>
+
+        <nav>
+
+            <div class="logo">
+    <img src="web logo3.png" alt="Explore India Logo">
+    <h1>Explore Valparai</h1>
+</div>
+
+            <ul>
+
+                <li><a href="index.html">Home</a></li>
+
+                <li><a href="about.html">About Us</a></li>
+
+                <li class="dropdown">
+
+                    <a href="#">Destinations</a>
+
+                    <div class="dropdown-content">
+
+                        <a href="kerala.html">Kerala</a>
+                        <a href="kashmir.html">Kashmir</a>
+                        <a href="goa.html">Goa</a>
+                        <a href="ooty.html">Ooty</a>
+                        <a href="agra.html">Agra</a>
+                        <a href="jaipur.html">Jaipur</a>
+                        <a href="manali.html">Manali</a>
+                        <a href="ladakh.html">Ladakh</a>
+                        <a href="kodaikanal.html">Kodaikanal</a>
+                        <a href="valparai.html">Valparai</a>
+
+                    </div>
+
+                </li>
+
+                <li><a href="packages.html">Packages</a></li>
+
+                <li><a href="contact.php">Contact</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+
+
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h3>GREEN PARADISE</h3>
+
+            <h1>VALPARAI</h1>
+
+            <p>
+
+                Explore tea estates, waterfalls, wildlife and 
+                peaceful hill beauty.
+
+            </p>
+
+           <a href="#places">
+    <button>Discover Valparai</button>
+</a>
+
+        </div>
+
+    </section>
+
+
+
+
+
+
+    <!-- ================= ABOUT SECTION ================= -->
+
+    <section class="about">
+
+        <div class="about-image">
+
+<img src="valparaiimg.jpeg">
+
+        </div>
+
+        <div class="about-content">
+
+            <h2>About Valparai</h2>
+
+            <p>
+
+                Valparai is a hidden hill station in Tamil Nadu surrounded by tea plantations, forests and wildlife. It is perfect for peace lovers and nature explorers.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= PLACES SECTION ================= -->
+
+    <section class="places" id="places">
+
+        <h2>Top Attractions</h2>
+
+        <div class="container">
+
+
+
+            <div class="card">
+
+<img src="https://thumbs.dreamstime.com/b/estate-guest-house-valparai-71455159.jpg?w=768">
+
+<div class="content">
+
+                    <h3 style="text-align:center">Tea Estates</h3>
+
+                  <p>
+
+Valparai is famous for its vast green tea estates surrounded
+by misty hills and cool climate. Visitors can enjoy peaceful
+nature walks, scenic viewpoints and the refreshing beauty
+of the Western Ghats.
+
+</p>
+                </div>
+
+            </div>
+
+
+
+
+
+            <div class="card">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/IGWS%26NPUpper_AliyarMonkey_falls.jpg">
+
+                <div class="content">
+
+                    <h3 style="text-align:center">Monkey Falls</h3>
+
+                    <p>
+
+Monkey Falls is a beautiful natural waterfall located near
+Valparai, attracting tourists with its cool water and lush
+green surroundings. It is a perfect place for relaxation,
+photography and enjoying nature.
+
+</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+<img src="https://res.cloudinary.com/jerrick/image/upload/d_642250b563292b35f27461a7.png,f_jpg,q_auto,w_720/640dc9744904ce001dea6d95.jpg">
+                <div class="content">
+
+                    <h3 style="text-align:center">Aliyar Dam</h3>
+
+                    <p>
+
+Aliyar Dam is a scenic tourist attraction surrounded by
+mountains and greenery. Visitors can enjoy peaceful lake
+views, picnic spots and beautiful sunset scenery near
+the calm waters of the dam.
+
+</p>
+
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </section>
+
+    <!-- ================= CONTACT SECTION ================= -->
+
+    <section class="contact">
+
+        <h2>Plan Your Valparai Trip</h2>
+
+        <p>
+
+            Contact us today and experience 
+            peaceful hill station travel experience in Valparai.
+
+        </p>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>@ 2026 Valparai Tourism Website</p>
+
+    </footer>
+
+
+
+
+</body>
+
+</html>
