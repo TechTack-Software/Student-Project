@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Food Menu</title>
+
+    <script src="https://kit.fontawesome.com/0c41ca4a6c.js"
+        crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <link rel="stylesheet" href="menu.css">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <h2><i class="fa-solid fa-kitchen-set"></i> Foodie Hub</h2>
+
+        <ul>
+
+            <li>
+                <a href="projet2.html">
+                    Home <i class="fa-solid fa-house"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="About.html">
+                    About <i class="fa-solid fa-store"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="order.html">
+                    Order <i class="fa-solid fa-box-open"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="menu.html">
+                    menu <i class="fa-solid fa-bowl-food"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact <i class="fa-solid fa-circle-user"></i>
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- VEG SECTION -->
+
+    <section class="menu-section">
+        <div class="food-card veg">
+
+        <h1><i class="fa-solid fa-seedling"></i>Veg Menu</h1>
+    </div>
+    <br>
+
+        <div class="menu-container">
+
+            <!-- ITEM 1 -->
+
+            <div class="food-card">
+
+                <img src="paneer.jpeg">
+
+                <h2>Paneer Butter Masala</h2>
+
+                <p>₹180</p>
+
+                <button onclick="addToCart('Paneer Butter Masala - ₹180')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+
+            <!-- ITEM 2 -->
+
+            <div class="food-card">
+
+                <img src="friedrice.jpeg">
+
+                <h2>Veg Fried Rice</h2>
+
+                <p>₹120</p>
+
+                <button onclick="addToCart('Veg Fried Rice - ₹120')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+
+            <!-- ITEM 3 -->
+
+            <div class="food-card">
+
+                <img src="masala dosa.jpeg">
+
+                <h2>Masala Dosa</h2>
+
+                <p>₹60</p>
+
+                <button onclick="addToCart('Masala Dosa - ₹60')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+
+            <!-- ITEM 4 -->
+
+            <div class="food-card">
+
+                <img src="veg biryani.jpeg">
+
+                <h2>Veg Biryani</h2>
+
+                <p>₹150</p>
+
+                <button onclick="addToCart('Veg Biryani - ₹150')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+
+            <!-- ITEM 5 -->
+
+            <div class="food-card">
+
+                <img src="noodle.jpeg">
+
+                <h2>Noodles</h2>
+
+                <p>₹100</p>
+
+                <button onclick="addToCart('Noodles - ₹100')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+
+            <!-- ITEM 6 -->
+
+            <div class="food-card">
+
+                <img src="idly.jpeg">
+
+                <h2>Idly</h2>
+
+                <p>₹50</p>
+
+                <button onclick="addToCart('Idly - ₹50')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+
+            <!-- ITEM 7 -->
+
+            <div class="food-card">
+
+                <img src="poori.jpeg">
+
+                <h2>Poori</h2>
+
+                <p>₹65</p>
+
+                <button onclick="addToCart('Poori - ₹65')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+
+            <!-- ITEM 8 -->
+
+            <div class="food-card">
+
+                <img src="meals.jpeg">
+
+                <h2>Meals</h2>
+
+                <p>₹130</p>
+
+                <button onclick="addToCart('Meals - ₹130')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+
+            <!-- ITEM 9 -->
+
+            <div class="food-card">
+
+                <img src="Fires.jpeg">
+
+                <h2>French Fries</h2>
+
+                <p>₹90</p>
+
+                <button onclick="addToCart('French Fries - ₹90')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+
+            <!-- ITEM 10 -->
+
+            <div class="food-card">
+
+                <img src="pasta.jpg">
+
+                <h2>Pasta</h2>
+
+                <p>₹100</p>
+
+                <button onclick="addToCart('Pasta - ₹100')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+            <div class="food-card">
+
+                <img src="veg sandwich.jpeg">
+
+                <h2>sandwich</h2>
+
+                <p>₹120</p>
+
+                <button onclick="addToCart('sandwich - ₹100')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+            <div class="food-card">
+
+                <img src="chapati.jpeg">
+
+                <h2>chapati</h2>
+
+                <p>₹60</p>
+
+                <button onclick="addToCart('chapati - ₹60')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- NON VEG SECTION -->
+
+    <section class="menu-section">
+        <div class="food-card nonveg">
+
+        <h1><i class="fa-solid fa-drumstick-bite"></i> Non-Veg Menu</h1>
+         </div>
+         <br>
+        <div class="menu-container">
+
+            <!-- ITEM 1 -->
+
+            <div class="food-card">
+
+                <img src="chickenbiryani.jpeg">
+
+                <h2>Chicken Biryani</h2>
+
+                <p>₹220</p>
+
+                <button onclick="addToCart('Chicken Biryani - ₹220')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+
+            <!-- ITEM 2 -->
+
+            <div class="food-card">
+
+                <img src="chicken.jpg">
+
+                <h2>Chicken Curry</h2>
+
+                <p>₹180</p>
+
+                <button onclick="addToCart('Chicken Curry - ₹180')">
+
+                    Add To Cart
+
+                </button>
+
+
+
+
+       </div>
+
+            <!-- ITEM 3 -->
+
+            <div class="food-card">
+
+                <img src="grillchicken.jpeg">
+
+                <h2>Grill Chicken</h2>
+
+                <p>₹250</p>
+
+                <button onclick="addToCart('Grill Chicken - ₹250')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+
+            <!-- ITEM 4 -->
+
+            <div class="food-card">
+
+                <img src="muttonBiryani.jpeg">
+
+                <h2>Mutton Biryani</h2>
+
+                <p>₹300</p>
+
+                <button onclick="addToCart('Mutton Biryani - ₹300')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+
+            <!-- ITEM 5 -->
+
+            <div class="food-card">
+
+                <img src="chickenpizza.jpeg">
+
+                <h2>Chicken Pizza</h2>
+
+                <p>₹300</p>
+
+                <button onclick="addToCart('Chicken Pizza - ₹300')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+
+            <!-- ITEM 6 -->
+
+            <div class="food-card">
+
+                <img src="chickensoup.jpeg">
+
+                <h2>Chicken Soup</h2>
+
+                <p>₹120</p>
+
+                <button onclick="addToCart('Chicken Soup - ₹120')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+
+            <!-- ITEM 7 -->
+
+            <div class="food-card">
+
+                <img src="chickenburger.jpeg">
+
+                <h2>Chicken Burger</h2>
+
+                <p>₹150</p>
+
+                <button onclick="addToCart('Chicken Burger - ₹150')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+
+            <!-- ITEM 8 -->
+
+            <div class="food-card">
+
+                <img src="lollipopchicken.jpeg">
+
+                <h2>Lollipop Chicken</h2>
+
+                <p>₹200</p>
+
+                <button onclick="addToCart('Lollipop Chicken - ₹200')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+
+            <!-- ITEM 9 -->
+
+            <div class="food-card">
+
+                <img src="fish.jpeg">
+
+                <h2>Fish Fry</h2>
+
+                <p>₹220</p>
+
+                <button onclick="addToCart('Fish Fry - ₹220')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+
+            <!-- ITEM 10 -->
+
+            <div class="food-card">
+
+                <img src="prawn.jpeg">
+
+                <h2>Prawn Fry</h2>
+
+                <p>₹280</p>
+
+                <button onclick="addToCart('Prawn Fry - ₹280')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+            <div class="food-card">
+
+                <img src="shawarma.jpeg">
+
+                <h2>shawarma</h2>
+
+                <p>₹150</p>
+
+                <button onclick="addToCart('shawarma - ₹150')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+            <div class="food-card">
+
+                <img src="porotta.jpeg">
+
+                <h2>porotta</h2>
+
+                <p>₹60</p>
+
+                <button onclick="addToCart('porotta - ₹60')">
+
+                    Add To Cart
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CART -->
+
+   <!-- CART -->
+
+<section class="cart-section">
+
+    <h1><i class="fa-solid fa-cart-shopping"></i> Your Cart</h1>
+
+    <ul id="cartItems">
+
+    </ul>
+
+    <button class="place-order-btn" 
+        onclick="openOrderForm()">
+        Place Order
+    </button>
+
+</section>
+
+<!-- ORDER FORM POPUP -->
+
+<div class="order-popup" id="orderPopup">
+
+    <div class="order-form-box">
+
+        <span class="close-popup"
+            onclick="closeOrderForm()">
+
+            &times;
+
+        </span>
+
+        <h2>Customer Details</h2>
+
+        <form id="customerForm">
+
+            <input type="text"
+                placeholder="Enter Your Name"
+                required>
+
+            <textarea
+                placeholder="Enter Address"
+                required></textarea>
+
+            <input type="tel"
+                placeholder="Enter Phone Number"
+                required>
+
+            <!-- CART ITEMS -->
+
+            <textarea id="orderItems"
+                readonly></textarea>
+
+            <button type="submit"
+                class="confirm-btn">
+
+                Confirm Order
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- SUCCESS MESSAGE -->
+
+<div class="success-box" id="successBox">
+
+    <div class="success-content">
+
+        <h1><i class="fa-regular fa-circle-check"></i> Order Confirmed</h1>
+
+        <p>
+            Your order has been placed successfully.
+        </p>
+
+        <button onclick="closeSuccess()">
+            OK
+        </button>
+
+    </div>
+
+</div>
+
+<!-- SCRIPT -->
+
+<script>
+
+    function addToCart(item){
+
+        let li =
+        document.createElement("li");
+
+        li.innerText = item;
+
+        document.getElementById("cartItems")
+        .appendChild(li);
+
+        alert(item + " Added To Cart");
+    }
+
+    // OPEN ORDER FORM
+
+    function openOrderForm(){
+
+        let cart =
+        document.getElementById("cartItems");
+
+        if(cart.children.length === 0){
+
+            alert("Your Cart Is Empty");
+
+        }
+
+        else{
+
+            let items = "";
+
+            for(let i = 0;
+                i < cart.children.length;
+                i++){
+
+                items +=
+                cart.children[i].innerText + "\n";
+            }
+
+            document.getElementById("orderItems")
+            .value = items;
+
+            document.getElementById("orderPopup")
+            .style.display = "flex";
+        }
+    }
+
+    // CLOSE ORDER FORM
+
+    function closeOrderForm(){
+
+        document.getElementById("orderPopup")
+        .style.display = "none";
+    }
+
+    
+
+document.getElementById("customerForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    // GET VALUES
+
+    let name =
+    document.querySelector(
+    '#customerForm input[type="text"]'
+    ).value;
+
+    let address =
+    document.querySelector(
+    '#customerForm textarea'
+    ).value;
+
+    let phone =
+    document.querySelector(
+    '#customerForm input[type="tel"]'
+    ).value;
+
+    let items =
+    document.getElementById("orderItems")
+    .value;
+    let cart = document.getElementById("cartItems");
+
+let total = 0;
+let itemList = "";
+
+for(let i = 0; i < cart.children.length; i++){
+
+    let text = cart.children[i].innerText;
+
+    let price = parseInt(text.split("₹")[1]);
+
+    total += price;
+
+    itemList += (i+1) + ". " + text + "\n";
+}
+
+    // PDF CREATE
+
+    const { jsPDF } = window.jspdf;
+let doc = new jsPDF();
+
+/* ================= HEADER ================= */
+
+doc.setFontSize(22);
+doc.setTextColor(255, 87, 51); // Food theme color
+doc.setFont("helvetica", "bold");
+doc.text("FOODIE HUB", 80, 20);
+
+doc.setFontSize(14);
+doc.setTextColor(0, 0, 0);
+doc.text("Food Order Invoice", 80, 30);
+
+/* LINE */
+doc.setDrawColor(255, 87, 51);
+doc.line(20, 35, 190, 35);
+
+/* ================= BOX ================= */
+
+doc.setDrawColor(255, 87, 51);
+doc.setLineWidth(2);
+doc.rect(15, 45, 180, 110);
+
+/* ================= DETAILS ================= */
+
+doc.setFontSize(12);
+
+doc.text("Customer Name : " + name, 25, 60);
+doc.text("Phone Number  : " + phone, 25, 75);
+doc.text("Address       : " + address, 25, 90);
+
+
+doc.setFont("helvetica", "normal");
+/* ITEMS */
+doc.setFont("helvetica", "normal");
+doc.setFontSize(12);
+
+doc.text("Ordered Items:", 25, 105);
+doc.text(itemList, 25, 115);
+
+/* TOTAL */
+doc.setFont("helvetica", "bold");
+doc.setFontSize(14);
+
+doc.text("Total Amount : ₹" + total, 25, 140);
+doc.setFontSize(10);
+
+
+/* ================= FOOTER ================= */
+
+doc.setFontSize(12);
+doc.setTextColor(100);
+
+doc.text("Thank you for ordering with Foodie Hub 🍽️", 40, 165);
+
+doc.setFontSize(10);
+doc.text("Visit Again!", 90, 175);
+
+/* ================= SAVE ================= */
+
+doc.save("FoodieHub_Invoice.pdf");
+
+    // DOWNLOAD PDF
+
+    doc.save("FoodieHub_Order.pdf");
+
+    // CLOSE FORM
+
+    document.getElementById("orderPopup")
+    .style.display = "none";
+
+    // SHOW SUCCESS BOX
+
+    document.getElementById("successBox")
+    .style.display = "flex";
+
+});
+function closeSuccess(){
+
+    // HIDE SUCCESS BOX
+
+    document.getElementById("successBox")
+    .style.display = "none";
+
+    // CLEAR CART
+
+    document.getElementById("cartItems")
+    .innerHTML = "";
+
+    // RESET FORM
+
+    document.getElementById("customerForm")
+    .reset();
+
+}
+
+</script>
+</body>
+
+</html>

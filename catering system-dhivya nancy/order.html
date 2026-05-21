@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script src="https://kit.fontawesome.com/0c41ca4a6c.js" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Order Page</title>
+
+    <link rel="stylesheet" href="order.css">
+
+</head>
+
+<body background="ord.jpeg">
+
+      <nav>
+
+        <h2><i class="fa-solid fa-kitchen-set"></i> Foodie Hub</h2>
+
+        <ul>
+
+            <li>
+                <a href="projet2.html">
+                    Home <i class="fa-solid fa-house"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="About.html">
+                    About <i class="fa-solid fa-store"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="order.html">
+                    Order <i class="fa-solid fa-box-open"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="menu.html">
+                    Menu <i class="fa-solid fa-bowl-food"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact <i class="fa-solid fa-circle-user"></i>
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <!-- ORDER SECTION -->
+
+    <section class="order-section">
+
+        <h1> Event Food Orders </h1>
+
+        <div class="order-container">
+
+            <!-- BIRTHDAY -->
+
+            <div class="order-card">
+
+                <img src="birthday1.jpeg">
+
+                <h2> Birthday Party</h2>
+
+                <p>
+                    Special birthday food packages with cakes,
+                    snacks, desserts, and delicious meals.
+                </p>
+
+                <button onclick="openForm('Birthday Party')">
+                    Order Now
+                </button>
+
+            </div>
+
+            <!-- MARRIAGE -->
+
+            <div class="order-card">
+
+                <img src="marriage.jpeg">
+
+                <h2> Marriage Function</h2>
+
+                <p>
+                    Luxury wedding food services with traditional
+                    and modern dishes for large events.
+                </p>
+
+                <button onclick="openForm('Marriage Function')">
+                    Order Now
+                </button>
+
+            </div>
+
+            <!-- CELEBRATION -->
+
+            <div class="order-card">
+
+                <img src="celebration.png">
+
+                <h2> Celebration Party</h2>
+
+                <p>
+                    Delicious food arrangements for celebration
+                    events and family functions.
+                </p>
+
+                <button onclick="openForm('Celebration Party')">
+                    Order Now
+                </button>
+
+            </div>
+
+            <!-- OFFICE -->
+
+            <div class="order-card">
+
+                <img src="office.png">
+
+                <h2> Office Party</h2>
+
+                <p>
+                    Professional catering service for office
+                    meetings and corporate events.
+                </p>
+
+                <button onclick="openForm('Office Party')">
+                    Order Now
+                </button>
+
+            </div>
+
+            <!-- FAMILY -->
+
+            <div class="order-card">
+
+                <img src="family.jpeg">
+
+                <h2> Family Event</h2>
+
+                <p>
+                    Tasty and healthy food for family gatherings,
+                    reunions, and home celebrations.
+                </p>
+
+                <button onclick="openForm('Family Event')">
+                    Order Now
+                </button>
+
+            </div>
+
+            <!-- FESTIVAL -->
+
+            <div class="order-card">
+
+                <img src="celebration2.jpeg">
+
+                <h2> Festival Celebration</h2>
+
+                <p>
+                    Special festival food packages with sweets,
+                    snacks, and traditional dishes.
+                </p>
+
+                <button onclick="openForm('Festival Celebration')">
+                    Order Now
+                </button>
+
+            </div>
+
+            <!-- ANNIVERSARY -->
+
+            <div class="order-card">
+
+                <img src="celebration3.jpeg">
+
+                <h2> Anniversary Celebration</h2>
+
+                <p>
+                    Elegant catering services for anniversary
+                    parties and memorable celebrations.
+                </p>
+
+                <button onclick="openForm('Anniversary Celebration')">
+                    Order Now
+                </button>
+
+            </div>
+
+            <!-- ENGAGEMENT -->
+
+            <div class="order-card">
+
+                <img src="engagement.jpeg">
+
+                <h2> Engagement Ceremony</h2>
+
+                <p>
+                    Delicious catering services for engagement
+                    functions with tasty meals and desserts.
+                </p>
+
+                <button onclick="openForm('Engagement Ceremony')">
+                    Order Now
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- POPUP FORM -->
+
+    <div class="popup-form" id="popupForm">
+
+        <div class="form-box">
+
+            <span class="close-btn"
+                onclick="closeForm()">
+
+                &times;
+
+            </span>
+
+            <h2> Event Order Form</h2>
+
+            <form id="orderForm">
+
+                <!-- NAME -->
+
+                <input type="text"
+                    placeholder="Enter Your Name"
+                    required>
+
+                <!-- PHONE -->
+
+                <input type="tel"
+                    placeholder="Enter Phone Number"
+                    required>
+
+                <!-- EMAIL -->
+
+                <input type="email"
+                    placeholder="Enter Email"
+                    required>
+
+                <!-- ADDRESS -->
+
+                <textarea
+                    placeholder="Enter Address"
+                    required></textarea>
+
+                <!-- EVENT -->
+
+                <select id="eventType"
+                    required>
+
+                    <option value="">
+                        Select Event Type
+                    </option>
+
+                    <option>Birthday Party</option>
+
+                    <option>Marriage Function</option>
+
+                    <option>Celebration Party</option>
+
+                    <option>Office Party</option>
+
+                    <option>Family Event</option>
+
+                    <option>Festival Celebration</option>
+
+                    <option>Anniversary Celebration</option>
+
+                    <option>Engagement Ceremony</option>
+
+                </select>
+
+                <!-- DATE -->
+
+                <input type="date"
+                    required>
+
+                <!-- TIME -->
+
+                <input type="time"
+                    required>
+
+                <!-- GUEST -->
+
+                <input type="number"
+                    placeholder="Total Number of Guests"
+                    required>
+
+                <!-- FOOD TYPE -->
+
+                <h3> Select Food Type</h3>
+
+                <div class="radio-group">
+
+                    <label>
+
+                        <input type="radio"
+                            name="food"
+                            value="Veg"
+                            required>
+
+                        Veg
+
+                    </label>
+
+                    <label>
+
+                        <input type="radio"
+                            name="food"
+                            value="Non-Veg">
+
+                        Non-Veg
+
+                    </label>
+
+                    <label>
+
+                        <input type="radio"
+                            name="food"
+                            value="Both">
+
+                        Both
+
+                    </label>
+
+                </div>
+
+                <!-- VEG COUNT -->
+
+                <input type="number"
+                    id="vegCount"
+                    placeholder="How Many Veg Plates?">
+
+                <!-- NON VEG COUNT -->
+
+                <input type="number"
+                    id="nonVegCount"
+                    placeholder="How Many Non-Veg Plates?">
+
+                <!-- FOOD ITEMS -->
+
+                <textarea
+                    placeholder="Enter Food Items Needed
+
+Example:
+Veg Biriyani - 50
+Chicken Rice - 100
+Ice Cream
+Cool Drinks"
+                    required></textarea>
+
+                <!-- EXTRA DETAILS -->
+
+                <textarea
+                    placeholder="Additional Details / Decoration / Special Requests"
+                    required></textarea>
+
+                <!-- SUBMIT -->
+
+                <button type="submit"
+                    class="submit-btn">
+
+                    Submit Order
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- SUCCESS MESSAGE -->
+
+    <div class="success-box" id="successBox">
+
+        <div class="success-content">
+
+            <h1><i class="fa-regular fa-circle-check"></i> Order Successful</h1>
+
+            <p>
+                Your food order has been submitted successfully.
+            </p>
+
+            <button onclick="closeSuccess()">
+                OK
+            </button>
+
+        </div>
+
+    </div>
+
+  <script>
+
+    // OPEN FORM
+
+    function openForm(eventName){
+
+        document.getElementById("popupForm")
+        .style.display = "flex";
+
+        document.getElementById("eventType")
+        .value = eventName;
+    }
+
+    // CLOSE FORM
+
+    function closeForm(){
+
+        document.getElementById("popupForm")
+        .style.display = "none";
+    }
+
+    // FOOD OPTION
+
+    const foodOptions =
+    document.getElementsByName("food");
+
+    const vegInput =
+    document.getElementById("vegCount");
+
+    const nonVegInput =
+    document.getElementById("nonVegCount");
+
+    foodOptions.forEach((option)=>{
+
+        option.addEventListener("change", function(){
+
+            if(this.value === "Veg"){
+
+                vegInput.style.display = "block";
+
+                nonVegInput.style.display = "none";
+
+            }
+
+            else if(this.value === "Non-Veg"){
+
+                nonVegInput.style.display = "block";
+
+                vegInput.style.display = "none";
+
+            }
+
+            else{
+
+                vegInput.style.display = "block";
+
+                nonVegInput.style.display = "block";
+            }
+
+        });
+
+    });
+
+    // SUBMIT FORM
+
+    document.getElementById("orderForm")
+    .addEventListener("submit", function(e){
+
+        e.preventDefault();
+
+        // CLOSE FORM
+
+        document.getElementById("popupForm")
+        .style.display = "none";
+
+        // SHOW SUCCESS BOX
+
+        document.getElementById("successBox")
+        .style.display = "flex";
+
+        // RESET FORM
+
+        document.getElementById("orderForm")
+        .reset();
+
+        vegInput.style.display = "none";
+        nonVegInput.style.display = "none";
+
+    });
+
+    // CLOSE SUCCESS BOX
+
+    function closeSuccess(){
+
+        document.getElementById("successBox")
+        .style.display = "none";
+    }
+
+</script>
+</body>
+</html>
