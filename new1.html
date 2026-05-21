@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://kit.fontawesome.com/8568c2b454.js" crossorigin="anonymous"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Super Kings Cricket Club</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      /* Bright Cricket Stadium Background */
+      background-image:url("https://images.unsplash.com/photo-1540747913346-19e32dc3e97e");
+      background-size:cover;
+      background-position:center;
+      height:100vh;
+      color:white;
+    }
+
+    .overlay{
+      background:rgba(0,0,0,0.45);
+      height:100vh;
+      padding:20px;
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      font-size:30px;
+      font-weight:bold;
+      color:#ffd700;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin:0 12px;
+      font-size:18px;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#ffd700;
+    }
+
+    .hero{
+      text-align:center;
+      margin-top:90px;
+    }
+
+    .hero h1{
+      font-size:58px;
+      color:#ffd700;
+      margin-bottom:15px;
+      text-shadow:2px 2px 5px black;
+    }
+
+    .hero p{
+      font-size:24px;
+      margin-bottom:25px;
+      text-shadow:1px 1px 4px black;
+    }
+
+    /* Information Box */
+
+    .info-box{
+      width:60%;
+      margin:auto;
+      padding:25px;
+
+      /* No background color */
+      background:none;
+
+      border:2px solid #ffd700;
+      border-radius:15px;
+
+      box-shadow:0 0 15px rgba(255,215,0,0.5);
+    }
+
+    .info-box h2{
+      color:#ffd700;
+      font-size:30px;
+      margin-bottom:15px;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      text-shadow:2px 2px 4px black;
+    }
+
+    .info-box p{
+      color:white;
+      font-size:19px;
+      line-height:1.8;
+      font-weight:bold;
+      text-shadow:1px 1px 3px black;
+    }
+
+    .btn{
+      margin-top:30px;
+      display:inline-block;
+      padding:13px 28px;
+      background:#ffd700;
+      color:black;
+      text-decoration:none;
+      font-size:18px;
+      font-weight:bold;
+      border-radius:8px;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:white;
+      transform:scale(1.05);
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="overlay">
+
+    <header>
+
+      <div class="logo">
+      <img src="kings.jpg" height="25" width="25">Super Kings Cricket Club
+      </div>
+
+      <nav>
+
+        <a href="new1.html">
+          Home <i class="fa-solid fa-house-chimney"></i>
+        </a>
+
+        <a href="new2.html">
+          About <i class="fa-solid fa-eject"></i>
+        </a>
+
+        <a href="new3.html">
+          Batch <i class="fa-solid fa-baseball"></i>
+        </a>
+
+        <a href="new4.html">
+          Staff <i class="fa-solid fa-clipboard-user"></i>
+        </a>
+
+        <a href="new5.html">
+          Contacts <i class="fa-solid fa-square-phone"></i>
+        </a>
+
+      </nav>
+
+    </header>
+
+    <div class="hero">
+
+      <h1>Welcome to Super Kings Cricket Club</h1>
+
+      <p>
+        Train Hard. Play Strong. Become a Champion.
+      </p>
+
+      <!-- Information Box -->
+
+      <div class="info-box">
+
+        <h2>Cricket</h2>
+
+        <p>
+          Cricket helps improve teamwork and leadership qualities.<br>
+
+          It increases fitness, focus, and self-confidence.<br>
+
+          Our academy offers professional coaching and modern training.<br>
+
+          Join today and begin your journey towards cricket success.
+        </p>
+
+      </div>
+
+      <!-- Explore Button -->
+
+      <a class="btn" href="new2.html">
+        Explore More
+      </a>
+
+    </div>
+
+  </div>
+</body>
+</html>
