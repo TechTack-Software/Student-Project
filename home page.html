@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Code Generator</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-image:url("C:/Users/ELCOT/Downloads/background.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    min-height:100vh;
+
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    height:80px;
+    background:linear-gradient(to right,#005bea,#008cff);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 50px;
+}
+
+.logo{
+    color:white;
+    font-size:35px;
+    font-weight:bold;
+}
+
+.logo i{
+    margin-right:10px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:40px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:22px;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:yellow;
+}
+
+/* HEADING */
+
+.heading{
+    text-align:center;
+    color:white;
+    margin-top:40px;
+}
+
+.heading h1{
+    font-size:70px;
+}
+
+.heading p{
+    font-size:28px;
+    margin-top:10px;
+}
+
+/* CARD SECTION */
+
+.container{
+    width:90%;
+    margin:auto;
+    margin-top:50px;
+    display:grid;
+    justify-content: center;   /* centers horizontally */
+    align-items: center;       /* centers vertically */
+    gap: 40px;                 /* space between boxes */
+ 
+}
+
+.card{
+    background:white;
+    border-radius:25px;
+    padding:40px 40px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:120px;
+    height:120px;
+}
+
+.card h2{
+    margin-top:20px;
+    font-size:40px;
+}
+
+.card p{
+    margin-top:20px;
+    font-size:22px;
+    color:#444;
+}
+
+.btn{
+    margin-top:25px;
+    padding:15px 30px;
+    border:none;
+    border-radius:10px;
+    background:#3399ff;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#0066ff;
+}
+
+/* COLOR BOX */
+
+.color-box{
+    margin-top:20px;
+}
+
+input[type="color"]{
+    width:70px;
+    height:40px;
+    border:none;
+    cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+    <i class="fa-solid fa-qrcode"></i>
+    QR Code Generator
+</div>
+
+<ul>
+
+    <li><a href="help.html"><i class="fa-regular fa-circle-question"></i> Help</a></li>
+
+</ul>
+
+</nav>
+
+<!-- HEADING -->
+
+<div class="heading">
+    <h1>QR Code Generator</h1>
+    <p>Generate QR Codes for Text, URLs, Photos, and Videos</p>
+</div>
+
+<!-- CARDS -->
+<center>
+<div class="container">
+
+    <!-- TEXT QR -->
+
+    <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3898/3898082.png">
+
+        <h2>Text QR Code</h2>
+
+        <p>Convert any text or message into a QR Code instantly.</p>
+
+        <button onclick="window.location.href='text - QR.html'" class="btn" >Generate Text QR</button>
+
+    </div>
+
+    <!-- URL QR -->
+
+    <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png">
+
+        <h2>URL QR Code</h2>
+
+        <p>Create QR Codes for website links and webpages easily.</p>
+
+        <button onclick="window.location.href='urlQR.html'" class="btn">Generate URL QR</button>
+
+    </div>
+    <!-- PHOTO QR -->
+
+    <div class="card">
+        <img src="C:\Users\ELCOT\OneDrive\Pictures\Screenshots\Screenshot 2026-05-12 123111.png" style="height: 180px; width: 200px;">
+
+        <h2>Image QR Code</h2>
+
+        <p>Generate QR Codes for your images and photos.</p>
+
+        <button onclick="window.location.href='img-QR.html'" class="btn">Generate Photo QR</button>
+
+    </div>
+
+    <!-- VIDEO QR -->
+
+    <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3659/3659899.png">
+
+        <h2>Video QR Code</h2>
+
+        <p>Create QR Codes for videos and media content.</p>
+
+        <button  onclick="window.location.href='videoQR.html'" class="btn">Generate Video QR</button>
+
+    </div>
+
+</div>
+</center>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Text to QR Code Generator</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</script>
+
+<style>
+
+body{
+    font-family:Arial;
+    background-image:url("C:/Users/ELCOT/Downloads/textbg.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat; 
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+}
+
+.container{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    width:350px;
+    box-shadow:0 0 10px rgba(0,0,0,0.3);
+}
+
+h1{
+    color:#333;
+}
+
+input{
+    width:90%;
+    padding:10px;
+    margin-top:15px;
+    border:2px solid #754ffe;
+    border-radius:8px;
+    font-size:16px;
+}
+
+button{
+    margin-top:15px;
+    padding:10px 20px;
+    border:none;
+    background: #02004b;
+    color:white;
+    font-size:16px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0099ff;
+}
+
+#qrcode{
+    margin-top:20px;
+}
+.l
+{
+    position:absolute;
+    bottom:1px;
+    margin-bottom: 6%;
+    align-items: center;
+}
+.home{
+    position:absolute;
+    top:20px;
+    right:30px;
+    text-decoration:none;
+ color:rgb(10, 34, 167);
+     font-size:22px;
+    font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Text to QR Code</h1>
+
+    <input type="text" id="text" placeholder="Enter text here">
+
+    <br><br>
+
+    <button onclick="generateQR()">Generate QR</button>
+
+    <br>
+
+    <button onclick="downloadQR()">Download QR</button>
+    <br>
+
+    <div id="qrcode"></div>
+
+</div>
+<a href="home page.html" class="home">Back to Home</a>
+
+<script>
+
+function generateQR(){
+
+    let text=document.getElementById("text").value;
+
+    document.getElementById("qrcode").innerHTML="";
+
+    new QRCode(document.getElementById("qrcode"),{
+        text:text,
+        width:200,
+        height:200
+    });
+}
+
+function downloadQR(){
+
+    let img=document.querySelector("#qrcode img");
+
+    if(img){
+
+        let link=document.createElement("a");
+
+        link.href=img.src;
+
+        link.download="QRCode.png";
+
+        link.click();
+    }
+
+    else{
+        alert("Generate QR Code First");
+    }
+}
+
+</script>
+
+</body>
+</html>

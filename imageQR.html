@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Link to QR Code</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background-image: url("C:/Users/ELCOT/Downloads/ChatGPT Image May 18, 2026, 07_45_53 PM.png");
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+}
+
+.container{
+
+    position: absolute;
+    top: 40px;   /* Move down */
+    right: 420px;  /* Move right */
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    width:350px;
+    text-align:center;
+    box-shadow:0 0 15px rgba(0,0,0,0.2);
+
+}
+
+h2{
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid gray;
+    font-size:15px;
+    box-sizing:border-box;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    background:#0066ff;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#0047b3;
+}
+
+#qrcode{
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+}
+
+.home{
+    position:absolute;
+    top:20px;
+    right:30px;
+    text-decoration:none;
+    color:#003399;
+    font-size:20px;
+    font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<a href="home page.html" class="home">Back to Home</a>
+
+<div class="container">
+
+    <h2>Image Link to QR Code</h2>
+
+    <input 
+        type="text" 
+        id="imgLink" 
+        placeholder="Paste image link here"
+    >
+
+    <button onclick="generateQR()">Generate QR</button>
+
+    <button onclick="downloadQR()">Download QR</button>
+
+    <div id="qrcode"></div>
+
+</div>
+
+<script>
+
+function generateQR(){
+
+    let link = document.getElementById("imgLink").value.trim();
+
+    // Empty check
+    if(link === ""){
+        alert("Please enter an image link");
+        return;
+    }
+
+    // Valid image link check
+    if(
+        !link.includes(".jpg") &&
+        !link.includes(".jpeg") &&
+        !link.includes(".png") &&
+        !link.includes(".webp") &&
+        !link.includes("drive.google.com")
+    ){
+        alert("Please enter a valid image link only.");
+        return;
+    }
+
+    let qrDiv = document.getElementById("qrcode");
+
+    qrDiv.innerHTML = "";
+
+    new QRCode(qrDiv,{
+        text: link,
+        width:200,
+        height:200
+    });
+}
+
+
+// Download QR Code
+function downloadQR(){
+
+    let qrCanvas = document.querySelector("#qrcode canvas");
+    let qrImage = document.querySelector("#qrcode img");
+
+    let link = document.createElement("a");
+
+    link.download = "QRCode.png";
+
+    if(qrImage && qrImage.src){
+
+        link.href = qrImage.src;
+        link.click();
+
+    }
+    else if(qrCanvas){
+
+        link.href = qrCanvas.toDataURL("image/png");
+        link.click();
+
+    }
+    else{
+
+        alert("Please generate a QR code first.");
+
+    }
+}
+
+</script>
+
+</body>
+</html>
