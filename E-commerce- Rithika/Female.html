@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opal Fashion Store - Female Collection</title>
+    <script src="https://kit.fontawesome.com/0c41ca4a6c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Female.css">
+    <style>
+        .size-selector {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .size-selector label {
+            font-size: 13px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        .size-selector select {
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 480px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .form-container h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-order-summary {
+            background-color: #f7f7f7;
+            border: 1px solid #e3e3e3;
+            border-radius: 4px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-order-summary h3 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #555;
+        }
+
+        .form-summary-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 120px;
+            overflow-y: auto;
+        }
+
+        .form-summary-list li {
+            padding: 6px 0;
+            border-bottom: 1px dashed #ddd;
+            font-size: 13px;
+            color: #333;
+        }
+
+        .form-summary-list li:last-child {
+            border-bottom: none;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .form-row-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .submit-btn {
+            background-color: #111;
+            color: white;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            flex: 1;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        .submit-btn:hover {
+            background-color: #444;
+        }
+
+        .cancel-btn {
+            background-color: #e0e0e0;
+            color: #333;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            flex: 1;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        .cancel-btn:hover {
+            background-color: #ccc;
+        }
+
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printReceiptArea, #printReceiptArea * {
+                visibility: visible;
+            }
+            #printReceiptArea {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                padding: 30px;
+                font-family: Arial, sans-serif;
+                color: #000;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <h1 id="logo">Opal</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="Home.html"><i class="fa-solid fa-house"></i>Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="Categories.html" class="dropbtn">Categories ▾</a>
+                    <ul class="dropdown-content">
+                        <li><a href="Female.html"><i class="fa-solid fa-person-dress"></i> FEMALE</a></li>
+                        <li><a href="Male.html"><i class="fa-solid fa-person"></i> MALE</a></li>
+                    </ul>
+                </li>
+                <li><a href="Contact.html"><i class="fa-solid fa-phone"></i>Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="collection-section">
+        <h1><i class="fa-solid fa-person-dress"></i> Female Collection</h1>
+        <div class="collection-container">
+            <div class="product-card">
+                <img src="dress1.jpg" alt="Floral Bloom Maxi">
+                <h2>Floral Bloom Maxi</h2>
+                <p>₹1,899</p>
+                <div class="size-selector">
+                    <label for="size1">Size:</label>
+                    <select id="size1">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                <button onclick="addToCart('Floral Bloom Maxi', '₹1,899', 'size1')">Add To Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="dress2.jpg" alt="Ethereal Silk Wrap">
+                <h2>Ethereal Silk Wrap</h2>
+                <p>₹2,450</p>
+                <div class="size-selector">
+                    <label for="size2">Size:</label>
+                    <select id="size2">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                <button onclick="addToCart('Ethereal Silk Wrap', '₹2,450', 'size2')">Add To Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="dress3.jpg" alt="Temple Border Banarasi">
+                <h2>Temple Border Banarasi</h2>
+                <p>₹3,200</p>
+                <div class="size-selector">
+                    <label for="size3">Size:</label>
+                    <select id="size3">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                <button onclick="addToCart('Temple Border Banarasi', '₹3,200', 'size3')">Add To Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="dress4.jpg" alt="Mandala Silk Anarkali">
+                <h2>Mandala Silk Anarkali</h2>
+                <p>₹2,100</p>
+                <div class="size-selector">
+                    <label for="size4">Size:</label>
+                    <select id="size4">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                <button onclick="addToCart('Mandala Silk Anarkali', '₹2,100', 'size4')">Add To Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="dress5.jpg" alt="Marigold Chanderi Suit">
+                <h2>Marigold Chanderi Suit</h2>
+                <p>₹1,899</p>
+                <div class="size-selector">
+                    <label for="size5">Size:</label>
+                    <select id="size5">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                <button onclick="addToCart('Marigold Chanderi Suit', '₹1,899', 'size5')">Add To Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="dress12.jpg" alt="Gota Patti Flare">
+                <h2>Gota Patti Flare</h2>
+                <p>₹2,100</p>
+                <div class="size-selector">
+                    <label for="size6">Size:</label>
+                    <select id="size6">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                <button onclick="addToCart('Gota Patti Flare', '₹2,100', 'size6')">Add To Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="dress13.jpg" alt="Lucknowi Chikankari Muse">
+                <h2>Lucknowi Chikankari Muse</h2>
+                <p>₹1,899</p>
+                <div class="size-selector">
+                    <label for="size7">Size:</label>
+                    <select id="size7">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                <button onclick="addToCart('Lucknowi Chikankari Muse', '₹1,899', 'size7')">Add To Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="dress14.jpg" alt="Royal Nizam Sharara">
+                <h2>Royal Nizam Sharara</h2>
+                <p>₹2,450</p>
+                <div class="size-selector">
+                    <label for="size8">Size:</label>
+                    <select id="size8">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                <button onclick="addToCart('Royal Nizam Sharara', '₹2,450', 'size8')">Add To Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="dress15.jpg" alt="Varanasi Brocade Wrap">
+                <h2>Varanasi Brocade Wrap</h2>
+                <p>₹3,200</p>
+                <div class="size-selector">
+                    <label for="size9">Size:</label>
+                    <select id="size9">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                <button onclick="addToCart('Varanasi Brocade Wrap', '₹3,200', 'size9')">Add To Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="dress16.jpg" alt="Aari Work Velvet Suit">
+                <h2>Aari Work Velvet Suit</h2>
+                <p>₹2,100</p>
+                <div class="size-selector">
+                    <label for="size10">Size:</label>
+                    <select id="size10">
+                        <option value="S">S</option>
+                        <option value="M" selected>M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+                <button onclick="addToCart('Aari Work Velvet Suit', '₹2,100', 'size10')">Add To Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="cart-section">
+        <h1><i class="fa-solid fa-cart-shopping"></i> Your Cart</h1>
+        <ul id="cartItems"></ul>
+        <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
+    </section>
+
+    <div class="modal-overlay" id="orderModal">
+        <div class="form-container">
+            <h2>Checkout Details</h2>
+            
+            <div class="form-order-summary">
+                <h3>Items in Order:</h3>
+                <ul id="formCartSummary" class="form-summary-list"></ul>
+            </div>
+
+            <form id="checkoutForm" onsubmit="submitOrder(event)">
+                <div class="form-group">
+                    <label for="fullName">Name</label>
+                    <input type="text" id="fullName" required placeholder="Enter full name">
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="tel" id="phoneNumber" required placeholder="Enter 10-digit number" pattern="[0-9]{10}">
+                </div>
+                <div class="form-group">
+                    <label for="houseNo">House No / Street Name</label>
+                    <input type="text" id="houseNo" required placeholder="Flat, House no., Building, Street">
+                </div>
+                <div class="form-group">
+                    <label for="landmark">Area / Landmark</label>
+                    <input type="text" id="landmark" required placeholder="Nearby famous place or sector">
+                </div>
+                <div class="form-row-grid">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" required placeholder="City">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" id="state" required placeholder="State">
+                    </div>
+                </div>
+                <div class="form-row-grid">
+                    <div class="form-group">
+                        <label for="pincode">Pincode</label>
+                        <input type="text" id="pincode" required placeholder="6-digit PIN" pattern="[0-9]{6}">
+                    </div>
+                    <div class="form-group">
+                        <label for="dressCount">Total No. of Dresses</label>
+                        <input type="number" id="dressCount" required min="1" readonly>
+                    </div>
+                </div>
+                <div class="form-row-grid">
+                    <div class="form-group">
+                        <label for="formSize">Size</label>
+                        <select id="formSize" required>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="Mixed">Mixed Sizes (See Cart)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="colors">Colors</label>
+                        <input type="text" id="colors" required placeholder="e.g. Red, Blue, Mixed">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" onclick="closeForm()">Cancel</button>
+                    <button type="submit" class="submit-btn">Confirm Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="printReceiptArea"></div>
+
+    <script>
+        function addToCart(name, price, sizeSelectId){
+            let selectedSize = document.getElementById(sizeSelectId).value;
+            let fullItemText = name + " (Size: " + selectedSize + ") - " + price;
+            
+            let li = document.createElement("li");
+            li.innerText = fullItemText;
+            document.getElementById("cartItems").appendChild(li);
+        }
+
+        function placeOrder(){
+            let cart = document.getElementById("cartItems");
+            if(cart.children.length === 0){
+                alert("Your Cart Is Empty");
+            } else {
+                let formSummary = document.getElementById("formCartSummary");
+                formSummary.innerHTML = "";
+
+                for (let i = 0; i < cart.children.length; i++) {
+                    let summaryLi = document.createElement("li");
+                    summaryLi.innerText = cart.children[i].innerText;
+                    formSummary.appendChild(summaryLi);
+                }
+
+                document.getElementById("dressCount").value = cart.children.length;
+                
+                let uniqueSizes = [];
+                for(let i=0; i < cart.children.length; i++) {
+                    let text = cart.children[i].innerText;
+                    let match = text.match(/\(Size:\s*([A-Z]+)\)/);
+                    if(match && !uniqueSizes.includes(match[1])) {
+                        uniqueSizes.push(match[1]);
+                    }
+                }
+                if(uniqueSizes.length === 1) {
+                    document.getElementById("formSize").value = uniqueSizes[0];
+                } else {
+                    document.getElementById("formSize").value = "Mixed";
+                }
+
+                document.getElementById("orderModal").style.display = "flex";
+            }
+        }
+
+        function closeForm(){
+            document.getElementById("checkoutForm").reset();
+            document.getElementById("orderModal").style.display = "none";
+        }
+
+        function submitOrder(event){
+            event.preventDefault();
+            
+            let name = document.getElementById("fullName").value;
+            let phone = document.getElementById("phoneNumber").value;
+            let house = document.getElementById("houseNo").value;
+            let landmark = document.getElementById("landmark").value;
+            let city = document.getElementById("city").value;
+            let state = document.getElementById("state").value;
+            let pin = document.getElementById("pincode").value;
+            let count = document.getElementById("dressCount").value;
+            let size = document.getElementById("formSize").value;
+            let colors = document.getElementById("colors").value;
+            
+            let cartItemsHTML = document.getElementById("formCartSummary").innerHTML;
+
+            let receiptHTML = `
+                <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 20px;">
+                    <h1>OPAL FASHION STORE</h1>
+                    <p>Order Invoice / Receipt</p>
+                </div>
+                <h3>Customer Details:</h3>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Phone Number:</strong> ${phone}</p>
+                <p><strong>Address:</strong> ${house}, ${landmark}, ${city}, ${state} - ${pin}</p>
+                <hr>
+                <h3>Order Configuration:</h3>
+                <p><strong>Size Preferred:</strong> ${size}</p>
+                <p><strong>Colors Selected:</strong> ${colors}</p>
+                <p><strong>Total No. of Dresses:</strong> ${count}</p>
+                <hr>
+                <h3>Items Ordered:</h3>
+                <ul style="padding-left: 20px;">${cartItemsHTML}</ul>
+                <div style="margin-top: 40px; text-align: center; font-size: 12px; border-top: 1px dashed #ccc; padding-top: 10px;">
+                    <p>Thank you for shopping at Opal!</p>
+                </div>
+            `;
+
+            document.getElementById("printReceiptArea").innerHTML = receiptHTML;
+            document.getElementById("orderModal").style.display = "none";
+            
+            window.print();
+            
+            document.getElementById("cartItems").innerHTML = "";
+            document.getElementById("printReceiptArea").innerHTML = "";
+            closeForm();
+        }
+    </script>
+</body>
+</html>

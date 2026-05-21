@@ -1,0 +1,96 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden; 
+    font-family: 'Arial', sans-serif;
+    background-color: #ececec;
+}
+
+.about {
+    height: 87vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0px;
+    padding: 1px;
+    background-color: #c3c6c1c9;
+    background-image: url(about.png);
+}
+
+.about-box {
+    display: flex;
+    width: 95%;
+    max-width: 1100px;
+    height: 75vh; 
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.about-content {
+    flex: 1.2;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+.header-container {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+h1 { font-size: 36px; margin: 0; }
+h2 { font-family: 'Brush Script MT', cursive; font-size: 40px; color: #ff8c00; margin: 0; }
+
+h3 { color: #ffce27; font-size: 18px; margin-bottom: 5px; }
+p { font-size: 15px; line-height: 1.5; color: #444; margin: 0; }
+
+
+.mission-chips {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; 
+    margin-top: 10px;
+}
+
+.chip {
+    background: linear-gradient(135deg, #fff 0%, #fff3e0 100%);
+    border: 1px solid #ffce27;
+    color: #444;
+    padding: 8px 15px;
+    border-radius: 50px; 
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(255, 206, 39, 0.2);
+    transition: 0.3s ease;
+    cursor: default;
+}
+
+.chip:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(255, 140, 0, 0.3);
+    border-color: #ff8c00;
+}
+
+.section-text h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    color: #444; 
+}
+
+.about-image {
+    flex: 1;
+    background: #f4f4f4;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}

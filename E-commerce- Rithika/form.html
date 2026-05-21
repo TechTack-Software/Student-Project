@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opal Fashion Store - Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 480px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+        }
+
+        .form-container h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-order-summary {
+            background-color: #f7f7f7;
+            border: 1px solid #e3e3e3;
+            border-radius: 4px;
+            padding: 12px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-order-summary h3 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #555;
+        }
+
+        .form-summary-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 120px;
+            overflow-y: auto;
+        }
+
+        .form-summary-list li {
+            padding: 6px 0;
+            border-bottom: 1px dashed #ddd;
+            font-size: 13px;
+            color: #333;
+        }
+
+        .form-summary-list li:last-child {
+            border-bottom: none;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .form-row-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .submit-btn {
+            background-color: #111;
+            color: white;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            flex: 1;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        .submit-btn:hover {
+            background-color: #444;
+        }
+
+        .cancel-btn {
+            background-color: #e0e0e0;
+            color: #333;
+            border: none;
+            padding: 12px;
+            cursor: pointer;
+            flex: 1;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        .cancel-btn:hover {
+            background-color: #ccc;
+        }
+
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printReceiptArea, #printReceiptArea * {
+                visibility: visible;
+            }
+            #printReceiptArea {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                padding: 30px;
+                font-family: Arial, sans-serif;
+                color: #000;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container" id="formWrapper">
+        <h2>Checkout Details</h2>
+        
+        <div class="form-order-summary">
+            <h3>Items in Order:</h3>
+            <ul id="formCartSummary" class="form-summary-list"></ul>
+        </div>
+
+        <form id="checkoutForm" onsubmit="submitOrder(event)">
+            <div class="form-group">
+                <label for="fullName">Name</label>
+                <input type="text" id="fullName" required placeholder="Enter full name">
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="tel" id="phoneNumber" required placeholder="Enter 10-digit number" pattern="[0-9]{10}">
+            </div>
+            <div class="form-group">
+                <label for="houseNo">House No / Street Name</label>
+                <input type="text" id="houseNo" required placeholder="Flat, House no., Building, Street">
+            </div>
+            <div class="form-group">
+                <label for="landmark">Area / Landmark</label>
+                <input type="text" id="landmark" required placeholder="Nearby famous place or sector">
+            </div>
+            <div class="form-row-grid">
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" required placeholder="City">
+                </div>
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <input type="text" id="state" required placeholder="State">
+                </div>
+            </div>
+            <div class="form-row-grid">
+                <div class="form-group">
+                    <label for="pincode">Pincode</label>
+                    <input type="text" id="pincode" required placeholder="6-digit PIN" pattern="[0-9]{6}">
+                </div>
+                <div class="form-group">
+                    <label for="dressCount">Total No. of Dresses</label>
+                    <input type="number" id="dressCount" required min="1" readonly>
+                </div>
+            </div>
+            <div class="form-row-grid">
+                <div class="form-group">
+                    <label for="formSize">Size</label>
+                    <select id="formSize" required>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="Mixed">Mixed Sizes (See Cart)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="colors">Colors</label>
+                    <input type="text" id="colors" required placeholder="e.g. Red, Blue, Mixed">
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="cancel-btn" onclick="backToStore()">Cancel</button>
+                <button type="submit" class="submit-btn">Confirm Order</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="printReceiptArea"></div>
+
+    <script>
+        let cartData = JSON.parse(localStorage.getItem("opalCart")) || [];
+
+        window.onload = function() {
+            if(cartData.length === 0) {
+                alert("No items found in your checkout summary.");
+                window.location.href = "Female.html";
+                return;
+            }
+
+            let formSummary = document.getElementById("formCartSummary");
+            let uniqueSizes = [];
+
+            cartData.forEach(item => {
+                let summaryLi = document.createElement("li");
+                summaryLi.innerText = item.text;
+                formSummary.appendChild(summaryLi);
+
+                if(!uniqueSizes.includes(item.size)) {
+                    uniqueSizes.push(item.size);
+                }
+            });
+
+            document.getElementById("dressCount").value = cartData.length;
+
+            if(uniqueSizes.length === 1) {
+                document.getElementById("formSize").value = uniqueSizes[0];
+            } else {
+                document.getElementById("formSize").value = "Mixed";
+            }
+        };
+
+        function backToStore() {
+            window.location.href = "Female.html";
+        }
+
+        function submitOrder(event){
+            event.preventDefault();
+            
+            let name = document.getElementById("fullName").value;
+            let phone = document.getElementById("phoneNumber").value;
+            let house = document.getElementById("houseNo").value;
+            let landmark = document.getElementById("landmark").value;
+            let city = document.getElementById("city").value;
+            let state = document.getElementById("state").value;
+            let pin = document.getElementById("pincode").value;
+            let count = document.getElementById("dressCount").value;
+            let size = document.getElementById("formSize").value;
+            let colors = document.getElementById("colors").value;
+            
+            let cartItemsHTML = document.getElementById("formCartSummary").innerHTML;
+
+            let receiptHTML = `
+                <div style="text-align: center; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 20px;">
+                    <h1>OPAL FASHION STORE</h1>
+                    <p>Order Invoice / Receipt</p>
+                </div>
+                <h3>Customer Details:</h3>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Phone Number:</strong> ${phone}</p>
+                <p><strong>Address:</strong> ${house}, ${landmark}, ${city}, ${state} - ${pin}</p>
+                <hr>
+                <h3>Order Configuration:</h3>
+                <p><strong>Size Preferred:</strong> ${size}</p>
+                <p><strong>Colors Selected:</strong> ${colors}</p>
+                <p><strong>Total No. of Dresses:</strong> ${count}</p>
+                <hr>
+                <h3>Items Ordered:</h3>
+                <ul style="padding-left: 20px;">${cartItemsHTML}</ul>
+                <div style="margin-top: 40px; text-align: center; font-size: 12px; border-top: 1px dashed #ccc; padding-top: 10px;">
+                    <p>Thank you for shopping at Opal!</p>
+                </div>
+            `;
+
+            document.getElementById("formWrapper").style.display = "none";
+            document.getElementById("printReceiptArea").innerHTML = receiptHTML;
+            
+            window.print();
+            
+            localStorage.removeItem("opalCart");
+            window.location.href = "Female.html";
+        }
+    </script>
+</body>
+</html>
