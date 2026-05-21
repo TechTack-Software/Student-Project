@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | PhotoVerse</title>
+<script src="https://kit.fontawesome.com/0ca0d62713.js" crossorigin="anonymous"></script>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+:root{
+    --bg1: rgba(255,255,255,0.72);
+    --bg2: rgba(255,248,240,0.82);
+    --text:#1f2937;
+    --muted:#2f353d; /* Dark Grey */
+    --card:rgba(255,255,255,0.94);
+    --header:rgba(255,255,255,0.88);
+    --primary:#f59e0b;
+    --border:rgba(0,0,0,0.06);
+    --shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+body{
+    font-family:'Segoe UI', sans-serif;
+    color:var(--text);
+    background:
+        linear-gradient(var(--bg1), var(--bg2)),
+        url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=80')
+        center/cover fixed;
+    line-height:1.8;
+}
+
+/* Header */
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 7%;
+    background:var(--header);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+}
+
+.logo{
+    font-size:30px;
+    font-weight:800;
+}
+
+.logo span{
+    color:var(--primary);
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+nav a{
+    text-decoration:none;
+    color:var(--text);
+    font-weight:600;
+    transition:0.3s;
+}
+
+nav a:hover,
+nav a.active{
+    color:var(--primary);
+}
+
+/* Hero Section */
+.hero{
+    text-align:center;
+    padding:100px 20px 70px;
+}
+
+.hero h1{
+    font-size:clamp(2.5rem, 6vw, 5rem);
+    font-weight:800;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:850px;
+    margin:auto;
+    color:var(--muted);
+    font-size:1.1rem;
+}
+
+/* About Container */
+.about-container{
+    width:min(1100px, 92%);
+    margin:auto;
+    padding-bottom:80px;
+}
+
+/* Cards */
+.about-card{
+    background:var(--card);
+    border-radius:25px;
+    padding:45px;
+    margin-bottom:35px;
+    box-shadow:var(--shadow);
+    border:1px solid var(--border);
+}
+
+.about-card h2{
+    font-size:2rem;
+    margin-bottom:20px;
+    color:var(--text);
+}
+
+.about-card p{
+    color:var(--muted);
+    font-size:1.05rem;
+    text-align:justify;
+}
+
+/* Features Grid */
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap:25px;
+    margin-top:20px;
+}
+
+.feature-box{
+    background:rgba(255,255,255,0.95);
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    transition:0.3s;
+}
+
+.feature-box:hover{
+    transform:translateY(-8px);
+}
+
+.feature-box h3{
+    margin:15px 0 10px;
+    font-size:1.3rem;
+}
+
+.feature-box p{
+    color:var(--muted);
+    text-align:center;
+}
+
+/* Team Section */
+.team{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:25px;
+}
+
+.team-card{
+    background:var(--card);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    text-align:center;
+}
+
+.team-card img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+}
+
+.team-card h3{
+    margin-top:20px;
+    font-size:1.3rem;
+}
+
+.team-card p{
+    padding:10px 20px 25px;
+    color:var(--muted);
+    text-align:center;
+}
+
+/* CTA */
+.cta{
+    text-align:center;
+    background:var(--card);
+    padding:60px 30px;
+    border-radius:25px;
+    box-shadow:var(--shadow);
+}
+
+.cta h2{
+    font-size:2.2rem;
+    margin-bottom:15px;
+}
+
+.cta p{
+    color:var(--muted);
+    margin-bottom:25px;
+}
+
+.cta a{
+    display:inline-block;
+    padding:14px 34px;
+    background:var(--primary);
+    color:#fff;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.cta a:hover{
+    transform:translateY(-3px);
+    opacity:0.9;
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:25px;
+    background:var(--card);
+    border-top:1px solid var(--border);
+    color:#4b5563;
+}
+
+footer .tagline{
+    margin-top:8px;
+    color:var(--primary);
+    font-style:italic;
+    font-weight:600;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    header{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .hero{
+        padding:80px 20px 50px;
+    }
+
+    .about-card{
+        padding:30px 25px;
+    }
+
+    .hero h1{
+        font-size:2.5rem;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="logo">📸 Photo<span>Verse</span></div>
+
+    <nav>
+        <a href="Final Homepage.html" class="active">Home <i class="fa-solid fa-house-chimney"></i></a>
+        <a href="Day3 Gallerypage.html">Gallery<i class="fa-solid fa-image"></i></a>
+        <a href="Final Categories.html">Categories<i class="fa-solid fa-layer-group"></i></a>
+        <a href="about.html">About<i class="fa-solid fa-circle-info"></i></a>
+        
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <h1>About PhotoVerse</h1>
+    <p><b>
+        PhotoVerse is a creative image gallery platform where every photograph
+        captures a story, emotion, and unforgettable moment.</b>
+    </p>
+</section>
+
+<!-- About Content -->
+<section class="about-container">
+
+    <!-- Our Story -->
+    <div class="about-card">
+        <h2>Our Story</h2>
+        <p>
+           <b> PhotoVerse was created with a simple mission: to build a beautiful
+            space where photography lovers can explore stunning visuals from
+            around the world. From breathtaking landscapes and wildlife to
+            fashion, travel, and artistic compositions, our collection celebrates
+            the power of photography to inspire and connect people.</b>
+        </p>
+    </div>
+
+    <!-- Mission -->
+    <div class="about-card">
+        <h2>Our Mission</h2>
+        <p>
+           <b> Our goal is to provide an elegant and user-friendly platform for
+            discovering high-quality images. We believe every image has the
+            ability to tell a story, evoke emotion, and reveal beauty that words
+            cannot express.</b>
+        </p>
+    </div>
+
+    <!-- Features -->
+    <div class="about-card">
+        <h2>Why Choose PhotoVerse?</h2>
+
+        <div class="features">
+            <div class="feature-box">
+                <h3>📷 High Quality Images</h3>
+                <p><b>Explore visually stunning, high-resolution photographs.</b></p>
+            </div>
+
+            <div class="feature-box">
+                <h3>🌍 Diverse Categories</h3>
+                <p><b>Browse Nature, Travel, Wildlife, Fashion, and more.</b></p>
+            </div>
+
+            <div class="feature-box">
+                <h3>⬇ Easy Downloads</h3>
+                <p><b>Download your favorite images with a single click.</b></p>
+            </div>
+
+            <div class="feature-box">
+                <h3>💡 Elegant Design</h3>
+                <p><b>Enjoy a clean and responsive browsing experience.</b></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team -->
+    <div class="about-card">
+        <h2>Our Creative Vision</h2>
+
+        <div class="team">
+            <div class="team-card">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80" alt="Photographer">
+                <h3>Passion for Photography</h3>
+                <p><b>We showcase images that capture beauty, creativity, and emotion.</b></p>
+            </div>
+
+            <div class="team-card">
+                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80" alt="Creative Team">
+                <h3>Creative Exploration</h3>
+                <p><b>Discover photographs that inspire imagination and storytelling.</b></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+        <h2>Start Exploring PhotoVerse</h2>
+        <p>
+           <b> Browse our gallery and discover stunning images from every category.</b>
+        </p>
+        <a href="Day3 Gallerypage.html">Explore Gallery</a>
+    </div>
+
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2026 PhotoVerse. All Rights Reserved.</p>
+    <p class="tagline">Capturing beauty, one frame at a time.</p>
+</footer>
+
+</body>
+</html>
