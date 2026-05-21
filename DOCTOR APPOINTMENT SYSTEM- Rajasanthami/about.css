@@ -1,0 +1,387 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body{
+    position:relative;
+    background:#f0f8ff;
+}
+
+/* Background Image */
+
+body::before{
+    content:"";
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:url("hospital-bg.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    opacity:0.4;
+
+    z-index:-1;
+}
+/* Navbar */
+
+nav{
+    background-color:#0077b6;
+    padding:20px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:15px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:yellow;
+}
+nav{
+    background:#0077b6;
+    padding:20px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.logo{
+    display:flex;
+    align-items:center;
+    color:white;
+    gap: 10px;
+    font-size:30px;
+}
+
+.logo i{
+    font-size:35px;
+    margin-right:10px;
+}
+
+.logo h2{
+    font-size:28px;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    margin:15px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.menu a:hover{
+    color:yellow;
+}
+/* About Intro */
+
+.about-page{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:60px;
+    gap:50px;
+}
+.about-container{
+    width:90%;
+
+    margin:40px auto;
+
+    background:rgb(200, 240, 240);
+
+    border-radius:25px;
+
+    padding:40px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:40px;
+
+    box-shadow:0px 0px 20px rgba(0,0,0,0.1);
+}
+/* Left Side Content */
+
+.about-content{
+    width:60%;
+}
+
+.about-content h1{
+    color:#0077b6;
+    font-size:45px;
+    margin-bottom:20px;
+}
+
+.intro{
+    font-size:22px;
+    color:#2846de;
+
+    line-height:2;
+
+    text-align:justify;
+
+    padding-left:25px;
+
+    border-left:6px solid #0077b6;
+
+    font-style:italic;
+}
+
+/* Right Side Image Box */
+
+.about-image{
+    width:35%;
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    box-shadow:0px 0px 20px rgba(0,0,0,0.2);
+
+    text-align:center;
+}
+
+.about-image img{
+    width:100%;
+    height:450px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+}
+.intro span{
+    color:#0619ed;
+    font-size:32px;
+    font-weight:bold;
+}
+.intro:hover{
+    background:#bcddef;
+    color:rgb(48, 36, 217);
+}
+/* Department Box */
+
+/* Departments */
+
+.departments{
+    text-align:center;
+    padding:40px;
+}
+
+.departments h2{
+    color:#023e8a;
+    margin-bottom:30px;
+}
+
+.dept-box{
+    background:#ffffff;
+    width:220px;
+    display:inline-block;
+    margin:15px;
+    padding:20px;
+    border-radius:15px;
+
+    box-shadow:0px 0px 10px rgb(117, 202, 239);
+
+    transition:0.4s;
+}
+.dept-box p{
+    font-size:20px;
+    color:#0077b6;
+    font-weight:bold;
+}
+.dept-box:hover{
+    background:#0077b6;
+
+    transform:translateY(-8px);
+
+    box-shadow:0px 0px 20px rgb(107, 191, 230);
+}
+
+.dept-box:hover p{
+    color:rgb(131, 189, 251);
+}
+ul{
+    list-style-position:inside;
+}
+
+/* Achievement Section */
+
+.achievement{
+    text-align:center;
+    padding:50px;
+}
+
+.achievement h2{
+    color:#0077b6;
+    margin-bottom:30px;
+}
+/* Awards */
+
+.awards{
+    text-align:center;
+    padding:50px;
+}
+
+.awards h2{
+    color:#0077b6;
+    margin-bottom:20px;
+}
+
+ul{
+    margin-top:20px;
+}
+
+li{
+    font-size:22px;
+    color:#2d2d2f;
+    margin:10px;
+    font-style: bold;
+}
+.box{
+    background:white;
+    width:250px;
+    display:inline-block;
+    margin:15px;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0px 0px 10px lightgray;
+}
+
+.box h3{
+    color:#023e8a;
+    margin-bottom:15px;
+}
+
+/* Chief Doctor */
+
+.chief-doctor{
+    text-align:center;
+    background:white;
+    padding:50px;
+}
+
+.chief-doctor h2{
+    color:#0077b6;
+    margin-bottom:20px;
+}
+
+.chief-doctor img{
+    width:350px;
+    height:450px;
+    border-radius:50%;
+    margin-bottom:20px;
+}
+
+.chief-doctor h3{
+    color:#023e8a;
+    margin-bottom:15px;
+    font-size:22px ;
+    font-weight:bold;
+}
+.chief-doctor p{
+    color:#555;
+    font-size:20px;
+    font-style: bold;
+}
+
+/* Facilities */
+
+.facilities{
+    padding:50px;
+    text-align:center;
+}
+
+.facilities h2{
+    color:#0077b6;
+    margin-bottom:20px;
+}
+
+.facilities ul{
+    list-style:none;
+}
+
+.facilities li{
+    font-size:20px;
+    color:#555;
+    font-style: italic;
+    font-weight: bolder;
+    margin:15px;
+}
+
+/* Medical Camp */
+
+.camp{
+    background:white;
+    text-align:center;
+    padding:50px;
+}
+
+.camp h2{
+    color:#0077b6;
+    margin-bottom:20px;
+}
+
+.camp p{
+    font-size:20px;
+    color:#555;
+    width:80%;
+    margin:auto;
+    line-height:1.8;
+}
+footer{
+    background:#0077b6;
+    color:white;
+    padding:30px;
+
+    display:flex;
+    justify-content:center;
+    gap:100px;
+    align-items:center;
+}
+
+.footer-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    border-right:2px solid rgb(128, 225, 226);
+    padding-right:40px;
+}
+
+.footer-box i{
+    font-size:30px;
+}
+.footer-box p{
+    font-size:22px;
+    font-weight:bold;
+}
+.footer-box a{
+    color:white;
+    text-decoration:none;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.footer-box a:hover{
+    color:yellow;
+}

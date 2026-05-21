@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://kit.fontawesome.com/5afc157f9b.js" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="confirmation.css">
+    <title>Confirmation</title>
+</head>
+<body>
+    
+    <nav>
+         <div class="logo">
+
+        <i class="fa-solid fa-hospital"></i>
+
+        <h2>MediCare Hospital</h2>
+
+          </div>
+              <div class="menu">
+
+        <a href="home.html"><i class="fa-solid fa-house"></i>Home</a>
+        <a href="about.html"><i class="fa-solid fa-info"></i>About</a>
+        <a href="doctors.html"><i class="fa-solid fa-user-doctor"></i>Doctors</a>
+        <a href="appointment.html"><i class="fa-solid fa-calendar-check"></i>Appointment</a>
+              </div>
+
+    </nav>
+
+
+    <!-- Confirmation Section -->
+
+    <section class="confirmation-container">
+
+        <!-- Success Icon -->
+
+        <i class="fa-solid fa-circle-check success-icon"></i>
+
+        <h1>Your Appointment is Confirmed</h1>
+
+        <p class="message">
+
+            Thank you for booking your appointment.
+
+        </p>
+        <div class="info-box">
+            <div class="download-box">
+
+    <h2>Appointment Details</h2>
+
+    <p id="patient"></p>
+
+    <p id="doctor"></p>
+
+    <p id="specialist"></p>
+
+    <p id="date"></p>
+
+    <p id="time"></p>
+
+   <button type="button" onclick="downloadDetails()">
+    Download Details
+</button>
+
+</div>
+
+    <h2>Appointment Guidelines</h2>
+
+    <ul>
+
+        <li>Please arrive 10 minutes before your appointment time.</li>
+
+        <li>Carry your previous medical records if available.</li>
+
+        <li>Follow the instructions provided by the healthcare staff.</li>
+
+        <li>Single attender is allowed with the patient.</li>
+
+        <li>For any changes, contact the hospital support team.</li>
+
+    </ul>
+
+</div>
+
+
+    <a href="home.html">
+        <button class="home-btn">Back To Home</button>
+    </a>
+    <br>
+    </section>
+    <script>
+
+window.onload = function(){
+
+    let data =
+    JSON.parse(localStorage.getItem("appointmentData"));
+
+    if(data){
+
+        document.getElementById("patient").innerHTML =
+        "Patient Name : " + data.name;
+
+        document.getElementById("doctor").innerHTML =
+        "Doctor : " + data.doctor;
+
+        document.getElementById("specialist").innerHTML =
+        "Specialist : " + data.specialist;
+
+        document.getElementById("date").innerHTML =
+        "Date : " + data.date;
+
+        document.getElementById("time").innerHTML =
+        "Time : " + data.time;
+    }
+}
+
+function downloadDetails(){
+
+    let data =
+    JSON.parse(localStorage.getItem("appointmentData"));
+
+    const { jsPDF } = window.jspdf;
+
+    let doc = new jsPDF();
+
+    /* Heading */
+
+    doc.setFontSize(22);
+    doc.setTextColor(0,119,182);
+    doc.setFont("helvetica", "bold");
+    doc.text("MEDICARE HOSPITAL", 65, 20);
+
+    /* Sub Heading */
+
+    doc.setFontSize(16);
+    doc.setTextColor(100);
+    doc.setTextColor(0,0,0);
+    doc.text("Appointment Details", 80, 35);
+
+    /* Box */
+
+    doc.setDrawColor(0,119,182);
+    doc.setLineWidth(2);
+    doc.rect(20, 45, 170, 90);
+    
+
+    /* Details */
+
+    doc.setFontSize(14);
+
+    doc.text("Patient Name : " + data.name, 30, 60);
+
+    doc.text("Doctor : " + data.doctor, 30, 75);
+
+    doc.text("Specialist : " + data.specialist, 30, 90);
+
+    doc.text("Date : " + data.date, 30, 105);
+
+    doc.text("Time : " + data.time, 30, 120);
+
+    /* Footer */
+
+    doc.setFontSize(12);
+    doc.setTextColor(100);
+
+    doc.text(
+    "Thank You For Booking!",
+    85,
+    145
+    );
+
+    doc.save("appointment-details.pdf");
+}
+</script>
+     <!-- Footer -->
+
+   <footer>
+
+    <div class="footer-box">
+        <i class="fa-solid fa-phone"></i>
+        <p>+91 9876543210</p>
+    </div>
+
+    <div class="footer-box">
+        <i class="fa-solid fa-envelope"></i>
+        <p>medicare@gmail.com</p>
+    </div>
+
+ <div class="footer-box">
+
+    <i class="fa-solid fa-map-marker-alt"></i>
+
+    <a href="https://www.google.com/maps?q=Chennai"
+       target="_blank">
+        Chennai
+    </a>
+
+</div>
+
+</footer>
+</body>
+</html>

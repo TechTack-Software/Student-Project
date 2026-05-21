@@ -1,0 +1,272 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body{
+    position:relative;
+    background:#f0f8ff;
+}
+
+/* Background Image */
+
+body::before{
+    content:"";
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:url("hospital-bg.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    opacity:0.4;
+
+    z-index:-1;
+}
+
+/* Navbar */
+
+nav{
+    background:#0077b6;
+    padding:20px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    color:white;
+    gap: 10px;
+    font-size:30px;
+
+}
+
+.logo i{
+    font-size:35px;
+    margin-right:10px;
+}
+
+.logo h2{
+    font-size:28px;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    margin:15px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.menu a:hover{
+    color:yellow;
+}
+
+/* Appointment Container */
+
+.appointment-container{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:40px;
+
+    padding:50px;
+}
+
+/* Form Box */
+
+.form-box{
+    background:white;
+    padding:35px;
+    width:500px;
+
+    border-radius:15px;
+
+    box-shadow:0px 0px 10px lightgray;
+}
+
+.form-box h1{
+    text-align:center;
+    color:#023e8a;
+    margin-bottom:25px;
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea{
+    width:100%;
+    padding:15px;
+    margin-bottom:18px;
+
+    border:1px solid lightgray;
+    border-radius:10px;
+
+    font-size:16px;
+}
+
+.form-box textarea{
+    height:120px;
+    resize:none;
+}
+
+.form-box button{
+    width:100%;
+    padding:15px;
+
+    background:#0077b6;
+    color:white;
+
+    border:none;
+    border-radius:10px;
+
+    font-size:18px;
+    cursor:pointer;
+}
+
+.form-box button:hover{
+    background:#023e8a;
+}
+
+/* Doctor Details */
+
+.doctor-details{
+    background:white;
+
+    width:450px;
+    height:940px;
+
+    padding:50px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:0px 0px 20px rgba(0,119,182,0.25);
+
+    transition:0.4s;
+}
+
+/* Top Blue Line */
+
+.doctor-details::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:80px;
+
+    background:linear-gradient(to right,#0077b6,#00b4d8);
+}
+
+/* Bottom Blue Line */
+
+.doctor-details::after{
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+    left:0;
+
+    width:100%;
+    height:100px;
+
+    background:linear-gradient(to right,#00b4d8,#0077b6);
+}
+
+/* Hover Effect */
+
+.doctor-details:hover{
+    transform:translateY(-5px);
+
+    box-shadow:0px 0px 30px rgba(0,119,182,0.35);
+}
+.doctor-details img{
+    width: 370px;
+    height:370px;
+    
+    border-radius:60px;
+    margin-top: 30px;
+    margin-bottom:40px;
+}
+.doctor-details h1{
+    font-size: 40px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    color:#023e8a;
+    margin-top: 100px;
+    margin-bottom:30px;
+}
+.doctor-details h2{
+    font-size: 34px;
+    color:#023e8a;
+    margin-bottom:20px;
+}
+
+.doctor-details h3{
+    color:#0077b6;
+    margin-bottom:10px;
+}
+
+.doctor-details p{
+    margin-bottom:15px;
+    color:#444;
+    font-size:17px;
+}
+footer{
+    background:#0077b6;
+    color:white;
+    padding:30px;
+
+    display:flex;
+    justify-content:center;
+    gap:100px;
+    align-items:center;
+}
+
+.footer-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    border-right:2px solid rgb(128, 225, 226);
+    padding-right:40px;
+}
+
+.footer-box i{
+    font-size:30px;
+}
+.footer-box p{
+    font-size:22px;
+    font-weight:bold;
+}
+.footer-box a{
+    color:white;
+    text-decoration:none;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.footer-box a:hover{
+    color:yellow;
+}
