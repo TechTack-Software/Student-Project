@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://kit.fontawesome.com/3a4b108d05.js" crossorigin="anonymous"></script>
+    <!-- PDF Download seiyum compulsory library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Booking | Madurai Cinemas</title>
+    
+    <style>
+        :root { --primary: #dc3545; --light: #f8f9fa; }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--light); }
+        header { background: #000; color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; }
+        
+        /* Logo Styles */
+        .brand-container { display: flex; align-items: center; gap: 12px; }
+        .logo { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); }
+
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
+        .booking-container { max-width: 600px; margin: 40px auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+        .theatre-info { text-align: center; color: var(--primary); margin-bottom: 20px; padding: 10px; border: 1px dashed #ccc; border-radius: 5px; }
+        
+        /* Showtime Selection Layout Styles */
+        .showtime-section { margin: 20px 0; text-align: center; }
+        .showtime-label { font-weight: bold; margin-bottom: 10px; color: #333; display: block; }
+        .showtime-grid { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+        .time-btn { padding: 8px 15px; border: 2px solid #ccc; background: white; border-radius: 5px; cursor: pointer; font-weight: 600; font-size: 14px; transition: all 0.2s ease; }
+        .time-btn.selected { background: var(--primary); color: white; border-color: var(--primary); }
+        
+        /* Fixed Theatre Row/Column Layout Styles */
+        .seat-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px; margin: 20px 0; justify-items: center; }
+        .seat { width: 40px; height: 40px; background: #ccc; border-radius: 5px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 12px; user-select: none; font-weight: bold; }
+        .seat.selected { background: #28a745; color: white; }
+        .seat.occupied { background: #6c757d; color: #fff; cursor: not-allowed; }
+        .screen { background: #444; color: white; text-align: center; padding: 10px; margin-bottom: 30px; border-radius: 0 0 50% 50%; font-size: 14px; letter-spacing: 2px; }
+        .btn { background: var(--primary); color: white; border: none; padding: 12px; width: 100%; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .error-message { color: var(--primary); text-align: center; font-weight: bold; margin-bottom: 10px; display: none; }
+
+        /* Success Page View Overlays - FIXED: Modified position to fixed for absolute full-screen modal distribution */
+        .success-page { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 30px; box-sizing: border-box; z-index: 9999; }
+        .success-icon { color: #28a745; font-size: 7rem; margin-bottom: 50px; }
+        
+        /* Download button extra styling */
+        .download-btn { background: #28a745; color: white; border: none; padding: 12px; width: 100%; max-width: 200px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        /* PDF print target background safety wrap */
+        .pdf-area { background: white; padding: 20px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="brand-container">
+            <img src="MC.jpg" alt="Logo" class="logo">
+            <h1 style="margin: 0;">Madurai Cinemas</h1>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="booking.html">Booking</a><i class="fa-solid fa-square-check"></i>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <div class="booking-container">
+        <div id="bookingForm">
+            <div class="theatre-info">
+                <h3 id="theatreDisplay">Select a theatre from Contact Page</h3>
+            </div>
+
+            <div class="showtime-section">
+                <span class="showtime-label">Select Show Time:</span>
+                <div class="showtime-grid" id="showtimeGrid">
+                    <button class="time-btn" onclick="selectShowtime(this, '11:00 AM')">11:00 AM</button>
+                    <button class="time-btn" onclick="selectShowtime(this, '02:30 PM')">02:30 PM</button>
+                    <button class="time-btn" onclick="selectShowtime(this, '06:45 PM')">06:45 PM</button>
+                    <button class="time-btn" onclick="selectShowtime(this, '10:15 PM')">10:15 PM</button>
+                </div>
+            </div>
+
+            <h2 style="text-align: center;">Reserve Your Tickets</h2>
+            <div class="screen">SCREEN</div>
+            <div class="seat-grid" id="seatGrid"></div>
+            <div style="border-top: 1px solid #ddd; padding-top: 15px;">
+                <p>Seats Selected: <span id="count">0</span></p>
+                <p>Total Price: <b>₹<span id="total">0</span></b></p>
+                <div id="errorDisplay" class="error-message"></div>
+                <button class="btn" onclick="confirmBooking()">Book Tickets</button>
+            </div>
+        </div>
+
+        <div id="successPage" class="success-page">
+            <!-- Indha area mattum thaan PDF-il thoonrum padi wrap seiyappatulladhu -->
+            <div id="pdfContent" class="pdf-area">
+                <i class="fa-solid fa-circle-check success-icon"></i>
+                <h2 style="color: #28a745; margin-bottom: 10px;">Booking Successful!</h2>
+                <p id="successMessage" style="font-size: 18px; color: #333; margin-bottom: 30px; font-weight: 500; padding: 0 10px; line-height: 1.6; white-space: pre-line;"></p>
+            </div>
+            
+            <!-- Download Button (Idhu PDF kul varadhu) -->
+            <button class="download-btn" onclick="downloadTicketPDF()">
+                <i class="fa-solid fa-file-pdf"></i> Download Ticket (PDF)
+            </button>
+            
+            <button class="btn" style="max-width: 200px;" onclick="redirectToContact()">OK</button>
+        </div>
+    </div>
+
+    <script>
+        // 1. Logic to get Theatre Name from URL Parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedTheatre = urlParams.get('theatre');
+        const display = document.getElementById('theatreDisplay');
+        const errorDisplay = document.getElementById('errorDisplay');
+        
+        if(selectedTheatre) {
+            display.innerText = "Booking for: " + selectedTheatre;
+        } else {
+            display.innerText = "Please select a theatre from the Contact page first!";
+        }
+
+        let chosenShowtime = "";
+        let selectedSeatsList = [];
+        let count = 0;
+
+        // Showtime selection logic function
+        function selectShowtime(element, time) {
+            errorDisplay.style.display = 'none';
+            const buttons = document.querySelectorAll('.time-btn');
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            
+            element.classList.add('selected');
+            chosenShowtime = time;
+
+            // Instantly clear selection metrics and re-render seat status mapping
+            renderSeats();
+        }
+
+        // 2. Persistent Row and Column Seat Generation Logic
+        function renderSeats() {
+            const grid = document.getElementById('seatGrid');
+            grid.innerHTML = ""; 
+            count = 0;
+            selectedSeatsList = [];
+            document.getElementById('count').innerText = count;
+            document.getElementById('total').innerText = 0;
+
+            // Build dynamic validation token based on chosen parameters
+            let storageKey = `booked_${selectedTheatre}_${chosenShowtime}`;
+            let lockedSeats = [];
+            
+            if(selectedTheatre && chosenShowtime) {
+                let savedData = localStorage.getItem(storageKey);
+                if(savedData) {
+                    try {
+                        lockedSeats = JSON.parse(savedData);
+                    } catch(e) {
+                        lockedSeats = [];
+                    }
+                }
+            }
+
+            // Generate clean rows (A-D) and columns (1-8)
+            const rows = ['A', 'B', 'C', 'D'];
+            const cols = 8;
+
+            rows.forEach(row => {
+                for(let col = 1; col <= cols; col++) {
+                    const seatId = `${row}${col}`;
+                    const seat = document.createElement('div');
+                    seat.className = 'seat';
+                    seat.innerText = seatId;
+
+                    // FIXED: Book panna seat-gali thodarnthu grey layout (`occupied`) aagavae irukum, click seiya mudiyathu
+                    if(chosenShowtime && Array.isArray(lockedSeats) && lockedSeats.includes(seatId)) {
+                        seat.classList.add('occupied');
+                    }
+
+                    seat.onclick = () => {
+                        errorDisplay.style.display = 'none';
+                        if(!selectedTheatre) {
+                            showError("Please choose a theatre from the Contact page!");
+                            return;
+                        }
+                        if(!chosenShowtime) {
+                            showError("Please select a show time first!");
+                            return;
+                        }
+                        if(seat.classList.contains('occupied')) return;
+                        
+                        seat.classList.toggle('selected');
+                        
+                        if(seat.classList.contains('selected')) {
+                            count += 1;
+                            selectedSeatsList.push(seatId);
+                        } else {
+                            count -= 1;
+                            selectedSeatsList = selectedSeatsList.filter(item => item !== seatId);
+                        }
+                        
+                        document.getElementById('count').innerText = count;
+                        document.getElementById('total').innerText = count * 190;
+                    };
+                    grid.appendChild(seat);
+                }
+            });
+        }
+
+        function showError(message) {
+            errorDisplay.innerText = message;
+            errorDisplay.style.display = 'block';
+        }
+
+        function confirmBooking() {
+            errorDisplay.style.display = 'none';
+            if(!selectedTheatre) return showError("Please go to the Contact page and select a theatre first!");
+            if(!chosenShowtime) return showError("Please select a show time!");
+            if(count === 0) return showError("Please select at least one seat!");
+            
+            let storageKey = `booked_${selectedTheatre}_${chosenShowtime}`;
+            let currentBookings = [];
+            let savedData = localStorage.getItem(storageKey);
+            if(savedData) {
+                try {
+                    currentBookings = JSON.parse(savedData);
+                    if(!Array.isArray(currentBookings)) currentBookings = [];
+                } catch(e) {
+                    currentBookings = [];
+                }
+            }
+            
+            // Append newly reserved seats to database mapping array
+            let updatedBookings = currentBookings.concat(selectedSeatsList);
+            localStorage.setItem(storageKey, JSON.stringify(updatedBookings));
+
+            // Hide the choice panel components
+            document.getElementById('bookingForm').style.display = 'none';
+
+            // FIXED: Message formatting text dynamically configured to explicitly render full context with the exact selected Theatre Name
+            const successMsg = "Booking Successful for " + selectedTheatre + "\nat " + chosenShowtime + "!\n\nSeats: " + selectedSeatsList.join(', ') + "\nTotal Price: ₹" + (count * 190);
+            document.getElementById('successMessage').innerText = successMsg;
+
+            // Present message panel view overlay
+            document.getElementById('successPage').style.display = 'flex';
+        }
+
+        // Ticket-ai PDF-aga download seiyum dynamic trigger custom function
+        function downloadTicketPDF() {
+            const element = document.getElementById('pdfContent');
+            const options = {
+                margin:       10,
+                filename:     `Ticket_${selectedTheatre.replace(/\s+/g, '_')}.pdf`,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            // html2pdf trigger
+            html2pdf().set(options).from(element).save();
+        }
+
+        function redirectToContact() {
+            window.location.href = "contact.html";
+        }
+
+        // Initial launch layout render
+        renderSeats();
+    </script>
+</body>
+</html>

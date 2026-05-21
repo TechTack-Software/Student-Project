@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://kit.fontawesome.com/3a4b108d05.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Movies | Madurai Cinemas</title>
+    <style>
+        :root { --primary: #dc3545; --light: #f8f9fa; }
+
+        /* --- ADDED TRANSITION START --- */
+        @keyframes fadeInPage {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        body { 
+            margin: 0; 
+            font-family: 'Segoe UI', sans-serif; 
+            background: var(--light); 
+            animation: fadeInPage 1.5s ease-in; /* The smooth opening transition */
+        }
+        /* --- ADDED TRANSITION END --- */
+
+        header { background: #000; color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; }
+        
+        /* Logo Styles */
+        .brand-container { display: flex; align-items: center; gap: 12px; }
+        .logo { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); }
+
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
+        .container { padding: 40px 8%; }
+        h2 { border-left: 5px solid var(--primary); padding-left: 20px; margin: 30px 0; }
+        .movie-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+        .movie-card { 
+            background: white; 
+            border-radius: 10px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease; /* Smooth hover effect */
+        }
+        .movie-card:hover { transform: scale(1.03); } /* Slight pop on hover */
+        
+        .movie-card img { width: 200px; height: 300px; object-fit: cover; }
+        .movie-info { padding: 15px; }
+        .status-tag { font-size: 0.7rem; padding: 3px 8px; border-radius: 3px; background: #eee; font-weight: bold; }
+        
+        /* Rating Styles */
+        .rating { margin: 8px 0; color: #ffc107; font-size: 0.9rem; }
+        .rating span { color: #6c757d; font-size: 0.8rem; margin-left: 5px; }
+
+        .btn { background: var(--primary); color: white; text-decoration: none; padding: 10px; display: block; text-align: center; border-radius: 5px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="brand-container">
+            <!-- Replace src with your logo path -->
+            <img src="MC.jpg" alt="Logo" class="logo">
+            <h1 style="margin: 0;">Madurai Cinemas</h1>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="movies.html">Movies</a><i class="fa-solid fa-film"></i>
+            <a href="booking.html">Booking</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Now Showing (Released)</h2>
+        <div class="movie-grid">
+            <div class="movie-card">
+                <img src="299.jpg" alt="Mandalorian">
+                <div class="movie-info">
+                    <span class="status-tag">RELEASED</span>
+                    <h3>29</h3>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                        <span>(4.5/5)</span>
+                    </div>
+                    <p><b>Producer:</b> Karthik Subraj (Stone bench Creations) </p>
+                    <p><b>Director:</b> Rathna Kumar </p>
+                    <p><b> Music Director:</b> Sean Roldan </p>
+                    <p><b>Cast:</b> Vidhu, Preethi Asrani </p>
+                    <p><b>Release Date:</b> May 2026 </p>
+                    <a href="booking.html" class="btn">Book Now</a>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="withlove.jpg" alt="Momo">
+                <div class="movie-info">
+                    <span class="status-tag">RELEASED</span>
+                    <h3>With love</h3>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                        <span>(4.0/5)</span>
+                    </div>
+                    <p><b>Producer:</b> Aishwarya Rajinikanth (Zions films) </p>
+                    <p><b>Director:</b> Debutnant Madhan </p>
+                    <p><b> Music Director:</b> Sean Roldan </p>
+                    <p><b>Cast:</b> Abishan Jeevinth, Anaswara Rajan </p>
+                    <p><b>Release Date:</b> May 2026 </p>
+                    <a href="booking.html" class="btn">Book Now</a>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="karuppu.jpg" alt="Mandalorian">
+                <div class="movie-info">
+                    <span class="status-tag">RELEASED</span>
+                    <h3>Karuppu</h3>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <span>(5.0/5)</span>
+                    </div>
+                    <p><b>Producer:</b> S.R.Prabhu and S.R.Prakash Babu (Dream Warrior) </p>
+                    <p><b>Director:</b> RJ Balaji </p>
+                    <p><b> Music Director:</b> Sai Abhyankar </p>
+                    <p><b>Cast:</b> Surya, Trisha Krishnan </p>
+                    <p><b>Release Date:</b> May 2026 </p>
+                    <a href="booking.html" class="btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <h2>Coming Soon</h2>
+        <div class="movie-grid">
+            <div class="movie-card">
+                <img src="jailer.jpg" alt="Jailer 2">
+                <div class="movie-info">
+                    <span class="status-tag" style="background: #ffd700;">UPCOMING</span>
+                    <h3>Jailer 2</h3>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        <span>(Expected)</span>
+                    </div>
+                    <p><b>Producer:</b> Aishwarya Rajinikanth (Zions films) </p>
+                    <p><b>Director:</b> Nelson Dilikumar</p>
+                    <p><b> Music Director:</b> Anirudh Ravichandar </p>
+                    <p><b>Cast:</b> Rajinikanth, Vinayakan </p>
+                    <p><b>Release Date:</b> June 2026 </p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="jananayagan.jpg">
+                <div class="movie-info">
+                    <span class="status-tag" style="background: #ffd700;">UPCOMING</span>
+                    <h3>Jananayagan</h3>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                        <span>(Expected)</span>
+                    </div>
+                   <p><b>Producer:</b> Venkat K. Narayana (KVN Productions) </p>
+                    <p><b>Director:</b> H. Vinoth </p>
+                    <p><b> Music Director:</b> Anirudh Ravichandar </p>
+                    <p><b>Cast:</b> Vijay, Pooja Hegde </p>
+                    <p><b>Release Date:</b> June 2026 </p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="jockey.jpg">
+                <div class="movie-info">
+                    <span class="status-tag" style="background: #ffd700;">UPCOMING</span>
+                    <h3>Jockey</h3>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+                        <span>(Expected)</span>
+                    </div>
+                    <p><b>Producer:</b> Prema Krishnadas(PK7 Studios LLP) </p>
+                    <p><b>Director:</b> Dr.Pragabhal </p>
+                    <p><b> Music Director:</b> Sakthi Balaji</p>
+                    <p><b>Cast:</b> Yuvan Krishna, Ammu Abirami </p>
+                    <p><b>Release Date:</b> July 2026 </p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="shera2.jpg">
+                <div class="movie-info">
+                    <span class="status-tag" style="background: #ffd700;">UPCOMING</span>
+                    <h3>Shera</h3>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                        <span>(Expected)</span>
+                    </div>
+                    <p><b>Producer:</b> Rajiv Babbar (Aabha films) </p>
+                    <p><b>Director:</b> T. L. V. Prasad </p>
+                    <p><b> Music Director:</b> Anand Milind </p>
+                    <p><b>Cast:</b> Mithun Chakraborty, Gulshan Grover </p>
+                    <p><b>Release Date:</b> May 2026 </p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="vaazha2.jpg">
+                <div class="movie-info">
+                    <span class="status-tag" style="background: #ffd700;">UPCOMING</span>
+                    <h3>Vaazha2</h3>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                        <span>(Expected)</span>
+                    </div>
+                    <p><b>Producer:</b> Vipin das, Harris Desom, P.B.Anish (Icon Studios) </p>
+                    <p><b>Director:</b> Savin SA </p>
+                    <p><b> Music Director:</b> Ankit Menon </p>
+                    <p><b>Cast:</b> Hashir H, Alan Bin Siraj, Ajin Joy, Vinayak V </p>
+                    <p><b>Release Date:</b> June 2026 </p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="smv.jpg">
+                <div class="movie-info">
+                    <span class="status-tag" style="background: #ffd700;">UPCOMING</span>
+                    <h3>Sattendru Maarudhu Vaanilai </h3>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                        <span>(Expected)</span>
+                    </div>
+                   <p><b>Producer:</b> Kaarthikeyan (Stone Bench Studios) </p>
+                    <p><b>Director:</b> Babu Vijay </p>
+                    <p><b> Music Director</b> Girishh </p>
+                    <p><b>Cast:</b> Jai, Meenakshi Govindarajan </p>
+                    <p><b>Release Date:</b> June 2026 </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

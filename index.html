@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://kit.fontawesome.com/3a4b108d05.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Madurai Cinemas | Home</title>
+    <style>
+        :root { --primary: #dc3545; --dark: #1a1a1a; --light: #f8f9fa; }
+
+        /* 1. Define the Fade-In Animation */
+        @keyframes pageFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        body { 
+            margin: 0; 
+            font-family: 'Segoe UI', sans-serif; 
+            background: var(--light); 
+            /* 2. Apply the animation: 2 seconds duration, smooth start/end */
+            animation: pageFade 2s ease-in-out; 
+        }
+
+        header { background: #000; color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; }
+        
+        /* Logo and Title Container */
+        .brand-container { display: flex; align-items: center; gap: 15px; }
+        .logo { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); }
+
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
+        nav a:hover { color: var(--primary); }
+        #hero {
+            height: 85vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; text-align: center;
+        }
+        .btn { background: var(--primary); color: white; border: none; padding: 15px 30px; border-radius: 5px; cursor: pointer; text-decoration: none; font-weight: bold; margin-top: 20px; display: inline-block; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="brand-container">
+            <img src="MC.jpg" alt="Logo" class="logo">
+            <h1 style="margin: 0;">Madurai Cinemas</h1>
+        </div>
+        <nav>
+            <a href="index.html">Home</a><i class="fa-solid fa-house"></i>
+            <a href="movies.html">Movies</a><i class="fa-solid fa-film"></i>
+            <a href="booking.html">Booking</a><i class="fa-solid fa-square-check"></i>
+            <a href="contact.html">Contact</a><i class="fa-solid fa-clapperboard"></i>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <h2 style="font-size: 3.5rem; margin-bottom: 10px;">The Heart of Cinema</h2>
+        <p style="font-size: 1.2rem;">Experience the latest blockbusters in 4K Dolby Atmos across Madurai.</p>
+        <a href="movies.html" class="btn">View Now Showing</a>
+        <p style="font-family: Javanese Text;font-size: x-large;">Ever missed first-day first-show because tickets sold out? Or waited 30 mins in line just for popcorn?  
+            Madurai Cinemas fixes that. We are Madurai’s fastest movie ticket booking platform.
+             All movies, all theatres, all showtimes — on one screen.
+             Pick your film, choose your seat, pay securely, walk in with a QR code. That’s it.</h3>
+        
+            
+            </section>
+</body>
+</html>
