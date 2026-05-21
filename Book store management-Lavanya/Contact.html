@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us</title>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="icon" href="fi.jpg">
+    <link rel="stylesheet" href="Contact.css">
+</head>
+
+<body>
+
+    <div id="header">
+         <div id="logo-section">
+             <img src="bl.jpg">
+        <div id="logo">
+            DreamShelf
+        </div>
+        </div>
+        
+   
+    <div id="menu">
+            <a href="Home1.html">Home</a>
+            <a href="About1.html">About</a>
+            <div class="dropdown">
+
+                <a href="#" tabindex="0">Books</a>
+ 
+                <div class="dropdown-content">
+                    <a href="Comics1.html">Comics</a>
+                    <a href="Novels1.html">Novels</a>
+                    <a href="Drama1.html">Drama</a>
+                    <a href="Poetry1.html">Poetry</a>
+                    <a href="Autobiography1.html">Autobiography</a>
+                </div>
+                
+
+            </div>
+            <a href="demo1.html">Contact</a>
+           
+        </div>
+     </div>   
+    <div id="container1">
+
+        <div id="form-box">
+
+            <h1>Book Order Form</h1>
+
+            <form onsubmit="return downloadPDF()">
+
+                <label>Full Name</label>
+                <input type="text" id="name" placeholder="Enter your name">
+
+                <label>Age</label>
+                <input type="number" id="age" placeholder="Enter your age">
+
+                <label>Phone Number</label>
+                <input type="tel" id="phone" placeholder="Enter phone number">
+
+                <label>Select Book Category</label>
+
+                <select id="category">
+                    <option>Comics</option>
+                    <option>Novels</option>
+                    <option>Drama</option>
+                    <option>Poetry</option>
+                    <option>Autobiography</option>
+                </select>
+
+                <label>Book Name</label>
+                <input type="text" id="book" placeholder="Enter book name">
+
+                <label>Delivery Address</label>
+                <textarea id="address" placeholder="Enter your address"></textarea>
+
+                <button type="submit" id="obutton">
+                Place Order
+                </button>
+            </form>
+            <div id="homebtn">
+                    <a href="Home1.html">
+                        <button>
+                            Go to Home
+                        </button>
+                    </a>
+            </div>
+            </div>
+    </div>
+    <script>
+        function downloadPDF(){
+
+            let name = document.getElementById("name").value;
+
+            let age = document.getElementById("age").value;
+
+            let phone = document.getElementById("phone").value;
+
+            let category = document.getElementById("category").value;
+
+            let book = document.getElementById("book").value;
+
+            let address = document.getElementById("address").value;
+
+            if(name=="" || age=="" || phone=="" || book=="" || address==""){
+
+                alert("Fill all details first");
+
+                return false;
+            }
+
+            const { jsPDF } = window.jspdf;
+
+            let doc = new jsPDF();
+
+            doc.setFontSize(18);
+
+            doc.text("DreamShelf Book Order", 20, 20);
+
+            doc.setFontSize(12);
+
+            doc.text("Name: " + name, 20, 40);
+
+            doc.text("Age: " + age, 20, 50);
+
+            doc.text("Phone: " + phone, 20, 60);
+
+            doc.text("Category: " + category, 20, 70);
+
+            doc.text("Book: " + book, 20, 80);
+
+            doc.text("Address: " + address, 20, 90);
+
+            doc.save("Book_Order.pdf");
+            document.getElementById("obutton").style.display="none";
+            document.getElementById("homebtn").style.display="block";
+            return false;
+        }
+
+    </script>
+
+</body>
+</html>

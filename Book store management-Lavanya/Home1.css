@@ -1,0 +1,97 @@
+        body{
+            margin:0;
+            font-family:Arial;
+            background:#f4f6f9;
+            }
+
+        #header{
+            background:#4B0082;
+            color:white;
+            padding:25px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+        #logo-section{
+        display:flex;
+        align-items: center;
+        gap: 12px;
+        }
+        #logo-section img{
+            width:60px;
+            height:60px;
+            border-radius: 50%;
+        }
+        #logo{
+            font-size:28px;
+            font-weight:bold;
+            margin-left:20px;
+        }
+
+        #menu a{
+            color:white;
+            text-decoration:none;
+            margin:15px;
+            font-size:18px;
+        }
+
+        #menu a:hover{
+            color:#FFD700;
+        }
+          .dropdown{
+            position:relative;
+            display:inline-block;
+        }
+
+        .dropdown-content{
+            display:none;
+            position:absolute;
+            background:#4B0082;
+            min-width:170px;
+            top:40px;
+            border-radius:8px;
+            box-shadow:0px 0px 10px gray;
+            overflow:hidden;
+        }
+
+        .dropdown-content a{
+            color:white;
+            padding:12px;
+            display:block;
+            text-decoration:none;
+            text-align: center;
+            margin:0;
+            font-size:16px;
+        }
+
+        .dropdown-content a:hover{
+            background:#f2f2f2;
+        }
+        .dropdown:focus-within .dropdown-content{
+            display:block;
+        }
+
+        #main{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:141px;
+            background-image: url("Gemini_Generated_Image_sff7dvsff7dvsff7.png");
+            background-size: cover;
+            background-position: center;
+        }
+
+        #text{
+            width:50%;
+        }
+
+        #text h1{
+            font-size:50px;
+            color:#4B0082;
+        }
+
+        #text p{
+            font-size:20px;
+            color:#555;
+            line-height:30px;
+        }
