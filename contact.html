@@ -1,95 +1,641 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <script src="https://kit.fontawesome.com/3a4b108d05.js" crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <title>Contact | Madurai Cinemas</title>
-    <style>
-        :root { --primary: #dc3545; --light: #f8f9fa; }
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--light); }
-        header { background: #000; color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; }
-        
-        /* Logo Styles */
-        .brand-container { display: flex; align-items: center; gap: 12px; }
-        .logo { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); }
 
-        nav a { color: rgb(240, 238, 238); text-decoration: none; margin-left: 20px; font-weight: bold; }
-        .container { padding: 40px 8%; }
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
-        .theatre-card { background: rgb(248, 246, 246); padding: 25px; border-left: 6px solid var(--primary); border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: 0.3s; }
-        .theatre-card:hover { transform: translateY(-5px); }
-        .theatre-card h3 { margin-top: 0; color: #333; }
-        .theatre-card p { margin: 8px 0; color: #555; font-size: 0.95rem; }
-        .theatre-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 4px; margin-bottom: 10px; }
-        .book-link { display: inline-block; margin-top: 15px; padding: 8px 20px; background: var(--primary); color: white; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.8rem; }
-    </style>
+<script src="https://kit.fontawesome.com/3c94af60b3.js" crossorigin="anonymous"></script>
+
+<!-- jsPDF Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<title>Contact - TitanFit Gym</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+/* BODY */
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#111;
+color:white;
+scroll-behavior:smooth;
+overflow-x:hidden;
+}
+
+/* HERO SECTION */
+.hero-section{
+animation:bgZoom 18s infinite alternate;
+}
+
+@keyframes bgZoom{
+from{
+background-size:100%;
+}
+to{
+background-size:110%;
+}
+}
+
+/* HEADER */
+.header{
+backdrop-filter:blur(8px);
+}
+
+.menu a{
+transition:0.3s;
+font-weight:bold;
+position:relative;
+}
+
+.menu a:hover{
+color:#ff4500 !important;
+text-shadow:0 0 10px #ff4500;
+}
+
+.menu a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-5px;
+width:0%;
+height:2px;
+background:#ff4500;
+transition:0.3s;
+}
+
+.menu a:hover::after{
+width:100%;
+}
+
+/* CONTACT BOX */
+.contact-box{
+backdrop-filter:blur(10px);
+box-shadow:0 0 25px rgba(0,0,0,0.6);
+animation:fadeUp 1.2s ease;
+}
+
+/* FORM INPUTS */
+input,
+select,
+textarea{
+background:#222;
+color:white;
+outline:none;
+transition:0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+box-shadow:0 0 10px rgba(255,69,0,0.6);
+border:1px solid #ff4500;
+}
+
+/* BUTTONS */
+button{
+transition:0.3s;
+}
+
+button:hover{
+transform:translateY(-3px);
+box-shadow:0 0 15px rgba(255,69,0,0.6);
+background:#ff5722 !important;
+}
+
+/* SOCIAL BOX */
+.social-box{
+transition:0.4s;
+cursor:pointer;
+text-decoration:none;
+color:white;
+display:inline-block;
+}
+
+.social-box:hover{
+background:#ff4500 !important;
+transform:translateY(-5px);
+}
+
+/* SERVICE CARDS */
+.service-card{
+transition:0.4s;
+cursor:pointer;
+}
+
+.service-card:hover{
+transform:translateY(-10px) scale(1.03);
+background:#252525 !important;
+box-shadow:0 0 20px rgba(255,69,0,0.5);
+}
+
+/* MEMBERSHIP CARD */
+.offer-card{
+transition:0.4s;
+}
+
+.offer-card:hover{
+transform:scale(1.03);
+box-shadow:0 0 20px rgba(255,69,0,0.5);
+}
+
+/* LOCATION SECTION */
+.location-box{
+transition:0.4s;
+}
+
+.location-box:hover{
+box-shadow:0 0 25px rgba(255,69,0,0.5);
+}
+
+/* ANIMATION */
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* HEADINGS */
+h1,h2,h3{
+letter-spacing:1px;
+}
+
+/* PARAGRAPH */
+p{
+color:#ddd;
+}
+
+/* FOOTER */
+.footer{
+transition:0.3s;
+}
+
+.footer:hover{
+background:#111 !important;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#111;
+}
+
+::-webkit-scrollbar-thumb{
+background:#ff4500;
+border-radius:10px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+h1{
+font-size:30px !important;
+text-align:center;
+}
+
+h2{
+font-size:28px !important;
+}
+
+p{
+font-size:16px !important;
+}
+
+.menu{
+text-align:center;
+margin-top:10px;
+}
+
+.contact-box{
+padding:25px !important;
+}
+
+}
+
+</style>
+
 </head>
-<body>
-    <header>
-        <div class="brand-container">
-            <img src="MC.jpg" alt="Logo" class="logo">
-            <h1 style="margin: 0;">Madurai Cinemas</h1>
-        </div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="movies.html">Movies</a>
-            <a href="booking.html">Booking</a>
-            <a href="contact.html">Contact</a><i class="fa-solid fa-clapperboard"></i>
-        </nav>
-    </header>
 
-    <div class="container">
-        <h2 style="margin-bottom: 30px;">Our Theatres in Madurai City</h2>
-        <div class="contact-grid">
-            <div class="theatre-card">
-                <img src="vetri.jpg" alt="Vetri Cinemas">
-                <h3>Vetri Cinemas</h3>
-                <p>📍 Villapuram, Madurai - 625012</p>
-                <p>📨 vetricinemas@gmail.com</p>
-                <p>📞 0452-2675222</p>
-                <a href="booking.html?theatre=Vetri%20Cinemas" class="book-link">BOOK TICKETS HERE</a>
-            </div>
-            <div class="theatre-card">
-                <img src="solamalai.jpg" alt="Solamalai Cinemas">
-                <h3>Solamalai Cinemas</h3>
-                <p>📍 Gokhale Road, Madurai</p>
-                <p>📨 solamlaicinemas@gmail.com</p>
-                <p>📞 0452-4394000</p>
-                <a href="booking.html?theatre=Solamalai%20Cinemas" class="book-link">BOOK TICKETS HERE</a>
-            </div>
-            <div class="theatre-card">
-                <img src="radiance.jpg" alt="Radiance Cinemas">
-                <h3>Radiance Cinemas</h3>
-                <p>📍 Anna Nagar, Madurai</p>
-                <p>📨 radiancecinemas@gmail.com</p>
-                <p>📞 0452-2520624</p>
-                <a href="booking.html?theatre=Radiance%20Cinemas" class="book-link">BOOK TICKETS HERE</a>
-            </div>
-            <div class="theatre-card">
-                <img src="guru.jpg" alt="Guru Theatre">
-                <h3>Guru theatre</h3>
-                <p>📍 Anna Nagar, Madurai</p>
-                <p>📨 cinepriya@gmail.com</p>
-                <p>📞 0452-2531234</p>
-                <a href="booking.html?theatre=Guru%20Theatre" class="book-link">BOOK TICKETS HERE</a>
-            </div>
-            <div class="theatre-card">
-                <img src="gopuram.jpg" alt="Gopuram Cinemas">
-                <h3>Gopuram Cinemas</h3>
-                <p>📍 Sellur, Madurai - 625002</p>
-                <p>📨 gopuramcinemas@gmail.com</p>
-                <p>📞 0452-2535555</p>
-                <a href="booking.html?theatre=Gopuram%20Cinemas" class="book-link">BOOK TICKETS HERE</a>
-            </div>
-            <div class="theatre-card">
-                <img src="ganesh.jpg" alt="Ganesh Cinemas">
-                <h3>Ganesh cinemas</h3>
-                <p>📍 Anna Nagar, Madurai</p>
-                <p>📨 ganeshcinemas@gmail.com</p>
-                <p>📞 0452-2531234</p>
-                <a href="booking.html?theatre=Ganesh%20Cinemas" class="book-link">BOOK TICKETS HERE</a>
-            </div>
-        </div>
-    </div>
+<body style="
+margin:0;
+font-family:Arial, sans-serif;
+background:#111;
+color:white;
+">
+
+<!-- HERO SECTION -->
+<div class="hero-section" style="
+background:url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b') no-repeat center center/cover;
+min-height:100vh;
+">
+
+<div style="background:rgba(0,0,0,0.80); min-height:100vh; padding:20px;">
+
+<!-- HEADER -->
+<div class="header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+
+<!-- LOGO + TITLE -->
+<div style="display:flex; align-items:center; gap:15px;">
+
+<img src="logo.jpg"
+style="
+width:60px;
+height:60px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid #ff4500;
+">
+
+<h1 style="color:#ff4500; font-size:40px; margin:0;">
+TitanFit Gym
+</h1>
+
+</div>
+
+<!-- MENU -->
+<div class="menu" style="font-size:18px;">
+<a href="index.html" style="color:white; text-decoration:none; margin:10px;">Home</a><i class="fa-regular fa-house"></i>
+<a href="about.html" style="color:white; text-decoration:none; margin:10px;">About</a><i class="fa-solid fa-circle-info"></i>
+<a href="trainers.html" style="color:white; text-decoration:none; margin:10px;">Trainers</a><i class="fa-solid fa-dumbbell"></i>
+<a href="gallery.html" style="color:white; text-decoration:none; margin:10px;">Gallery</a><i class="fa-solid fa-image"></i>
+<a href="contact.html" style="color:#ff4500; text-decoration:none; margin:10px;">Contact</a><i class="fa-solid fa-at"></i>
+</div>
+
+</div>
+
+<hr style="border:1px solid #444;">
+
+<!-- PAGE TITLE -->
+<h2 style="text-align:center; color:#ff4500; font-size:40px; margin-top:30px;">
+Get In Touch With Us
+</h2>
+
+<p style="text-align:center; font-size:18px; max-width:900px; margin:auto; line-height:1.8;">
+We are here to help you start your fitness journey.
+Contact us for membership details, personal training, diet plans, fitness programs, and gym timings.
+</p>
+
+<!-- CONTACT SECTION -->
+<div style="
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:30px;
+max-width:1200px;
+margin:50px auto;
+">
+
+<!-- CONTACT FORM -->
+<div class="contact-box" style="background:#1a1a1a; padding:35px; border-radius:15px; box-shadow:0 0 15px rgba(0,0,0,0.5);">
+
+<h2 style="color:#ff4500; text-align:center;">Contact Form</h2>
+
+<form id="contactForm">
+
+<input type="text" id="name" placeholder="Enter Your Name" required
+style="width:100%;padding:15px;margin-top:15px;border:none;border-radius:8px;font-size:16px;">
+
+<input type="email" id="email" placeholder="Enter Your Email" required
+style="width:100%;padding:15px;margin-top:15px;border:none;border-radius:8px;font-size:16px;">
+
+<input type="tel" id="mobile" placeholder="Enter Mobile Number" required
+style="width:100%;padding:15px;margin-top:15px;border:none;border-radius:8px;font-size:16px;">
+
+<select id="program" required
+style="width:100%;padding:15px;margin-top:15px;border:none;border-radius:8px;font-size:16px;">
+
+<option value="">Select Program</option>
+<option>Weight Loss</option>
+<option>Bodybuilding</option>
+<option>Strength Training</option>
+<option>Yoga & Fitness</option>
+<option>Personal Training</option>
+
+</select>
+
+<textarea id="message" required
+placeholder="Write Your Message"
+style="width:100%;padding:15px;height:120px;margin-top:15px;border:none;border-radius:8px;font-size:16px;">
+</textarea>
+
+<button type="submit"
+style="
+width:100%;
+padding:15px;
+margin-top:20px;
+background:#ff4500;
+color:white;
+border:none;
+border-radius:8px;
+font-size:18px;
+cursor:pointer;
+font-weight:bold;
+">
+Send Message
+</button>
+
+</form>
+
+</div>
+
+<!-- CONTACT DETAILS -->
+<div class="contact-box" style="background:#1a1a1a; padding:35px; border-radius:15px; box-shadow:0 0 15px rgba(0,0,0,0.5);">
+
+<h2 style="color:#ff4500; text-align:center;">Contact Details</h2>
+
+<div style="margin-top:30px; line-height:2; font-size:18px;">
+<p><strong>Phone:</strong> +91 9876543210</p>
+<p><strong>Email:</strong> fitness@gmail.com</p>
+<p><strong>Address:</strong> Chennai, Tamil Nadu, India</p>
+<p><strong>Gym Timing:</strong> 5:00 AM – 11:00 PM</p>
+<p><strong>Membership:</strong> Monthly & Yearly Plans Available</p>
+</div>
+
+<!-- SOCIAL MEDIA -->
+<h3 style="color:#ff4500; margin-top:30px;">Follow Us</h3>
+
+<div style="display:flex; gap:15px; flex-wrap:wrap; margin-top:15px;">
+
+<a href="https://www.facebook.com/" target="_blank"
+class="social-box"
+style="background:#222; padding:15px 20px; border-radius:10px;">
+
+<i class="fa-brands fa-facebook-f"
+style="margin-right:8px; font-size:18px;"></i>
+
+Facebook
+</a>
+
+<a href="https://www.instagram.com/" target="_blank"
+class="social-box"
+style="background:#222; padding:15px 20px; border-radius:10px;">
+
+<i class="fa-brands fa-instagram"
+style="margin-right:8px; font-size:18px;"></i>
+
+Instagram
+</a>
+
+<a href="https://www.youtube.com/" target="_blank"
+class="social-box"
+style="background:#222; padding:15px 20px; border-radius:10px;">
+
+<i class="fa-brands fa-youtube"
+style="margin-right:8px; font-size:18px;"></i>
+
+YouTube
+</a>
+
+<a href="https://wa.me/919876543210" target="_blank"
+class="social-box"
+style="background:#222; padding:15px 20px; border-radius:10px;">
+
+<i class="fa-brands fa-whatsapp"
+style="margin-right:8px; font-size:18px;"></i>
+
+WhatsApp
+</a>
+
+</div>
+
+<!-- MEMBERSHIP CARD -->
+<div class="offer-card" style="background:#222; padding:25px; border-radius:15px; margin-top:40px; text-align:center;">
+
+<h3 style="color:#ff4500;">Special Offer</h3>
+
+<p style="line-height:1.8;">
+Join today and get free personal training sessions for the first week.
+Limited time offer for new members.
+</p>
+
+<button onclick="openCard()"
+style="
+padding:12px 25px;
+background:#ff4500;
+color:white;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+font-weight:bold;
+">
+Join Now
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer" style="background:#000; padding:25px; text-align:center; margin-top:60px;">
+<p>© 2026 Fitness Center | All Rights Reserved</p>
+<p style="color:#aaa;">Designed For Modern Fitness Experience</p>
+</div>
+
+</div>
+</div>
+
+<!-- VISITING CARD POPUP -->
+
+<div id="visitCard" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.85);
+justify-content:center;
+align-items:center;
+z-index:9999;
+backdrop-filter:blur(10px);
+">
+
+<div style="
+width:380px;
+padding:30px;
+border-radius:25px;
+background:linear-gradient(135deg,#111,#1a1a1a,#ff4500);
+box-shadow:
+0 0 20px #ff4500,
+0 0 40px rgba(255,69,0,.6);
+position:relative;
+overflow:hidden;
+animation:cardShow .8s ease;
+text-align:center;
+">
+
+<img src="logo.jpg"
+style="
+width:90px;
+height:90px;
+border-radius:50%;
+border:4px solid white;
+object-fit:cover;
+box-shadow:0 0 20px white;
+">
+
+<h2 style="
+margin-top:15px;
+font-size:30px;
+color:white;
+letter-spacing:2px;
+">
+TitanFit Gym
+</h2>
+
+<p style="
+color:#ddd;
+font-style:italic;
+margin-top:-5px;
+">
+Transform Your Body
+</p>
+
+<hr style="
+border:1px solid rgba(255,255,255,.2);
+margin-top:20px;
+">
+
+<div style="
+text-align:left;
+line-height:2;
+margin-top:20px;
+font-size:16px;
+">
+
+<p><b>Phone:</b> +91 9876543210</p>
+
+<p><b>Email:</b> fitness@gmail.com</p>
+
+<p><b>Address:</b> Chennai, Tamil Nadu, India</p>
+
+<p><b>Gym Timing:</b> 5:00 AM – 11:00 PM</p>
+
+<p><b>Membership:</b> Monthly & Yearly Plans Available</p>
+
+</div>
+
+<button onclick="closeCard()"
+style="
+margin-top:25px;
+padding:12px 35px;
+background:white;
+border:none;
+border-radius:30px;
+font-weight:bold;
+cursor:pointer;
+color:#ff4500;
+font-size:16px;
+">
+Close
+</button>
+
+</div>
+
+</div>
+
+<style>
+
+@keyframes cardShow{
+
+from{
+transform:
+scale(.5)
+rotateY(180deg);
+opacity:0;
+}
+
+to{
+transform:
+scale(1)
+rotateY(0);
+opacity:1;
+}
+
+}
+
+</style>
+
+<script>
+
+function openCard(){
+
+document.getElementById(
+"visitCard"
+).style.display="flex";
+
+}
+
+function closeCard(){
+
+document.getElementById(
+"visitCard"
+).style.display="none";
+
+}
+
+</script>
+
+<!-- PDF DOWNLOAD SCRIPT -->
+
+<script>
+
+document.getElementById("contactForm").addEventListener("submit", function(event){
+
+event.preventDefault();
+
+const name = document.getElementById("name").value;
+const email = document.getElementById("email").value;
+const mobile = document.getElementById("mobile").value;
+const program = document.getElementById("program").value;
+const message = document.getElementById("message").value;
+
+const { jsPDF } = window.jspdf;
+
+const doc = new jsPDF();
+
+doc.setFont("helvetica","bold");
+doc.setFontSize(22);
+doc.setTextColor(255,69,0);
+
+doc.text("TitanFit Gym Contact Details", 20, 25);
+
+doc.setDrawColor(255,69,0);
+doc.line(20,30,190,30);
+
+doc.setFontSize(14);
+doc.setTextColor(0,0,0);
+
+doc.text("Name: " + name, 20, 50);
+doc.text("Email: " + email, 20, 65);
+doc.text("Mobile: " + mobile, 20, 80);
+doc.text("Program: " + program, 20, 95);
+
+doc.text("Message:", 20, 115);
+
+doc.setFont("helvetica","normal");
+
+const splitMessage = doc.splitTextToSize(message, 160);
+
+doc.text(splitMessage, 20, 130);
+
+doc.save("TitanFit_Contact_Details.pdf");
+
+alert("Message Sent Successfully!\n\nPDF Downloaded");
+
+});
+
+</script>
+
 </body>
 </html>

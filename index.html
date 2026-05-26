@@ -1,68 +1,504 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <script src="https://kit.fontawesome.com/3a4b108d05.js" crossorigin="anonymous"></script>
-    <meta charset="UTF-8">
-    <title>Madurai Cinemas | Home</title>
-    <style>
-        :root { --primary: #dc3545; --dark: #1a1a1a; --light: #f8f9fa; }
 
-        /* 1. Define the Fade-In Animation */
-        @keyframes pageFade {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+<script src="https://kit.fontawesome.com/3c94af60b3.js" crossorigin="anonymous"></script>
 
-        body { 
-            margin: 0; 
-            font-family: 'Segoe UI', sans-serif; 
-            background: var(--light); 
-            /* 2. Apply the animation: 2 seconds duration, smooth start/end */
-            animation: pageFade 2s ease-in-out; 
-        }
+<title>TitanFit Gym - Home</title>
 
-        header { background: #000; color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; }
-        
-        /* Logo and Title Container */
-        .brand-container { display: flex; align-items: center; gap: 15px; }
-        .logo { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
-        nav a:hover { color: var(--primary); }
-        #hero {
-            height: 85vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200');
-            background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            color: white; text-align: center;
-        }
-        .btn { background: var(--primary); color: white; border: none; padding: 15px 30px; border-radius: 5px; cursor: pointer; text-decoration: none; font-weight: bold; margin-top: 20px; display: inline-block; }
-    </style>
+<style>
+
+/* GLOBAL */
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#111;
+color:white;
+scroll-behavior:smooth;
+}
+
+/* HERO SECTION */
+.hero-section{
+animation:zoomBg 15s infinite alternate;
+}
+
+@keyframes zoomBg{
+from{
+background-size:100%;
+}
+to{
+background-size:110%;
+}
+}
+
+/* NAVBAR */
+.navbar{
+position:sticky;
+top:0;
+z-index:1000;
+backdrop-filter:blur(10px);
+}
+
+.nav-links a{
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:#ff4500 !important;
+}
+
+/* HERO TEXT */
+.hero-title{
+animation:fadeUp 1.5s ease;
+}
+
+.hero-para{
+animation:fadeUp 2s ease;
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* BUTTONS */
+.main-btn{
+transition:0.3s;
+}
+
+.main-btn:hover{
+transform:translateY(-5px) scale(1.05);
+box-shadow:0 0 20px rgba(255,69,0,0.8);
+}
+
+/* CARDS */
+.program-card,
+.trainer-card{
+transition:0.4s;
+}
+
+.program-card:hover,
+.trainer-card:hover{
+transform:translateY(-10px) scale(1.02);
+box-shadow:0 0 25px rgba(255,69,0,0.4);
+}
+
+/* CARD IMAGES */
+.card-img{
+transition:0.5s;
+}
+
+.program-card:hover .card-img,
+.trainer-card:hover .card-img{
+transform:scale(1.08);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+.hero-title{
+font-size:42px !important;
+}
+
+.hero-para{
+font-size:18px !important;
+}
+
+.navbar{
+padding:15px !important;
+}
+
+}
+
+</style>
+
 </head>
-<body>
-    <header>
-        <div class="brand-container">
-            <img src="MC.jpg" alt="Logo" class="logo">
-            <h1 style="margin: 0;">Madurai Cinemas</h1>
-        </div>
-        <nav>
-            <a href="index.html">Home</a><i class="fa-solid fa-house"></i>
-            <a href="movies.html">Movies</a><i class="fa-solid fa-film"></i>
-            <a href="booking.html">Booking</a><i class="fa-solid fa-square-check"></i>
-            <a href="contact.html">Contact</a><i class="fa-solid fa-clapperboard"></i>
-        </nav>
-    </header>
 
-    <section id="hero">
-        <h2 style="font-size: 3.5rem; margin-bottom: 10px;">The Heart of Cinema</h2>
-        <p style="font-size: 1.2rem;">Experience the latest blockbusters in 4K Dolby Atmos across Madurai.</p>
-        <a href="movies.html" class="btn">View Now Showing</a>
-        <p style="font-family: Javanese Text;font-size: x-large;">Ever missed first-day first-show because tickets sold out? Or waited 30 mins in line just for popcorn?  
-            Madurai Cinemas fixes that. We are Madurai’s fastest movie ticket booking platform.
-             All movies, all theatres, all showtimes — on one screen.
-             Pick your film, choose your seat, pay securely, walk in with a QR code. That’s it.</h3>
-        
-            
-            </section>
+<body style="
+margin:0;
+font-family:Arial, sans-serif;
+background:#111;
+color:white;
+">
+
+<!-- HERO SECTION -->
+<div class="hero-section" style="
+background:url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f') no-repeat center center/cover;
+min-height:100vh;
+">
+
+<div style="background:rgba(0,0,0,0.45); min-height:100vh;">
+
+<!-- TOP NAVBAR -->
+<div class="navbar" style="
+background:#0f1111;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+box-shadow:0 2px 10px rgba(0,0,0,0.5);
+">
+
+<!-- LOGO + TITLE -->
+<div style="display:flex; align-items:center; gap:15px;">
+
+<img src="logo.jpg"
+alt="TitanFit Logo"
+style="
+width:60px;
+height:60px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid #ff4500;
+">
+
+<h1 style="color:#ff4500; margin:0; font-size:35px;">
+TITANFIT GYM
+</h1>
+
+</div>
+
+<!-- NAVIGATION -->
+<div class="nav-links" style="font-size:17px;">
+
+<a href="index.html" style="color:#ff4500; text-decoration:none; margin:10px;">
+Home
+</a>
+<i class="fa-regular fa-house"></i>
+
+<a href="about.html" style="color:white; text-decoration:none; margin:10px;">
+About
+</a>
+<i class="fa-solid fa-circle-info"></i>
+
+<a href="trainers.html" style="color:white; text-decoration:none; margin:10px;">
+Trainers
+</a>
+<i class="fa-solid fa-dumbbell"></i>
+
+<a href="gallery.html" style="color:white; text-decoration:none; margin:10px;">
+Gallery
+</a>
+<i class="fa-solid fa-image"></i>
+
+<a href="contact.html" style="color:white; text-decoration:none; margin:10px;">
+Contact
+</a>
+<i class="fa-solid fa-at"></i>
+
+</div>
+
+</div>
+
+<!-- HERO CONTENT -->
+<div style="
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+flex-direction:column;
+padding:100px 20px;
+">
+
+<h2 class="hero-title" style="
+font-size:65px;
+color:#ff4500;
+margin-bottom:20px;
+text-shadow:0 0 15px rgba(0,0,0,0.8);
+">
+WELCOME TO TITANFIT GYM
+</h2>
+
+<p class="hero-para" style="
+font-size:24px;
+max-width:800px;
+line-height:1.8;
+">
+Transform your body, build strength, improve fitness, and achieve your dream physique with expert trainers and world-class gym facilities.
+</p>
+
+<div style="
+margin-top:30px;
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
+">
+
+<a href="contact.html">
+
+<button class="main-btn" style="
+padding:15px 35px;
+background:#ff4500;
+color:white;
+border:none;
+font-size:20px;
+font-weight:bold;
+cursor:pointer;
+border-radius:8px;
+box-shadow:0 0 10px rgba(255,69,0,0.5);
+">
+Join Now
+</button>
+
+</a>
+
+<a href="gallery.html">
+
+<button class="main-btn" style="
+padding:15px 35px;
+background:transparent;
+color:white;
+border:2px solid white;
+font-size:20px;
+font-weight:bold;
+cursor:pointer;
+border-radius:8px;
+">
+Explore Gym
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+<!-- FEATURED SERVICES -->
+<div style="padding:60px 30px; background:#111;">
+
+<h2 style="
+text-align:center;
+color:#ff4500;
+font-size:45px;
+">
+Featured Fitness Programs
+</h2>
+
+<div style="
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
+margin-top:50px;
+max-width:1300px;
+margin-left:auto;
+margin-right:auto;
+">
+
+<!-- CARD 1 -->
+<div class="program-card" style="
+background:#1a1a1a;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 0 15px rgba(0,0,0,0.5);
+width:300px;
+">
+
+<img class="card-img"
+src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48"
+style="width:100%; height:220px; object-fit:cover;">
+
+<div style="padding:25px;">
+
+<h3 style="color:#ff4500;">
+Bodybuilding
+</h3>
+
+<p style="line-height:1.8;">
+Professional muscle-building workouts and advanced strength programs.
+</p>
+
+</div>
+</div>
+
+<!-- CARD 2 -->
+<div class="program-card" style="
+background:#1a1a1a;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 0 15px rgba(0,0,0,0.5);
+width:300px;
+">
+
+<img class="card-img"
+src="https://images.unsplash.com/photo-1518611012118-696072aa579a"
+style="width:100%; height:220px; object-fit:cover;">
+
+<div style="padding:25px;">
+
+<h3 style="color:#ff4500;">
+Weight Loss
+</h3>
+
+<p style="line-height:1.8;">
+Fat-loss programs with cardio training and diet guidance.
+</p>
+
+</div>
+</div>
+
+<!-- CARD 3 -->
+<div class="program-card" style="
+background:#1a1a1a;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 0 15px rgba(0,0,0,0.5);
+width:300px;
+">
+
+<img class="card-img"
+src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b"
+style="width:100%; height:220px; object-fit:cover;">
+
+<div style="padding:25px;">
+
+<h3 style="color:#ff4500;">
+Personal Training
+</h3>
+
+<p style="line-height:1.8;">
+One-to-one coaching sessions from certified fitness experts.
+</p>
+
+</div>
+</div>
+
+<!-- CARD 4 -->
+<div class="program-card" style="
+background:#1a1a1a;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 0 15px rgba(0,0,0,0.5);
+width:300px;
+">
+
+<img class="card-img"
+src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61"
+style="width:100%; height:220px; object-fit:cover;">
+
+<div style="padding:25px;">
+
+<h3 style="color:#ff4500;">
+Yoga & Wellness
+</h3>
+
+<p style="line-height:1.8;">
+Relaxation, flexibility, meditation, and yoga fitness sessions.
+</p>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- EXTRA CONTENT SECTION -->
+<div style="
+padding:70px 30px;
+background:#181818;
+text-align:center;
+">
+
+<h2 style="
+color:#ff4500;
+font-size:45px;
+margin-bottom:20px;
+">
+Why Choose TitanFit?
+</h2>
+
+<p style="
+max-width:900px;
+margin:auto;
+font-size:20px;
+line-height:1.9;
+color:#ddd;
+">
+TitanFit Gym provides advanced fitness equipment, expert trainers,
+personalized workout plans, nutrition guidance, cardio zones,
+strength training, yoga sessions, and professional bodybuilding support.
+We help beginners and professional athletes achieve their dream fitness goals.
+</p>
+
+<div style="
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+margin-top:50px;
+">
+
+<div style="
+background:#1f1f1f;
+padding:30px;
+border-radius:15px;
+width:260px;
+box-shadow:0 0 15px rgba(0,0,0,0.5);
+">
+
+<h3 style="color:#ff4500;">
+Certified Trainers
+</h3>
+
+<p>
+Professional fitness coaches with years of experience.
+</p>
+
+</div>
+
+<div style="
+background:#1f1f1f;
+padding:30px;
+border-radius:15px;
+width:260px;
+box-shadow:0 0 15px rgba(0,0,0,0.5);
+">
+
+<h3 style="color:#ff4500;">
+ Modern Equipment
+</h3>
+
+<p>
+Latest imported machines for advanced workouts.
+</p>
+
+</div>
+
+<div style="
+background:#1f1f1f;
+padding:30px;
+border-radius:15px;
+width:260px;
+box-shadow:0 0 15px rgba(0,0,0,0.5);
+">
+
+<h3 style="color:#ff4500;">
+Fat Loss Programs
+</h3>
+
+<p>
+Special training and diet plans for quick transformation.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
 </body>
 </html>

@@ -7,17 +7,15 @@
 
 <style>
 
-/* BODY */
 body{
 margin:0;
-font-family:Arial, sans-serif;
+font-family:Arial,sans-serif;
 background:#111;
 color:white;
 scroll-behavior:smooth;
 overflow-x:hidden;
 }
 
-/* HERO SECTION */
 .hero-section{
 animation:bgZoom 18s infinite alternate;
 }
@@ -31,7 +29,6 @@ background-size:110%;
 }
 }
 
-/* HEADER */
 .header{
 backdrop-filter:blur(8px);
 }
@@ -62,11 +59,14 @@ transition:0.3s;
 width:100%;
 }
 
-/* TRAINER CARDS */
 .trainer-card{
 transition:0.4s;
 cursor:pointer;
 overflow:hidden;
+background:#1c1c1c;
+border-radius:20px;
+padding:20px;
+text-align:center;
 }
 
 .trainer-card:hover{
@@ -76,13 +76,36 @@ box-shadow:0 0 20px rgba(255,69,0,0.5);
 
 .trainer-img{
 transition:0.5s;
+width:100%;
+height:350px;
+object-fit:cover;
+border-radius:15px;
+border:4px solid #ff4500;
 }
 
 .trainer-card:hover .trainer-img{
 transform:scale(1.08);
 }
 
-/* ANIMATION */
+.achievement-box{
+background:#2a2a2a;
+padding:15px;
+border-radius:10px;
+margin-top:20px;
+text-align:left;
+}
+
+.achievement-box h4{
+color:#ff4500;
+margin-bottom:10px;
+}
+
+.achievement-box ul{
+padding-left:20px;
+line-height:1.8;
+color:#ddd;
+}
+
 @keyframes fadeUp{
 from{
 opacity:0;
@@ -94,7 +117,6 @@ transform:translateY(0);
 }
 }
 
-/* SCROLLBAR */
 ::-webkit-scrollbar{
 width:10px;
 }
@@ -108,7 +130,6 @@ background:#ff4500;
 border-radius:10px;
 }
 
-/* RESPONSIVE */
 @media(max-width:768px){
 
 h1{
@@ -131,12 +152,10 @@ margin-top:10px;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<!-- HERO SECTION -->
 <div class="hero-section" style="
 background:url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f') no-repeat center center/cover;
 min-height:100vh;
@@ -144,7 +163,6 @@ min-height:100vh;
 
 <div style="background:rgba(0,0,0,0.55); min-height:100vh; padding:20px;">
 
-<!-- HEADER -->
 <div class="header" style="
 display:flex;
 justify-content:space-between;
@@ -152,10 +170,9 @@ align-items:center;
 flex-wrap:wrap;
 ">
 
-<!-- LOGO + TITLE -->
 <div style="display:flex; align-items:center; gap:15px;">
 
-<img src="D:\logo.jpg"
+<img src="logo.jpg"
 style="
 width:60px;
 height:60px;
@@ -174,46 +191,28 @@ TitanFit Gym
 
 </div>
 
-<!-- MENU -->
 <div class="menu" style="font-size:18px;">
 
-<a href="index.html"
-style="color:white; text-decoration:none; margin:10px;">
-Home
-</a>
-<i class="fa-regular fa-house"></i>
+<a href="index.html" style="color:white; text-decoration:none; margin:10px;">Home</a>
+<i class="fa-solid fa-house"></i>
 
-<a href="about.html"
-style="color:white; text-decoration:none; margin:10px;">
-About
-</a>
+<a href="about.html" style="color:white; text-decoration:none; margin:10px;">About</a>
 <i class="fa-solid fa-circle-info"></i>
 
-<a href="trainers.html"
-style="color:#ff4500; text-decoration:none; margin:10px;">
-Trainers
-</a>
+<a href="trainers.html" style="color:#ff4500; text-decoration:none; margin:10px;">Trainers</a>
 <i class="fa-solid fa-dumbbell"></i>
 
-<a href="gallery.html"
-style="color:white; text-decoration:none; margin:10px;">
-Gallery
-</a>
+<a href="gallery.html" style="color:white; text-decoration:none; margin:10px;">Gallery</a>
 <i class="fa-solid fa-image"></i>
 
-<a href="contact.html"
-style="color:white; text-decoration:none; margin:10px;">
-Contact
-</a>
+<a href="contact.html" style="color:white; text-decoration:none; margin:10px;">Contact</a>
 <i class="fa-solid fa-at"></i>
 
 </div>
-
 </div>
 
 <hr style="border:1px solid #444;">
 
-<!-- TITLE -->
 <h2 style="
 text-align:center;
 color:#ff4500;
@@ -239,118 +238,181 @@ Each trainer has years of experience and has trained athletes,
 bodybuilders, and fitness enthusiasts.
 </p>
 
-<!-- TRAINERS SECTION -->
 <div style="
-display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
-margin-top:60px;
-padding-bottom:60px;
+max-width:1300px;
+margin:80px auto;
+padding:20px;
 ">
 
-<!-- TRAINER 1 -->
-<div class="trainer-card" style="
-background:#1e1e1e;
-border-radius:15px;
-width:380px;
-box-shadow:0 0 15px rgba(0,0,0,0.5);
+<div style="
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:35px;
 ">
 
-<img class="trainer-img"
-src="https://images.unsplash.com/photo-1534367610401-9f5ed68180aa"
-style="
-width:100%;
-height:360px;
-object-fit:cover;
-">
+<div class="trainer-card">
 
-<div style="padding:25px; text-align:center;">
+<img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?q=80&w=800&auto=format&fit=crop"
+class="trainer-img">
 
-<h3 style="color:#ff4500; font-size:28px;">
+<h3 style="color:#ff4500; font-size:32px; margin-top:20px;">
 Arjun Kumar
 </h3>
 
-<p style="line-height:1.8;">
-Certified bodybuilding coach with 10+ years of experience in strength training and muscle building.
+<p style="font-size:18px; color:#ccc; line-height:1.8;">
+Senior Strength & Bodybuilding Coach
 </p>
 
+<div class="achievement-box">
+<h4><i class="fa-solid fa-trophy"></i> Achievements</h4>
+<ul>
+<li>Mr. Tamil Nadu Bodybuilding Champion 2021</li>
+<li>South India Powerlifting Gold Medalist</li>
+<li>Certified International Fitness Trainer</li>
+<li>Trained 200+ Fitness Clients</li>
+</ul>
+</div>
+
+<div class="achievement-box">
+<h4><i class="fa-solid fa-dumbbell"></i> Experience</h4>
+<ul>
+<li>10+ Years Experience</li>
+<li>Expert in Muscle Gain</li>
+<li>Competition Preparation Specialist</li>
+</ul>
 </div>
 
 </div>
 
-<!-- TRAINER 2 -->
-<div class="trainer-card" style="
-background:#1e1e1e;
-border-radius:15px;
-width:380px;
-box-shadow:0 0 15px rgba(0,0,0,0.5);
-">
+<div class="trainer-card">
 
-<img class="trainer-img"
-src="https://images.unsplash.com/photo-1518611012118-fb6b6f4dc07d"
-style="
-width:100%;
-height:360px;
-object-fit:cover;
-">
+<img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop"
+class="trainer-img">
 
-<div style="padding:25px; text-align:center;">
+<h3 style="color:#ff4500; font-size:32px; margin-top:20px;">
+Rahul Fitness
+</h3>
 
-<h3 style="color:#ff4500; font-size:28px;">
+<p style="font-size:18px; color:#ccc; line-height:1.8;">
+Weight Loss & Cardio Specialist
+</p>
+
+<div class="achievement-box">
+<h4><i class="fa-solid fa-trophy"></i> Achievements</h4>
+<ul>
+<li>National HIIT Championship Winner</li>
+<li>Certified CrossFit Trainer</li>
+<li>Top Fat Loss Coach 2023</li>
+<li>State-Level Athlete Trainer</li>
+</ul>
+</div>
+
+<div class="achievement-box">
+<h4><i class="fa-solid fa-dumbbell"></i> Experience</h4>
+<ul>
+<li>8+ Years Experience</li>
+<li>Expert in Weight Reduction</li>
+<li>Functional Training Coach</li>
+</ul>
+</div>
+
+</div>
+
+<div class="trainer-card">
+
+<img src="https://images.unsplash.com/photo-1549476464-37392f717541?q=80&w=800&auto=format&fit=crop"
+class="trainer-img">
+
+<h3 style="color:#ff4500; font-size:32px; margin-top:20px;">
 Priya Sharma
 </h3>
 
-<p style="line-height:1.8;">
-Professional yoga and fitness trainer helping members improve flexibility and fat loss.
+<p style="font-size:18px; color:#ccc; line-height:1.8;">
+Yoga & Functional Fitness Expert
 </p>
 
+<div class="achievement-box">
+<h4><i class="fa-solid fa-trophy"></i> Achievements</h4>
+<ul>
+<li>National Yoga Champion</li>
+<li>Certified Zumba Instructor</li>
+<li>Women's Fitness Excellence Award</li>
+<li>300+ Fitness Workshops Conducted</li>
+</ul>
 </div>
 
-</div>
-
-<!-- TRAINER 3 -->
-<div class="trainer-card" style="
-background:#1e1e1e;
-border-radius:15px;
-width:380px;
-box-shadow:0 0 15px rgba(0,0,0,0.5);
-">
-
-<img class="trainer-img"
-src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd"
-style="
-width:100%;
-height:360px;
-object-fit:cover;
-">
-
-<div style="padding:25px; text-align:center;">
-
-<h3 style="color:#ff4500; font-size:28px;">
-Riya Das
-</h3>
-
-<p style="line-height:1.8;">
-Expert women fitness coach specialized in cardio, endurance, and transformation programs.
-</p>
-
+<div class="achievement-box">
+<h4><i class="fa-solid fa-dumbbell"></i> Experience</h4>
+<ul>
+<li>7+ Years Experience</li>
+<li>Flexibility & Mobility Specialist</li>
+<li>Stress Relief Fitness Programs</li>
+</ul>
 </div>
 
 </div>
 
 </div>
+</div>
 
-<!-- FOOTER -->
 <div style="
-background:#000;
-padding:25px;
+max-width:1200px;
+margin:80px auto;
+padding:40px;
+background:rgba(255,255,255,0.05);
+border-radius:20px;
+line-height:2;
 text-align:center;
+animation:fadeUp 2.5s ease;
 ">
 
-<p style="color:#aaa;">
-© 2026 TitanFit Gym | All Rights Reserved
+<h2 style="color:#ff4500; font-size:45px; margin-bottom:30px;">
+Why Choose TitanFit Trainers?
+</h2>
+
+<p style="font-size:20px; color:#ddd;">
+Our trainers provide personalized workout plans, nutrition guidance,
+competition coaching, strength training, fat loss programs,
+and complete fitness transformation support.
 </p>
+
+<div style="
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:40px;
+text-align:left;
+">
+
+<div style="background:#222; padding:25px; border-radius:15px;">
+<h3 style="color:#ff4500;">Strength Training</h3>
+<p style="color:#ccc; line-height:1.8;">
+Professional muscle-building and strength development workouts.
+</p>
+</div>
+
+<div style="background:#222; padding:25px; border-radius:15px;">
+<h3 style="color:#ff4500;">Fat Loss Programs</h3>
+<p style="color:#ccc; line-height:1.8;">
+Scientific fat-burning routines with nutrition guidance.
+</p>
+</div>
+
+<div style="background:#222; padding:25px; border-radius:15px;">
+<h3 style="color:#ff4500;">Diet Support</h3>
+<p style="color:#ccc; line-height:1.8;">
+Customized meal plans for weight gain and fat loss.
+</p>
+</div>
+
+<div style="background:#222; padding:25px; border-radius:15px;">
+<h3 style="color:#ff4500;">Competition Coaching</h3>
+<p style="color:#ccc; line-height:1.8;">
+Preparation programs for bodybuilding and fitness competitions.
+</p>
+</div>
+
+</div>
 
 </div>
 
@@ -359,3 +421,4 @@ text-align:center;
 
 </body>
 </html>
+```
