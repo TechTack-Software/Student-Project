@@ -1,240 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/3a4b108d05.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Contact | Madurai Cinemas</title>
+    <style>
+        :root { --primary: #dc3545; --light: #f8f9fa; }
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background: var(--light); }
+        header { background: #000; color: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; }
+        
+        /* Logo Styles */
+        .brand-container { display: flex; align-items: center; gap: 12px; }
+        .logo { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); }
 
-<title>DreamNest Luxury Real Estate</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<!-- jsPDF Library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-<style>
-
-/* RESET */
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-/* CONTACT SECTION */
-#contact{
-padding:100px 8%;
-background:#f5f7fb;
-min-height:100vh;
-}
-
-.title{
-text-align:center;
-margin-bottom:50px;
-}
-
-.title h2{
-font-size:45px;
-margin-bottom:10px;
-color:#111827;
-}
-
-.title p{
-color:#64748b;
-font-size:18px;
-}
-
-.contact-wrapper{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-}
-
-/* BOXES */
-.contact-box,
-.login-box{
-background:#0f172a;
-color:#fff;
-padding:35px;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-}
-
-.contact-box h2,
-.login-box h2{
-margin-bottom:20px;
-font-size:35px;
-}
-
-.contact-box p{
-margin:14px 0;
-font-size:17px;
-line-height:1.8;
-}
-
-/* MAP */
-.map{
-margin-top:20px;
-border-radius:15px;
-overflow:hidden;
-}
-
-iframe{
-width:100%;
-height:300px;
-border:none;
-}
-
-/* FORM */
-.login-box form{
-display:flex;
-flex-direction:column;
-gap:18px;
-}
-
-.login-box input{
-padding:15px;
-border:none;
-border-radius:10px;
-outline:none;
-font-size:15px;
-}
-
-/* BUTTON */
-.login-btn{
-padding:15px;
-border:none;
-border-radius:10px;
-background:#38bdf8;
-font-size:17px;
-font-weight:700;
-cursor:pointer;
-transition:0.3s;
-}
-
-.login-btn:hover{
-background:#0ea5e9;
-color:#fff;
-transform:scale(1.03);
-}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-
-.contact-wrapper{
-grid-template-columns:1fr;
-}
-
-.title h2{
-font-size:35px;
-}
-
-}
-
-</style>
+        nav a { color: rgb(240, 238, 238); text-decoration: none; margin-left: 20px; font-weight: bold; }
+        .container { padding: 40px 8%; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+        .theatre-card { background: rgb(248, 246, 246); padding: 25px; border-left: 6px solid var(--primary); border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: 0.3s; }
+        .theatre-card:hover { transform: translateY(-5px); }
+        .theatre-card h3 { margin-top: 0; color: #333; }
+        .theatre-card p { margin: 8px 0; color: #555; font-size: 0.95rem; }
+        .theatre-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 4px; margin-bottom: 10px; }
+        .book-link { display: inline-block; margin-top: 15px; padding: 8px 20px; background: var(--primary); color: white; text-decoration: none; border-radius: 4px; font-weight: bold; font-size: 0.8rem; }
+    </style>
 </head>
-
 <body>
+    <header>
+        <div class="brand-container">
+            <img src="MC.jpg" alt="Logo" class="logo">
+            <h1 style="margin: 0;">Madurai Cinemas</h1>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="booking.html">Booking</a>
+            <a href="contact.html">Contact</a><i class="fa-solid fa-clapperboard"></i>
+        </nav>
+    </header>
 
-<section id="contact">
-
-<div class="title">
-<h2>Contact & Login</h2>
-<p>Connect with DreamNest anytime</p>
-</div>
-
-<div class="contact-wrapper">
-
-<!-- LEFT SIDE -->
-<div class="contact-box">
-
-<h2>Contact Us</h2>
-
-<p>📧 dreamnest@gmail.com</p>
-
-<p>📞 +91 98765 43210</p>
-
-<p>📍 Chennai, Tamil Nadu, India</p>
-
-<p>🕒 24/7 Customer Support Available</p>
-
-<p>🌐 www.dreamnestrealestate.com</p>
-
-<p>🏢 Luxury Real Estate Since 2015</p>
-
-<div class="map">
-
-<iframe 
-src="https://maps.google.com/maps?q=Chennai&t=&z=13&ie=UTF8&iwloc=&output=embed">
-</iframe>
-
-</div>
-
-</div>
-
-<!-- RIGHT SIDE -->
-<div class="login-box">
-
-<h2>Client Login</h2>
-
-<form id="pdfForm">
-
-<input type="text" id="username" placeholder="Enter Username" required>
-
-<input type="email" id="email" placeholder="Enter Email" required>
-
-<input type="password" id="password" placeholder="Enter Password" required>
-
-<input type="text" id="property" placeholder="Preferred Property Type">
-
-<button type="button" class="login-btn" onclick="generatePDF()">
-Download PDF
-</button>
-
-</form>
-
-</div>
-
-</div>
-
-</section>
-
-<script>
-
-function generatePDF(){
-
-const { jsPDF } = window.jspdf;
-
-const doc = new jsPDF();
-
-// GET VALUES
-let username = document.getElementById("username").value;
-let email = document.getElementById("email").value;
-let password = document.getElementById("password").value;
-let property = document.getElementById("property").value;
-
-// TITLE
-doc.setFontSize(24);
-doc.text("DreamNest Client Details", 20, 20);
-
-// DETAILS
-doc.setFontSize(15);
-
-doc.text("Username : " + username, 20, 50);
-doc.text("Email : " + email, 20, 70);
-doc.text("Password : " + password, 20, 90);
-doc.text("Preferred Property : " + property, 20, 110);
-
-// MESSAGE
-doc.setFontSize(16);
-doc.text("Thank you for contacting DreamNest!", 20, 150);
-
-// SAVE PDF
-doc.save("DreamNest_Client_Details.pdf");
-
-}
-
-</script>
-
+    <div class="container">
+        <h2 style="margin-bottom: 30px;">Our Theatres in Madurai City</h2>
+        <div class="contact-grid">
+            <div class="theatre-card">
+                <img src="vetri.jpg" alt="Vetri Cinemas">
+                <h3>Vetri Cinemas</h3>
+                <p>📍 Villapuram, Madurai - 625012</p>
+                <p>📨 vetricinemas@gmail.com</p>
+                <p>📞 0452-2675222</p>
+                <a href="booking.html?theatre=Vetri%20Cinemas" class="book-link">BOOK TICKETS HERE</a>
+            </div>
+            <div class="theatre-card">
+                <img src="solamalai.jpg" alt="Solamalai Cinemas">
+                <h3>Solamalai Cinemas</h3>
+                <p>📍 Gokhale Road, Madurai</p>
+                <p>📨 solamlaicinemas@gmail.com</p>
+                <p>📞 0452-4394000</p>
+                <a href="booking.html?theatre=Solamalai%20Cinemas" class="book-link">BOOK TICKETS HERE</a>
+            </div>
+            <div class="theatre-card">
+                <img src="radiance.jpg" alt="Radiance Cinemas">
+                <h3>Radiance Cinemas</h3>
+                <p>📍 Anna Nagar, Madurai</p>
+                <p>📨 radiancecinemas@gmail.com</p>
+                <p>📞 0452-2520624</p>
+                <a href="booking.html?theatre=Radiance%20Cinemas" class="book-link">BOOK TICKETS HERE</a>
+            </div>
+            <div class="theatre-card">
+                <img src="guru.jpg" alt="Guru Theatre">
+                <h3>Guru theatre</h3>
+                <p>📍 Anna Nagar, Madurai</p>
+                <p>📨 cinepriya@gmail.com</p>
+                <p>📞 0452-2531234</p>
+                <a href="booking.html?theatre=Guru%20Theatre" class="book-link">BOOK TICKETS HERE</a>
+            </div>
+            <div class="theatre-card">
+                <img src="gopuram.jpg" alt="Gopuram Cinemas">
+                <h3>Gopuram Cinemas</h3>
+                <p>📍 Sellur, Madurai - 625002</p>
+                <p>📨 gopuramcinemas@gmail.com</p>
+                <p>📞 0452-2535555</p>
+                <a href="booking.html?theatre=Gopuram%20Cinemas" class="book-link">BOOK TICKETS HERE</a>
+            </div>
+            <div class="theatre-card">
+                <img src="ganesh.jpg" alt="Ganesh Cinemas">
+                <h3>Ganesh cinemas</h3>
+                <p>📍 Anna Nagar, Madurai</p>
+                <p>📨 ganeshcinemas@gmail.com</p>
+                <p>📞 0452-2531234</p>
+                <a href="booking.html?theatre=Ganesh%20Cinemas" class="book-link">BOOK TICKETS HERE</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
