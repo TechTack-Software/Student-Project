@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <script src="https://kit.fontawesome.com/8568c2b454.js" crossorigin="anonymous"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact - Super Kings Cricket Club</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background-image:url("https://images.unsplash.com/photo-1540747913346-19e32dc3e97e");
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
+      color:white;
+    }
+
+    .overlay{
+      background:rgba(0,0,0,0.85);
+      min-height:100vh;
+      padding:20px;
+    }
+
+    /* HEADER */
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .logo{
+      font-size:30px;
+      font-weight:bold;
+      color:gold;
+      text-shadow:2px 2px 5px black;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin:0 12px;
+      font-size:18px;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:gold;
+    }
+
+    /* TITLE */
+
+    .title{
+      text-align:center;
+      margin:40px 0 10px;
+      font-size:55px;
+      color:gold;
+      text-shadow:3px 3px 5px black;
+    }
+
+    .subtitle{
+      text-align:center;
+      font-size:22px;
+      color:#ddd;
+      margin-bottom:35px;
+    }
+
+    /* CLUB INFO */
+
+    .club-info{
+      max-width:1100px;
+      margin:0 auto 40px;
+      padding:25px;
+      border:2px solid gold;
+      border-radius:15px;
+      background:rgba(255,255,255,0.08);
+      box-shadow:0 0 15px rgba(255,215,0,0.3);
+    }
+
+    .club-info h2{
+      text-align:center;
+      color:gold;
+      margin-bottom:20px;
+      font-size:38px;
+    }
+
+    .club-info p{
+      line-height:2;
+      font-size:18px;
+      margin-bottom:10px;
+    }
+
+    .highlight{
+      color:gold;
+      font-weight:bold;
+    }
+
+    .info-points{
+      margin-top:20px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .point-box{
+      background:rgba(255,215,0,0.12);
+      padding:18px;
+      border-radius:10px;
+      border-left:4px solid gold;
+      transition:0.3s;
+    }
+
+    .point-box:hover{
+      transform:scale(1.03);
+      background:rgba(255,215,0,0.18);
+    }
+
+    .point-box h3{
+      color:gold;
+      margin-bottom:10px;
+    }
+
+    .point-box p{
+      font-size:16px;
+      line-height:1.7;
+    }
+
+    /* MAIN CONTAINER */
+
+    .container{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:30px;
+    }
+
+    /* CONTACT DETAILS */
+
+    .contact-box{
+      width:420px;
+      background:rgba(255,255,255,0.08);
+      border:2px solid gold;
+      border-radius:15px;
+      padding:25px;
+      box-shadow:0 0 15px rgba(255,215,0,0.3);
+    }
+
+    .contact-box h2{
+      color:gold;
+      text-align:center;
+      margin-bottom:20px;
+      font-size:34px;
+    }
+
+    .contact-box p{
+      line-height:2;
+      font-size:18px;
+      margin-bottom:10px;
+    }
+
+    /* MAP */
+
+    .map-box{
+      margin-top:20px;
+      border:2px solid gold;
+      border-radius:10px;
+      overflow:hidden;
+    }
+
+    .map-box iframe{
+      width:100%;
+      height:200px;
+      border:0;
+    }
+
+    /* FORM */
+
+    .form-box{
+      width:520px;
+      background:rgba(255,255,255,0.08);
+      border:2px solid gold;
+      border-radius:15px;
+      padding:25px;
+      box-shadow:0 0 15px rgba(255,215,0,0.3);
+    }
+
+    .form-box h2{
+      color:gold;
+      text-align:center;
+      margin-bottom:20px;
+      font-size:34px;
+    }
+
+    form{
+      display:flex;
+      flex-direction:column;
+    }
+
+    label{
+      margin-top:12px;
+      margin-bottom:5px;
+      color:#ffd700;
+      font-size:17px;
+    }
+
+    input,
+    select,
+    textarea{
+      padding:12px;
+      border:none;
+      border-radius:8px;
+      outline:none;
+      font-size:16px;
+    }
+
+    textarea{
+      resize:none;
+      height:100px;
+    }
+
+    button{
+      margin-top:25px;
+      padding:14px;
+      border:none;
+      border-radius:8px;
+      background:gold;
+      color:black;
+      font-size:18px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#ffcc00;
+      transform:scale(1.03);
+    }
+
+    /* ERROR */
+
+    .error{
+      color:red;
+      font-size:14px;
+      margin-top:5px;
+      display:none;
+    }
+
+    /* SUCCESS */
+
+    .success{
+      color:lightgreen;
+      text-align:center;
+      margin-top:15px;
+      font-size:18px;
+      display:none;
+    }
+
+    /* FOOTER */
+
+    footer{
+      text-align:center;
+      margin-top:40px;
+      padding:15px;
+      color:#ddd;
+      font-size:17px;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      .title{
+        font-size:40px;
+      }
+
+      .contact-box,
+      .form-box{
+        width:95%;
+      }
+
+      nav{
+        margin-top:15px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<div class="overlay">
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="logo">
+      <img src="kings.jpg" height="25" width="25">
+      Super Kings Cricket Club
+    </div>
+
+    <nav>
+      <a href="new1.html">Home <i class="fa-solid fa-house-chimney"></i></a>
+      <a href="new2.html">About <i class="fa-solid fa-eject"></i></a>
+      <a href="new3.html">Batch <i class="fa-solid fa-baseball"></i></a>
+      <a href="new4.html">Staff <i class="fa-solid fa-clipboard-user"></i></a>
+      <a href="new5.html">Contacts <i class="fa-solid fa-square-phone"></i></a>
+    </nav>
+
+  </header>
+
+  <!-- TITLE -->
+
+  <div class="title">📞 Contact & Join Our Club</div>
+
+  <div class="subtitle">
+    Build Your Cricket Career With Professional Coaching
+  </div>
+
+  <!-- EXTRA CLUB DETAILS -->
+
+  <div class="club-info">
+
+    <h2>🏆 BEST CLUB FOR BECOMING CHAMPION</h2>
+
+    <p>
+      <span class="highlight">Super Kings Cricket Club</span>
+      is one of the best training centers for young cricketers.
+      Our mission is to develop talented players with
+      professional coaching, discipline, teamwork, and fitness.
+    </p>
+
+    <p>
+      We provide modern cricket training with experienced
+      coaches, advanced practice sessions, and tournament
+      preparation for beginners and advanced players.
+    </p>
+
+    
+    <div class="info-points">
+
+      <div class="point-box">
+        <h3>🏏 Professional Coaching</h3>
+        <p>
+          Expert batting, bowling, fielding, and fitness
+          training by experienced coaches.
+        </p>
+      </div>
+
+      <div class="point-box">
+        <h3>💪 Fitness & Gym</h3>
+        <p>
+          Daily fitness sessions, warm-up exercises,
+          stamina training, and injury prevention.
+        </p>
+      </div>
+
+      <div class="point-box">
+        <h3>🏆 Tournament Practice</h3>
+        <p>
+          Weekly practice matches and tournament preparation
+          to improve player confidence.
+        </p>
+      </div>
+
+      <div class="point-box">
+        <h3>🎯 Modern Facilities</h3>
+        <p>
+          Practice nets, bowling machines, cricket kits,
+          floodlight ground, and strategy sessions.
+        </p>
+      </div>
+      <div class="point-box">
+        <h3>🎯 Training Programs</h3>
+        <p>
+          We provide structured training in batting, bowling, 
+          and fitness development with expert coaches.
+              
+        </p>
+      </div>
+      <div class="point-box">
+        <h3>🏆 Match Experience</h3>
+        <p>
+          Players get real match exposure through tournaments and 
+          practice games to improve confidence.
+          Our cricket club provides an exviting 
+          and unforgettable match experience for every palyer
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- MAIN CONTENT -->
+
+  <div class="container">
+
+    <!-- CONTACT DETAILS -->
+
+    <div class="contact-box">
+
+      <h2>📍 Club Details</h2>
+
+      <p>
+        <span class="highlight">🏏 Club Name:</span><br>
+        Super Kings Cricket Club
+      </p>
+
+      <p>
+        <span class="highlight">📍 Address:</span><br>
+        25 Sports Avenue,<br>
+        Ambur, Tamil Nadu - 635802
+      </p>
+
+      <p>
+        <span class="highlight">📞 Phone:</span><br>
+        +91 98765 43210
+      </p>
+
+      <p>
+        <span class="highlight">📧 Email:</span><br>
+        superkingsclub@gmail.com
+      </p>
+
+      <p>
+        <span class="highlight">⏰ Training Time:</span><br>
+        Morning: 5:30 AM - 9:00 AM<br>
+        Evening: 4:00 PM - 8:00 PM
+      </p>
+
+      <!-- MAP LOCATION -->
+
+      <div class="map-box">
+
+        <iframe
+          src="https://www.google.com/maps?q=Ambur,Tamil+Nadu&output=embed"
+          loading="lazy"
+          allowfullscreen="">
+        </iframe>
+
+      </div>
+
+    </div>
+
+    <!-- APPLICATION FORM -->
+
+    <div class="form-box">
+
+      <h2>📝 Join Application Form</h2>
+
+      <form id="joinForm">
+
+        <label>Full Name</label>
+        <input type="text" id="name"
+        placeholder="Enter your full name">
+
+        <div class="error" id="nameError">
+          Please enter your full name
+        </div>
+
+        <label>Age</label>
+        <input type="number" id="age"
+        placeholder="Enter your age">
+
+        <div class="error" id="ageError">
+          Please enter your age
+        </div>
+
+        <label>Phone Number</label>
+        <input type="text" id="phone"
+        placeholder="Enter your phone number">
+
+        <div class="error" id="phoneError">
+          Please enter your phone number
+        </div>
+
+        <label>Email Address</label>
+        <input type="email" id="email"
+        placeholder="Enter your email">
+
+        <div class="error" id="emailError">
+          Please enter your email
+        </div>
+
+        <label>Select Batch</label>
+
+        <select id="batch">
+          <option value="">-- Select Batch --</option>
+          <option>Morning Batch</option>
+          <option>Evening Batch</option>
+        </select>
+
+        <div class="error" id="batchError">
+          Please select your batch
+        </div>
+
+        <label>Select Timing</label>
+
+        <select id="timing">
+          <option value="">-- Select Timing --</option>
+          <option>5:30 AM - 9:00 AM</option>
+          <option>4:00 PM - 8:00 PM</option>
+        </select>
+
+        <div class="error" id="timingError">
+          Please select timing
+        </div>
+
+        <label>Cricket Experience</label>
+
+        <select id="experience">
+          <option value="">-- Select Experience --</option>
+          <option>Beginner</option>
+          <option>Intermediate</option>
+          <option>Advanced</option>
+        </select>
+
+        <div class="error" id="experienceError">
+          Please select your experience level
+        </div>
+
+        <label>Why do you want to join?</label>
+
+        <textarea id="message"
+        placeholder="Write your interest here..."></textarea>
+
+        <div class="error" id="messageError">
+          Please write your message
+        </div>
+
+        <!-- BUTTON -->
+
+        <button type="submit">
+          Join Cricket Club
+        </button>
+
+        <!-- SUCCESS -->
+
+        <div class="success" id="successMessage">
+          ✅ Your Application Submitted Successfully!
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 Super Kings Cricket Club | Train Hard • Play Smart 🏏
+  </footer>
+
+</div>
+
+<!-- PDF LIBRARY -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- JAVASCRIPT VALIDATION -->
+
+<script>
+
+document.getElementById("joinForm")
+.addEventListener("submit", function(event){
+
+  event.preventDefault();
+
+  let isValid = true;
+
+  let name =
+  document.getElementById("name").value.trim();
+
+  let age =
+  document.getElementById("age").value.trim();
+
+  let phone =
+  document.getElementById("phone").value.trim();
+
+  let email =
+  document.getElementById("email").value.trim();
+
+  let batch =
+  document.getElementById("batch").value;
+
+  let timing =
+  document.getElementById("timing").value;
+
+  let experience =
+  document.getElementById("experience").value;
+
+  let message =
+  document.getElementById("message").value.trim();
+
+  let errors =
+  document.querySelectorAll(".error");
+
+  errors.forEach(function(error){
+    error.style.display = "none";
+  });
+
+  if(name === ""){
+    document.getElementById("nameError")
+    .style.display = "block";
+    isValid = false;
+  }
+
+  if(age === ""){
+    document.getElementById("ageError")
+    .style.display = "block";
+    isValid = false;
+  }
+
+  if(phone === ""){
+    document.getElementById("phoneError")
+    .style.display = "block";
+    isValid = false;
+  }
+
+  if(email === ""){
+    document.getElementById("emailError")
+    .style.display = "block";
+    isValid = false;
+  }
+
+  if(batch === ""){
+    document.getElementById("batchError")
+    .style.display = "block";
+    isValid = false;
+  }
+
+  if(timing === ""){
+    document.getElementById("timingError")
+    .style.display = "block";
+    isValid = false;
+  }
+
+  if(experience === ""){
+    document.getElementById("experienceError")
+    .style.display = "block";
+    isValid = false;
+  }
+
+  if(message === ""){
+    document.getElementById("messageError")
+    .style.display = "block";
+    isValid = false;
+  }
+
+  if(isValid){
+
+    document.getElementById("successMessage")
+    .style.display = "block";
+
+    // PDF DOWNLOAD
+
+    const { jsPDF } = window.jspdf;
+
+    const doc = new jsPDF();
+
+    doc.setFontSize(20);
+    doc.text("Super Kings Cricket Club", 20, 20);
+
+    doc.setFontSize(15);
+    doc.text("Application Form Details", 20, 35);
+
+    doc.setFontSize(12);
+
+    doc.text("Name : " + name, 20, 55);
+    doc.text("Age : " + age, 20, 65);
+    doc.text("Phone : " + phone, 20, 75);
+    doc.text("Email : " + email, 20, 85);
+    doc.text("Batch : " + batch, 20, 95);
+    doc.text("Timing : " + timing, 20, 105);
+    doc.text("Experience : " + experience, 20, 115);
+
+    doc.text("Message :", 20, 130);
+    doc.text(message, 20, 140);
+
+    doc.save("Cricket_Club_Application.pdf");
+
+    document.getElementById("joinForm").reset();
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>

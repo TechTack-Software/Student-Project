@@ -1,0 +1,482 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://kit.fontawesome.com/8568c2b454.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Staff - Super Kings Cricket Club</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background-image:url("https://images.unsplash.com/photo-1540747913346-19e32dc3e97e");
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
+      color:white;
+    }
+
+    .overlay{
+      background:rgba(0,0,0,0.88);
+      min-height:100vh;
+      padding:20px;
+    }
+
+    /* HEADER */
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      margin-bottom:30px;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:bold;
+      color:gold;
+      text-shadow:2px 2px 5px black;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin:0 10px;
+      font-size:17px;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:gold;
+    }
+
+    /* TITLE */
+
+    .title{
+      text-align:center;
+      font-size:50px;
+      margin-bottom:10px;
+      color:gold;
+      text-shadow:3px 3px 6px black;
+    }
+
+    .subtitle{
+      text-align:center;
+      font-size:18px;
+      color:#ddd;
+      margin-bottom:40px;
+    }
+
+    /* STAFF SECTION */
+
+    .staff-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:25px;
+      margin-bottom:60px;
+    }
+
+    .staff-card{
+      background:rgba(255,255,255,0.08);
+      border:2px solid gold;
+      border-radius:18px;
+      overflow:hidden;
+      transition:0.4s;
+      box-shadow:0 0 15px rgba(255,215,0,0.2);
+    }
+
+    .staff-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 0 25px gold;
+    }
+
+    .staff-card img{
+      width:100%;
+      height:190px;
+      object-fit:cover;
+      border-bottom:2px solid gold;
+    }
+
+    .staff-info{
+      padding:18px;
+    }
+
+    .staff-info h2{
+      color:gold;
+      margin-bottom:6px;
+      font-size:24px;
+    }
+
+    .role{
+      color:#ffd700;
+      font-size:16px;
+      margin-bottom:10px;
+    }
+
+    .staff-info p{
+      line-height:1.6;
+      margin-bottom:10px;
+      font-size:14px;
+      color:#f1f1f1;
+    }
+
+    .experience{
+      margin-top:10px;
+      padding:8px;
+      border-radius:8px;
+      background:rgba(255,215,0,0.15);
+      font-weight:bold;
+      color:#ffe066;
+      font-size:14px;
+    }
+
+    /* TRAINING SECTION */
+
+    .training-section{
+      margin-top:60px;
+    }
+
+    .training-title{
+      text-align:center;
+      font-size:48px;
+      color:gold;
+      margin-bottom:15px;
+      text-shadow:3px 3px 8px black;
+    }
+
+    .training-subtitle{
+      text-align:center;
+      color:#ddd;
+      font-size:18px;
+      margin-bottom:40px;
+    }
+
+    .training-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+    }
+
+    .training-card{
+      background:rgba(255,255,255,0.08);
+      border:2px solid gold;
+      border-radius:18px;
+      overflow:hidden;
+      transition:0.4s;
+      box-shadow:0 0 15px rgba(255,215,0,0.2);
+    }
+
+    .training-card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 0 25px gold;
+    }
+
+    .training-card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .training-info{
+      padding:18px;
+    }
+
+    .training-info h2{
+      color:gold;
+      margin-bottom:10px;
+      font-size:24px;
+    }
+
+    .training-info p{
+      color:#f1f1f1;
+      line-height:1.7;
+      font-size:15px;
+    }
+
+    /* EXTRA SECTION */
+
+    .extra-section{
+      max-width:1000px;
+      margin:70px auto;
+      padding:25px;
+      border:2px solid gold;
+      border-radius:15px;
+      background:rgba(255,255,255,0.08);
+    }
+
+    .extra-section h2{
+      color:gold;
+      text-align:center;
+      margin-bottom:20px;
+      font-size:35px;
+    }
+
+    .extra-section p{
+      line-height:2;
+      font-size:17px;
+      color:#f2f2f2;
+      margin-bottom:10px;
+    }
+
+    .highlight{
+      color:gold;
+      font-weight:bold;
+    }
+
+    /* FOOTER */
+
+    footer{
+      margin-top:40px;
+      text-align:center;
+      padding:20px;
+      color:#ddd;
+      font-size:16px;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      .title{
+        font-size:36px;
+      }
+
+      .training-title{
+        font-size:35px;
+      }
+
+      nav{
+        margin-top:15px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<div class="overlay">
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="logo"><img src="kings.jpg" height="25" width="25">Super Kings Cricket Club</div>
+
+    <nav>
+      <a href="new1.html">Home<i class="fa-solid fa-house-chimney"></i></a>
+        <a href="new2.html">About<i class="fa-solid fa-eject"></i></a>
+        <a href="new3.html">Batch<i class="fa-solid fa-baseball"></i></a>
+        <a href="new4.html">Staff<i class="fa-solid fa-clipboard-user"></i></a>
+        <a href="new5.html">Contacts<i class="fa-solid fa-square-phone"></i></a>
+    </nav>
+
+  </header>
+
+  <!-- TITLE -->
+
+  <div class="title">⭐ Meet Our Professional Staff</div>
+
+  <div class="subtitle">
+    Experienced Coaches • Fitness Experts • Professional Mentors
+  </div>
+
+  <!-- STAFF CARDS -->
+
+  <div class="staff-container">
+
+    <!-- 1 -->
+
+    <div class="staff-card">
+      <img src="peron1.jpg">
+      <div class="staff-info">
+        <h2>Ravi Kumar</h2>
+        <div class="role">🏏 Head Coach</div>
+        <p>Expert batting coach with modern cricket techniques.</p>
+        <div class="experience">✔ 12 Years Experience</div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+
+    <div class="staff-card">
+      <img src="women1.jpg">
+      <div class="staff-info">
+        <h2>Kavya</h2>
+        <div class="role">🎯 Bowling Coach</div>
+        <p>Specialized in fast bowling and swing techniques.</p>
+        <div class="experience">✔ 10 Years Experience</div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+
+    <div class="staff-card">
+      <img src="women2.jpg">
+      <div class="staff-info">
+        <h2>Aishwarya</h2>
+        <div class="role">💪 Fitness Trainer</div>
+        <p>Improves stamina, flexibility, and endurance.</p>
+        <div class="experience">✔ 8 Years Experience</div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+
+    <div class="staff-card">
+      <img src="person2.jpg">
+      <div class="staff-info">
+        <h2>Suresh Babu</h2>
+        <div class="role">🧤 Fielding Coach</div>
+        <p>Expert in fielding drills and reflex practice.</p>
+        <div class="experience">✔ 9 Years Experience</div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+
+    <div class="staff-card">
+      <img src="men1.jpg">
+      <div class="staff-info">
+        <h2>Arjun Sharma</h2>
+        <div class="role">🏆 Senior Cricket Coach</div>
+        <p>Professional coach improving match performance.</p>
+        <div class="experience">✔ 11 Years Experience</div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+
+    <div class="staff-card">
+      <img src="women5.jpg">
+      <div class="staff-info">
+        <h2>Meera Joshi</h2>
+        <div class="role">🏏 Women's Team Coach</div>
+        <p>Advanced batting and fielding training expert.</p>
+        <div class="experience">✔ 7 Years Experience</div>
+      </div>
+    </div>
+
+    <!-- 7 -->
+
+    <div class="staff-card">
+      <img src="person4.jpg">
+      <div class="staff-info">
+        <h2>Rahul Verma</h2>
+        <div class="role">🔥 Power Hitting Coach</div>
+        <p>Special trainer for six-hitting and batting power.</p>
+        <div class="experience">✔ 6 Years Experience</div>
+      </div>
+    </div>
+
+    <!-- 8 -->
+
+    <div class="staff-card">
+      <img src="women4.jpg">
+      <div class="staff-info">
+        <h2>Priya Nair</h2>
+        <div class="role">🥗 Nutrition Expert</div>
+        <p>Creates healthy diet plans and recovery programs.</p>
+        <div class="experience">✔ 7 Years Experience</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TRAINING SECTION -->
+
+  <div class="training-section">
+
+    <h1 class="training-title">🏏 Training Pictures</h1>
+
+    <p class="training-subtitle">
+      Practice sessions and professional coaching moments
+    </p>
+
+    <div class="training-container">
+
+      <div class="training-card">
+        <img src="batting.jpg">
+        <div class="training-info">
+          <h2>Batting Practice</h2>
+          <p>Students learning batting shots and footwork.</p>
+        </div>
+      </div>
+
+      <div class="training-card">
+        <img src="bowling2.jpg">
+        <div class="training-info">
+          <h2>Bowling Sessions</h2>
+          <p>Fast bowling and yorker practice sessions.</p>
+        </div>
+      </div>
+
+      <div class="training-card">
+        <img src="bowling1.jpg">
+        <div class="training-info">
+          <h2>Fitness Training</h2>
+          <p>Strength and stamina improvement exercises.</p>
+        </div>
+      </div>
+
+      <div class="training-card">
+        <img src="cricketpic5.jpg">
+        <div class="training-info">
+          <h2>Fielding Practice</h2>
+          <p>Catch practice and reflex improvement drills.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- EXTRA SECTION -->
+
+  <div class="extra-section">
+
+    <h2>🏆 Why Our Staff Is Special?</h2>
+
+    <p>
+      At <span class="highlight">Super Kings Cricket Club</span>,
+      our coaches focus on professional cricket training,
+      fitness, discipline, and teamwork.
+    </p>
+
+    <p>
+      ✔ Trained <span class="highlight">200+ young cricketers</span>
+      across South India.
+    </p>
+
+    <p>
+      ✔ Weekly match practice and tournament preparation.
+    </p>
+
+    <p>
+      ✔ Individual coaching for batting, bowling,
+      fielding, and fitness improvement.
+    </p>
+
+  </div>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 Super Kings Cricket Club | Designed for Champions 🏏
+  </footer>
+
+</div>
+</body>
+</html>
