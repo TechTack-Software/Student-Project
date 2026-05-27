@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Online Exam System</title>
+
+<script src="https://kit.fontawesome.com/bd7220f2e1.js" crossorigin="anonymous"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+
+background:url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1600&auto=format&fit=crop');
+
+background-size:cover;
+background-position:center;
+color:white;
+
+}
+
+.overlay{
+
+background:rgba(0,0,0,0.7);
+min-height:100vh;
+padding:20px;
+
+}
+
+/* TOP BAR */
+
+.top-bar{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+}
+
+/* THEME ICON */
+
+.theme-icon{
+
+font-size:28px;
+color:white;
+cursor:pointer;
+transition:0.3s;
+
+}
+
+.theme-icon:hover{
+
+transform:scale(1.2);
+color:cyan;
+
+}
+
+/* TERMS LINK */
+
+.terms-link{
+
+color:white;
+text-decoration:none;
+font-size:20px;
+font-weight:bold;
+transition:0.3s;
+
+}
+
+.terms-link:hover{
+
+color:cyan;
+
+}
+
+/* START PAGE */
+
+#startPage{
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+
+}
+
+/* HOME BOX */
+
+.home-box{
+
+width:90%;
+max-width:500px;
+
+padding:50px;
+
+text-align:center;
+
+background:rgba(255,255,255,0.1);
+
+backdrop-filter:blur(12px);
+
+border-radius:25px;
+
+box-shadow:0 0 25px rgba(255,255,255,0.3);
+
+}
+
+/* BIG TITLE */
+
+.main-title{
+
+font-size:55px;
+font-weight:bold;
+letter-spacing:3px;
+margin-bottom:20px;
+
+text-shadow:0 0 15px cyan;
+
+}
+
+#dateTime{
+
+margin-bottom:20px;
+font-size:20px;
+
+}
+
+input[type="text"]{
+
+padding:14px;
+width:100%;
+border:none;
+border-radius:10px;
+font-size:18px;
+
+}
+
+button{
+
+padding:14px 30px;
+
+background:#00bcd4;
+
+color:white;
+
+border:none;
+
+border-radius:12px;
+
+font-size:20px;
+
+cursor:pointer;
+
+box-shadow:0 0 15px cyan;
+
+transition:0.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.1);
+
+box-shadow:0 0 25px cyan;
+
+}
+
+/* QUIZ PAGE */
+
+#quizPage{
+
+display:none;
+
+}
+
+.question-box{
+
+background:rgba(255,255,255,0.1);
+
+padding:20px;
+
+margin-top:20px;
+
+border-radius:15px;
+
+}
+
+.option{
+
+margin-top:12px;
+
+font-size:18px;
+
+}
+
+.timer{
+
+text-align:right;
+
+font-size:30px;
+
+color:yellow;
+
+font-weight:bold;
+
+margin-top:20px;
+
+animation:blink 1s infinite;
+
+}
+
+@keyframes blink{
+
+50%{
+opacity:0.5;
+}
+
+}
+
+/* RESULT PAGE */
+
+#result{
+
+display:none;
+
+text-align:center;
+
+padding-top:80px;
+
+min-height:100vh;
+
+background:url('https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=1600&auto=format&fit=crop');
+
+background-size:cover;
+
+background-position:center;
+
+}
+
+.certificate{
+
+background:rgba(255,255,255,0.1);
+
+padding:40px;
+
+border-radius:25px;
+
+margin:auto;
+
+width:85%;
+
+max-width:700px;
+
+backdrop-filter:blur(10px);
+
+box-shadow:0 0 25px white;
+
+}
+
+.certificate h1{
+
+font-size:45px;
+
+margin-bottom:20px;
+
+}
+
+.certificate h2{
+
+font-size:35px;
+
+margin-top:20px;
+
+}
+
+.quote{
+
+font-size:22px;
+
+margin-top:20px;
+
+font-style:italic;
+
+color:yellow;
+
+}
+
+#result button{
+
+display:block;
+
+margin:25px auto;
+
+}
+
+/* LIGHT MODE */
+
+.light{
+
+background:white;
+color:black;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- BACKGROUND MUSIC -->
+
+<audio id="bgMusic" loop>
+
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+
+</audio>
+
+<div class="overlay">
+
+<!-- START PAGE -->
+
+<div id="startPage">
+
+<!-- TOP BAR -->
+
+<div class="top-bar" style="width:100%;">
+
+<div class="theme-icon" onclick="changeMode()">
+
+<i class="fa-solid fa-moon"></i>
+
+</div>
+
+<a href="Online Exam Terms.html" class="terms-link">
+
+Terms & Conditions
+
+</a>
+
+</div>
+
+<!-- HOME BOX -->
+
+<div class="home-box">
+
+<h1 class="main-title">
+
+ONLINE EXAM SYSTEM
+
+</h1>
+
+<h3 id="dateTime"></h3>
+
+<input type="text"
+id="username"
+placeholder="Enter Your Name">
+
+<br><br>
+
+<button onclick="startExam()">
+
+Start Exam
+
+</button>
+
+</div>
+
+</div>
+
+<!-- QUIZ PAGE -->
+
+<div id="quizPage">
+
+<div class="timer">
+
+⏰ Time Left :
+<span id="time">01:00</span>
+
+</div>
+
+<form id="quizForm">
+
+<h2 style="margin-top:20px;">
+
+Question Progress
+
+</h2>
+
+<div id="questionsContainer"></div>
+
+<br>
+
+<center>
+
+<button type="button"
+onclick="submitQuiz(false)">
+
+Submit Exam
+
+</button>
+
+</center>
+
+</form>
+
+</div>
+
+<!-- RESULT PAGE -->
+
+<div id="result">
+
+<div class="certificate">
+
+<h1>🏆 Certificate of Achievement 🏆</h1>
+
+<h2 id="studentName"></h2>
+
+<p class="quote">
+
+“Success is the sum of small efforts repeated daily.”
+
+</p>
+
+<h2 id="finalResult"></h2>
+
+<h3 id="date"></h3>
+
+<br>
+
+<button id="certificateBtn"
+onclick="downloadCertificate()">
+
+Download Certificate
+
+</button>
+<button id="reExamBtn"
+onclick="reExam()"
+style="display:none;">
+
+🔄 Re-Exam
+
+</button>
+<button onclick="goHome()">
+
+Home Page
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* QUESTIONS */
+
+const questions = [
+
+{
+q:"What does HTML stand for ?",
+options:[
+"Hyper Text Markup Language",
+"Home Tool Markup Language",
+"Hyperlinks Text Mark Language",
+"Hyper Tool Multi Language"
+],
+answer:"Hyper Text Markup Language"
+},
+
+{
+q:"Which tag is used for paragraph ?",
+options:["p","h1","img","div"],
+answer:"p"
+},
+
+{
+q:"Which language is used for styling web pages ?",
+options:["HTML","CSS","Python","Java"],
+answer:"CSS"
+},
+
+{
+q:"Which symbol is used for id in CSS ?",
+options:["#",".","*","@"],
+answer:"#"
+},
+
+{
+q:"Which tag is used for image ?",
+options:["img","image","src","picture"],
+answer:"img"
+},
+
+{
+q:"JavaScript is a ?",
+options:[
+"Programming Language",
+"Database",
+"Server",
+"Browser"
+],
+answer:"Programming Language"
+},
+
+{
+q:"Which company developed JavaScript ?",
+options:["Netscape","Google","Microsoft","Apple"],
+answer:"Netscape"
+},
+
+{
+q:"Which HTML tag is used for heading ?",
+options:["h1","p","a","img"],
+answer:"h1"
+},
+
+{
+q:"CSS stands for ?",
+options:[
+"Cascading Style Sheets",
+"Creative Style Sheets",
+"Colorful Style Sheets",
+"Computer Style Sheets"
+],
+answer:"Cascading Style Sheets"
+},
+
+{
+q:"Which method displays alert box ?",
+options:["alert()","msg()","prompt()","box()"],
+answer:"alert()"
+},
+
+{
+q:"Which HTML tag is used for link ?",
+options:["a","link","href","url"],
+answer:"a"
+},
+
+{
+q:"Which attribute specifies image path ?",
+options:["src","href","alt","link"],
+answer:"src"
+},
+
+{
+q:"Which CSS property changes text color ?",
+options:["color","font","background","text"],
+answer:"color"
+},
+
+{
+q:"Which symbol is used for class in CSS ?",
+options:[".","#","*","@"],
+answer:"."
+},
+
+{
+q:"Which HTML tag creates line break ?",
+options:["br","hr","break","lb"],
+answer:"br"
+},
+
+{
+q:"Which keyword declares variable in JS ?",
+options:["let","dim","string","define"],
+answer:"let"
+},
+
+{
+q:"Which function reads user input ?",
+options:["prompt()","alert()","confirm()","msg()"],
+answer:"prompt()"
+},
+
+{
+q:"Which HTML tag creates table ?",
+options:["table","tr","td","th"],
+answer:"table"
+},
+
+{
+q:"Which property changes background color ?",
+options:[
+"background-color",
+"color",
+"bgcolor",
+"background"
+],
+answer:"background-color"
+},
+
+{
+q:"Which operator is used for comparison ?",
+options:["==","=","+","!="],
+answer:"=="
+},
+
+{
+q:"Which HTML tag creates button ?",
+options:["button","input","btn","click"],
+answer:"button"
+},
+
+{
+q:"Which function prints in console ?",
+options:[
+"console.log()",
+"print()",
+"write()",
+"display()"
+],
+answer:"console.log()"
+},
+
+{
+q:"Which tag creates unordered list ?",
+options:["ul","ol","li","list"],
+answer:"ul"
+},
+
+{
+q:"Which CSS property changes font size ?",
+options:[
+"font-size",
+"text-size",
+"size",
+"font"
+],
+answer:"font-size"
+},
+
+{
+q:"Which HTML tag is used for form ?",
+options:["form","input","label","submit"],
+answer:"form"
+}
+
+];
+
+let time = 60;
+
+let timer;
+
+/* START EXAM */
+
+function startExam(){
+
+let username =
+document.getElementById("username").value;
+
+if(username==""){
+
+alert("Please Enter Username");
+
+return;
+
+}
+
+/* START SOUND */
+
+let startSound = new Audio(
+"https://www.soundjay.com/buttons/sounds/button-09.mp3"
+);
+
+startSound.play();
+
+/* VOICE */
+
+let speech1 = new SpeechSynthesisUtterance(
+"Exam Started. All the best."
+);
+
+speech1.lang = "en-US";
+
+window.speechSynthesis.speak(speech1);
+
+/* MUSIC */
+
+document.getElementById("bgMusic").play();
+
+/* PAGE CHANGE */
+
+document.getElementById("startPage").style.display="none";
+
+document.getElementById("quizPage").style.display="block";
+
+/* LOAD QUESTIONS */
+
+loadQuestions();
+
+/* START TIMER */
+
+startTimer();
+
+}
+
+/* LOAD QUESTIONS */
+
+function loadQuestions(){
+
+let container =
+document.getElementById("questionsContainer");
+
+container.innerHTML = "";
+
+questions.forEach((question,index)=>{
+
+let html = `
+
+<div class="question-box">
+
+<h3>${index + 1}. ${question.q}</h3>
+
+`;
+
+question.options.forEach(option=>{
+
+html += `
+
+<div class="option">
+
+<input type="radio"
+name="q${index}"
+value="${option}">
+
+${option}
+
+</div>
+
+`;
+
+});
+
+html += `</div>`;
+
+container.innerHTML += html;
+
+});
+
+}
+
+/* TIMER */
+
+function startTimer(){
+
+timer = setInterval(function(){
+
+time--;
+
+let minutes = Math.floor(time / 60);
+
+let seconds = time % 60;
+
+if(seconds < 10){
+
+seconds = "0" + seconds;
+
+}
+
+document.getElementById("time").innerHTML =
+minutes + ":" + seconds;
+
+
+/* Voice countdown for last 5 sec */
+
+if(time <=5 && time>0){
+
+let countVoice =
+new SpeechSynthesisUtterance(time.toString());
+
+countVoice.lang="en-US";
+
+window.speechSynthesis.speak(countVoice);
+
+}
+
+
+/* Time up */
+
+if(time <=0){
+
+clearInterval(timer);
+
+/* Stop pending voices */
+
+window.speechSynthesis.cancel();
+
+/* Time up voice */
+
+let speech2 =
+new SpeechSynthesisUtterance(
+"Time Up. Your exam is submitted"
+);
+
+speech2.lang="en-US";
+
+window.speechSynthesis.speak(speech2);
+
+/* Sound */
+
+let endSound = new Audio(
+"https://www.soundjay.com/button/beep-07.wav"
+);
+
+endSound.play();
+
+alert("⏰ Time Up!");
+
+submitQuiz(true);
+
+}
+
+},1000);
+
+}
+/* SUBMIT QUIZ */
+
+function submitQuiz(autoSubmit){
+
+clearInterval(timer);
+
+let score = 0;
+
+for(let i=0; i<questions.length; i++){
+
+let options =
+document.getElementsByName("q"+i);
+
+let answered = false;
+
+for(let option of options){
+
+if(option.checked){
+
+answered = true;
+
+if(option.value == questions[i].answer){
+
+score++;
+
+}
+
+}
+
+}
+
+if(!answered && autoSubmit == false){
+
+alert("Please answer Question " + (i+1));
+
+return;
+
+}
+
+}
+document.getElementById("bgMusic").pause();
+document.getElementById("quizPage").style.display="none";
+
+document.getElementById("result").style.display="block";
+
+let username =
+document.getElementById("username").value;
+
+document.getElementById("studentName").innerHTML =
+
+"🎓 " + username;
+
+let resultText = "";
+
+if(score >= 15){
+
+resultText = "🎉 PASS ✅";
+
+document.getElementById("certificateBtn").style.display="block";
+
+document.getElementById("certificateBtn").innerHTML =
+"🏆 Download Achievement Certificate";
+
+/* hide re exam button */
+
+document.getElementById("reExamBtn").style.display="none";
+
+}
+else{
+
+resultText = "😢 FAIL ❌";
+
+document.getElementById("certificateBtn").style.display="block";
+
+document.getElementById("certificateBtn").innerHTML =
+"🎖 Download Participation Certificate";
+
+/* show re exam button */
+
+document.getElementById("reExamBtn").style.display="block";
+
+}
+
+document.getElementById("finalResult").innerHTML =
+
+"Score : " + score + " / 25 <br><br>" +
+
+resultText;
+
+document.getElementById("date").innerHTML =
+
+"Date : " + new Date().toLocaleDateString();
+
+}
+
+/* HOME */
+
+function goHome(){
+
+document.getElementById("result").style.display="none";
+
+document.getElementById("quizPage").style.display="none";
+
+document.getElementById("startPage").style.display="flex";
+
+time = 60;
+
+document.getElementById("time").innerHTML = "01:00";
+
+}
+function reExam(){
+
+clearInterval(timer);
+
+time = 60;
+
+document.getElementById("time").innerHTML = "01:00";
+
+/* reset all selected answers */
+
+document.getElementById("quizForm").reset();
+
+/* hide result page */
+
+document.getElementById("result").style.display="none";
+
+/* show exam page */
+
+document.getElementById("quizPage").style.display="block";
+
+/* start timer again */
+
+startTimer();
+
+/* start music again */
+
+document.getElementById("bgMusic").play();
+
+}
+/* THEME */
+
+function changeMode(){
+
+document.body.classList.toggle("light");
+
+}
+
+/* DOWNLOAD CERTIFICATE */
+
+function downloadCertificate(){
+
+let username =
+document.getElementById("username").value;
+
+let scoreText =
+document.getElementById("finalResult").innerText;
+
+let title="";
+let quote="";
+let medal="";
+
+if(scoreText.includes("PASS")){
+
+title="Certificate of Achievement";
+quote="Excellence is achieved through dedication and effort.";
+medal="🏆";
+
+}else{
+
+title="Certificate of Participation";
+quote="Participation is the first step toward success.";
+medal="🎖";
+
+}
+
+let certificate = window.open("", "", "width=1000,height=700");
+
+certificate.document.write(`
+
+<html>
+
+<head>
+
+<title>Certificate</title>
+
+<style>
+
+body{
+
+margin:0;
+padding:30px;
+font-family:Georgia,serif;
+background:#f2f2f2;
+
+}
+
+.certificate{
+
+width:100%;
+max-width:900px;
+
+margin:auto;
+
+padding:50px;
+
+text-align:center;
+
+background:white;
+
+border:15px solid gold;
+
+outline:5px solid #444;
+
+box-shadow:0 0 30px rgba(0,0,0,0.4);
+
+box-sizing:border-box;
+
+}
+
+h1{
+
+font-size:50px;
+color:#b8860b;
+margin-bottom:20px;
+
+}
+
+.name{
+
+font-size:40px;
+font-weight:bold;
+color:#003366;
+margin:20px;
+
+}
+
+.text{
+
+font-size:25px;
+line-height:40px;
+
+}
+
+.quote{
+
+margin-top:30px;
+font-style:italic;
+color:#444;
+font-size:22px;
+
+}
+
+.footer{
+
+margin-top:60px;
+
+display:flex;
+
+justify-content:space-between;
+
+}
+
+.sign{
+
+font-size:20px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="certificate">
+
+<h1>${medal} ${title}</h1>
+
+<p class="text">
+This certificate is proudly presented to
+</p>
+
+<div class="name">
+${username}
+</div>
+
+<p class="text">
+
+For successfully completing the Online Examination
+
+</p>
+
+${scoreText.includes("PASS") ? `
+
+<p class="text">
+${scoreText}
+</p>
+<p class="quote">
+${quote}
+</p>
+` : `
+
+<p class="quote">
+
+"Success is not about winning every time. Participation and effort matter."
+
+</p>
+
+`}
+
+<div class="footer">
+
+<div class="sign">
+
+_________________<br>
+Exam Authority
+
+</div>
+
+<div class="sign">
+
+Date:<br>
+${new Date().toLocaleDateString()}
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
+
+`);
+
+certificate.document.close();
+
+certificate.print();
+
+}
+
+/* DATE & TIME */
+
+function updateDateTime(){
+
+let now = new Date();
+
+document.getElementById("dateTime").innerHTML =
+
+now.toLocaleString();
+
+}
+
+setInterval(updateDateTime,1000);
+
+updateDateTime();
+
+</script>
+
+</body>
+
+</html>
