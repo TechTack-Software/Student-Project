@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cake - Explore Cake</title>
+    <script src="https://kit.fontawesome.com/f7083d9249.js" crossorigin="anonymous"></script>
+<link rel="icon" href="" sizes="512x512">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins', sans-serif;
+        }
+
+
+
+        body{
+            background:#f5f7fa;
+            overflow-x:hidden;
+        }
+ .logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-left:0;
+}
+
+.logo img{
+    width:50px;
+    height:50px;
+    object-fit:contain;
+    border-radius:8px;
+}
+
+.logo h1{
+    color:white;
+    font-size:28px;
+    letter-spacing:2px;
+    text-shadow:2px 2px 8px black;
+    font-family:'Poppins', sans-serif;
+}
+
+header{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    background:rgba(0,0,0,0.15);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+nav{
+    width:100%;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 15px;
+}
+
+nav h1{
+    color:white;
+    font-size:28px;
+    letter-spacing:2px;
+    text-shadow:2px 2px 8px black;
+    font-family:'Poppins', sans-serif;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    align-items:center;
+}
+
+nav ul li{
+    margin-left:28px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:500;
+    transition:0.4s;
+    position:relative;
+    font-family:'Poppins', sans-serif;
+}
+
+        nav ul li a::after{
+    content:'';
+    width:0;
+    height:2px;
+    background:#ffd166;
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    transition:0.5s;
+}
+
+nav ul li a:hover::after{
+    width:100%;
+}
+
+nav ul li a:hover{
+    color:#ffd166;
+}
+.dropdown{
+    position:relative;
+    
+}
+
+.dropdown-content{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    margin-top:10px;
+    background:white;
+    min-width:220px;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+    z-index:999;
+}
+
+.dropdown:hover .dropdown-content{
+    display:block;
+}
+.dropdown::after{
+    content:'';
+    position:absolute;
+    left:0;
+    top:100%;
+    width:100%;
+    height:10px;
+}
+
+.dropdown-content a{
+
+    display:block;
+
+    padding:14px 18px;
+
+    color:#0b1f3a;
+
+    text-decoration:none;
+
+    transition:0.4s;
+}
+
+.dropdown-content a:hover{
+
+    background:#00b4d8;
+
+    color:white;
+}
+
+
+
+
+        /* ================= ABOUT HERO ================= */
+
+
+        .about-home{
+
+            width:100%;
+
+            height:70vh;
+
+            background-image:
+            linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+            url('C:/Users/ELCOT/Downloads/WhatsApp Image 2026-05-20 at 11.52.22 AM.jpeg');
+
+            background-size:cover;
+
+            background-position:center;
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+            text-align:center;
+
+            color:white;
+        }
+
+
+
+        .about-home h1{
+
+            font-size:75px;
+
+            letter-spacing:3px;
+
+            text-shadow:3px 3px 15px black;
+
+            animation:zoomIn 2s;
+
+            font-family:'Georgia', serif;
+        }
+
+
+
+
+        /* ================= ABOUT CONTENT ================= */
+
+
+        .about{
+    width:100%;
+    padding:80px 10%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:50px;
+    background:#f5f5f5;
+    flex-wrap:wrap;
+}
+
+.about-image{
+    flex:1;
+    min-width:300px;
+}
+
+.about-image img{
+    width:100%;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+.about-content{
+    flex:1;
+    min-width:300px;
+}
+
+.about-content h2{
+    font-size:40px;
+    color:#222;
+    margin-bottom:20px;
+}
+
+.about-content p{
+    font-size:17px;
+    color:#555;
+    line-height:1.8;
+    margin-bottom:18px;
+    text-align:justify;
+}
+        /* ================= FEATURES ================= */
+
+
+        .features{
+
+            width:100%;
+
+            padding:60px 8%;
+
+            background:#ffffff;
+        }
+
+        .features h2{
+
+            text-align:center;
+
+            font-size:50px;
+
+            color:#270a91;
+
+            margin-bottom:70px;
+        }
+
+
+
+        .feature-container{
+
+            display:flex;
+
+            justify-content:center;
+
+            gap:35px;
+
+            flex-wrap:wrap;
+        }
+
+       .feature-box{
+    width:320px;
+    padding:40px 30px;
+    border-radius:25px;
+    text-align:center;
+    transition:0.4s;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    border:2px solid transparent;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    position:relative;
+    overflow:hidden;
+}
+
+/* TOP LINE */
+
+.feature-box::before{
+
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:6px;
+    background:linear-gradient(to right,#4d068f,#f58607);
+}
+
+/* BOTTOM LINE */
+
+.feature-box::after{
+
+    content:'';
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:6px;
+    background:linear-gradient(to right,#4d068f,#f58607);
+}
+
+
+.feature-box:hover{
+    transform:translateY(-12px) scale(1.02);
+    border:2px solid #087d94;
+    box-shadow:0 12px 30px rgba(0,180,216,0.25);
+}
+
+
+        .feature-box h3{
+
+            font-size:28px;
+
+            color:#0b1f3a;
+
+            margin-bottom:20px;
+        }
+
+
+
+        .feature-box p{
+
+            color:#666;
+
+            line-height:30px;
+        }
+
+        .feature-box span{
+
+             font-size:55px;
+
+            display:block;
+
+            margin-bottom:20px;
+        }
+
+
+    
+/* ================= MISSION ================= */
+
+.mission{
+
+    width:85%;
+    margin:60px auto;
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.mission-box{
+
+    flex:1;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+.mission-box h2{
+
+    color:#0b1f3a;
+    margin-bottom:20px;
+}
+
+.mission-box p{
+
+    line-height:30px;
+    color:#555;
+}
+
+
+
+/* ================= STATS ================= */
+
+.stats{
+
+    width:100%;
+    padding:60px 10%;
+    background:linear-gradient(to right,#5e0364,#520580);
+border-top:3px solid #ffb703;
+border-bottom:3px solid #ffb703;
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    text-align:center;
+    color:white;
+}
+
+.stat-box{
+
+    margin:20px;
+}
+
+.stat-box h1{
+
+    font-size:55px;
+}
+
+.stat-box p{
+
+    font-size:20px;
+}
+
+
+/* ================= MISSION & VISION ================= */
+
+.mission{
+
+    width:85%;
+    margin:100px auto;
+    display:flex;
+    gap:35px;
+    flex-wrap:wrap;
+}
+
+.mission-box{
+
+    flex:1;
+    padding:45px;
+    border-radius:25px;
+    color:white;
+    position:relative;
+    overflow:hidden;
+    transition:0.5s;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+
+
+/* Mission Card */
+
+.mission-box:first-child{
+
+    background:linear-gradient(135deg,#0077b6,#00b4d8);
+}
+
+
+
+/* Vision Card */
+
+.mission-box:last-child{
+
+    background:linear-gradient(135deg,#ff9f1c,#ffb703);
+}
+
+
+
+.mission-box::before{
+
+    content:'';
+    position:absolute;
+    width:180px;
+    height:180px;
+    background:rgba(255,255,255,0.15);
+    border-radius:50%;
+    top:-50px;
+    right:-50px;
+}
+
+
+
+.mission-box:hover{
+
+    transform:translateY(-12px) scale(1.02);
+    box-shadow:0 15px 40px rgba(0,0,0,0.3);
+}
+
+
+
+.mission-box h2{
+
+    font-size:38px;
+    margin-bottom:25px;
+    position:relative;
+    z-index:1;
+}
+
+
+
+.mission-box p{
+
+    font-size:17px;
+    line-height:33px;
+    position:relative;
+    z-index:1;
+}
+
+
+
+/* ================= REVIEWS SECTION ================= */
+
+.reviews{
+
+    padding:60px 8%;
+    background:linear-gradient(to right,#f8fbff,#eef7ff);
+    text-align:center;
+}
+
+
+
+.reviews h2{
+
+    font-size:55px;
+    color:#0b1f3a;
+    margin-bottom:70px;
+    position:relative;
+}
+
+.review-container{
+
+    display:flex;
+    justify-content:center;
+    gap:35px;
+    flex-wrap:wrap;
+}
+
+
+
+.review-box{
+
+    width:330px;
+    padding:40px 30px;
+    border-radius:25px;
+    background:white;
+    position:relative;
+    overflow:hidden;
+    transition:0.5s;
+    box-shadow:0 10px 25px rgba(0,0,0,0.12);
+    border:2px solid transparent;
+}
+
+
+
+/* Top Highlight Line */
+
+.review-box::before{
+
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:6px;
+    background:linear-gradient(to right,#00b4d8,#ffb703);
+}
+
+
+
+.review-box:hover{
+
+    transform:translateY(-12px);
+    border-color:#00b4d8;
+    box-shadow:0 15px 35px rgba(0,180,216,0.25);
+}
+
+
+
+/* Quote Icon */
+
+.review-box span{
+
+    font-size:55px;
+    color:#ffb703;
+    display:block;
+    margin-bottom:20px;
+}
+
+
+
+.review-box p{
+
+    font-size:17px;
+    line-height:32px;
+    color:#555;
+    margin-bottom:25px;
+}
+
+
+
+.review-box h4{
+
+    color:#0b1f3a;
+    font-size:20px;
+}
+
+
+/* ================= GALLERY ================= */
+
+.gallery{
+
+    width:92%;
+    margin:60px auto;
+    text-align:center;
+}
+
+.gallery h2{
+
+    font-size:55px;
+    color:#0b1f3a;
+    margin-bottom:50px;
+}
+
+
+
+/* Horizontal Scroll Gallery */
+
+.gallery-container{
+
+    display:flex;
+    gap:25px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    padding:15px;
+    scrollbar-width:none;
+}
+
+
+
+/* Hide Scrollbar */
+
+.gallery-container::-webkit-scrollbar{
+
+    display:none;
+}
+
+
+
+.gallery-container img{
+
+    min-width:350px;
+    height:260px;
+    object-fit:cover;
+    border-radius:25px;
+    scroll-snap-align:center;
+    transition:0.5s;
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+}
+
+
+
+/* Hover Effect */
+
+.gallery-container img:hover{
+
+    transform:scale(1.05);
+}
+
+
+
+/* ================= CTA ================= */
+
+.cta{
+
+    width:100%;
+    padding:70px 20px;
+    text-align:center;
+    background:
+    linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+    url('C:/Users/ELCOT/Downloads/WhatsApp Image 2026-05-20 at 12.13.27 PM.jpeg');
+
+    background-size:cover;
+    background-position:center;
+    color:white;
+}
+
+.cta h1{
+
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+.cta p{
+
+    font-size:20px;
+    margin-bottom:30px;
+}
+
+.cta button{
+
+    padding:15px 40px;
+    border:none;
+    border-radius:40px;
+    background:#ffb703;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.5s;
+}
+
+.cta button:hover{
+
+    background:#00b4d8;
+    transform:translateY(-5px);
+}
+        /* ================= FOOTER ================= */
+
+
+        footer{
+
+            background:linear-gradient(to right,#1b4332,#0e492e,#075733);
+
+            color:white;
+
+            text-align:center;
+
+            padding:20px;
+
+            font-size:17px;
+
+            letter-spacing:1px;
+        }
+
+
+
+
+        /* ================= ANIMATION ================= */
+
+
+        @keyframes zoomIn{
+
+            from{
+                transform:scale(0.5);
+                opacity:0;
+            }
+
+            to{
+                transform:scale(1);
+                opacity:1;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+
+    <!-- ================= NAVBAR ================= -->
+
+
+    <header>
+
+        <nav>
+
+           <div class="logo">
+    <img src="C:\Users\ELCOT\Downloads\WhatsApp Image 2026-05-20 at 11.49.01 AM.jpeg">
+    <h1>Explore Cake</h1>
+</div>
+
+<ul>
+
+    <li><a href="cake.html">Home</a></li>
+
+    <li><a href="about.html">About Us</a></li>
+
+    <li class="dropdown">
+
+        
+
+    </li>
+
+    <li><a href="packages.html">Flavour</a></li>
+
+    <li><a href="contact.html">Contact</a></li>
+
+</ul>
+
+        </nav>
+
+    </header>
+
+
+
+    <section class="about-home">
+
+        <h1>"Keep calm and eat cake"</h1>
+
+    </section>
+
+    <section class="about">
+
+    <div class="about-image">
+
+        
+    </div>
+            At Madurai Bakes, we believe every cake is a symbol of joy, love, and celebration
+    <div class="about-content">
+
+        <h2>Discover the Beauty of Cakes</h2>
+
+        <p> “Discover the Beauty of Cake” reflects our passion for baking delicious and beautifully crafted cakes that make every moment special. From rich flavors and soft layers to elegant designs, every cake is made with care, creativity, and quality ingredients. At Madurai Bakes, we turn your sweetest memories into unforgettable treats filled with happiness and sweetness. 🍰✨
+
+        </p>
+
+        <p>
+
+            At Madurai Bakes, we believe that cakes are not just desserts — they are a part of every celebration, emotion, and unforgettable memory. With the motto “Discover the Beauty of Cake,” we bring together taste, creativity, and quality in every bite. Our bakery is dedicated to crafting fresh, delicious, and beautifully designed cakes that add sweetness to birthdays, weddings, anniversaries, and every special moment in life. From classic flavors to customized creations, each cake is baked with passion, premium ingredients, and artistic perfection.
+At Madurai Bakes, we focus on making every customer smile through our soft textures, rich creams, elegant decorations, and homemade touch. We believe that every celebration deserves a cake that not only tastes amazing but also looks beautiful and memorable. Whether it is a simple family gathering or a grand occasion, our cakes are made to spread happiness, love, and sweetness.
+
+        </p>
+
+    </div>
+
+</section>
+
+    <section class="features">
+
+        <h2>Why Choose Us</h2>
+
+
+        <div class="feature-container">
+
+
+            <div class="feature-box">
+
+                <span><i ></i></span>
+
+                    <h3>Ice Cake</h3>
+<p>
+
+                 
+
+                 </p>
+                 <p>
+
+                    At Madurai Bakes, our ice cakes are specially made to bring cool and delightful moments to every celebration.
+
+                </p>
+
+        </div>
+        <div class="feature-box">
+
+                <span><i ></i></span>
+
+                    <h3>Normal Cake</h3>
+<p>
+
+                 Our bakery is dedicated to bringing sweetness and happiness to every celebration through soft, flavorful, and beautifully crafted cakes.
+
+                 </p>
+                 <p>
+
+                    
+                </p>
+
+        </div>
+
+            <div class="feature-box">
+
+                <span><i ></span>
+
+             <h3>choclate Cake</h3>
+
+             <p>
+
+                   Our bakery is dedicated to bringing sweetness and happiness to every celebration through soft, flavorful, and beautifully crafted cakes.
+
+            </p>
+
+        </div>
+
+        </div>
+
+    </section>
+
+
+<section class="mission">
+
+    <div class="mission-box">
+
+        <h2>Our Mission</h2>
+
+        <p>
+            .We are committed to using quality ingredients, creative designs, and fresh baking techniques to deliver cakes that not only taste amazing but also create unforgettable memories
+        </p>
+
+    </div>
+
+    <div class="mission-box">
+
+        <h2>Our Vision</h2>
+
+        <p>
+            We aim to make every celebration sweeter by creating cakes that bring happiness, love, and beautiful memories to people of all ages.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="stats">
+
+    <div class="stat-box">
+        <h1>50+</h1>
+        <p>Regular Customers</p>
+    </div>
+
+    <div class="stat-box">
+        <h1>10K+</h1>
+        <p>Happy Customers</p>
+    </div>
+
+    <div class="stat-box">
+        <h1>100+</h1>
+        <p>Celebration Offers</p>
+    </div>
+
+    <div class="stat-box">
+        <h1>24/7</h1>
+        <p>Support</p>
+    </div>
+
+</section>
+
+
+<section class="reviews">
+
+    <h2>What Customer Say</h2>
+
+    <div class="review-container">
+
+        <div class="review-box">
+
+    <span>❝</span>
+
+    <p>
+        “The cake was so soft, fresh, and delicious. The sweetness was perfect, and everyone in our family loved it. It looked simple but tasted amazing. Thank you, Madurai Bakes, for making our celebration special with such a wonderful cake!”
+
+    <h4>- Priya</h4>
+
+</div>
+        <div class="review-box">
+
+            <span>❝</span>
+
+            <p>
+                “The ice cake was super creamy, refreshing, and full of flavor. Every bite was rich, smooth, and perfectly chilled. It was the highlight of our celebration, and everyone kept asking for another piece. Thank you, Madurai Bakes, for such an amazing ice cake experience!” ❄️🎂✨
+            </p>
+
+            <h4>-Aki
+        </div>
+
+        <div class="review-box">
+
+            <span>❝</span>
+
+            <p>
+                “The chocolate cake was absolutely delicious and full of rich chocolate flavor. It was soft, moist, and perfectly balanced in sweetness. Every bite melted in the mouth, and everyone at the celebration loved it. Thank you, Madurai Bakes, for making such a tasty and memorable chocolate cake!” 🍫🎂✨
+
+            <h4>- Vimal</h4>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="gallery">
+
+    <h2>Cake gallery</h2>
+
+        <div class="gallery-container">
+
+            <img src="C:\Users\ELCOT\Downloads\WhatsApp Image 2026-05-20 at 12.18.21 PM.jpeg">
+
+            <img src="C:\Users\ELCOT\Downloads\WhatsApp Image 2026-05-20 at 11.59.39 AM.jpeg">
+
+            <img src="C:\Users\ELCOT\Downloads\WhatsApp Image 2026-05-20 at 12.05.13 PM.jpeg">
+
+            <img src="C:\Users\ELCOT\Downloads\WhatsApp Image 2026-05-20 at 12.06.43 PM.jpeg">
+
+            <img src="C:\Users\ELCOT\Downloads\WhatsApp Image 2026-05-20 at 12.08.16 PM.jpeg">
+
+            <img src="C:\Users\ELCOT\Downloads\WhatsApp Image 2026-05-20 at 12.10.15 PM.jpeg">
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="cta">
+
+    <h1>“Life is short, eat the cake first.”</h1>
+
+    <p>“Madurai Bakes – Baking Happiness Daily.”</p>
+
+    <a href="C:/Users/ELCOT/Downloads\WhatsApp Image 2026-05-20 at 12.13.27 PM.jpeg">
+        <button>View Flavour</button>
+    </a>
+
+</section>
+
+    <footer>
+
+        <p>@ 2026 Explore Cake Flavour Website</p>
+
+    </footer>
+
+</body>
+
+</html>
